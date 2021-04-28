@@ -1,0 +1,11 @@
+@font-face {
+    -fx-font-family: Squaler;
+    src: url("../Fonts/Squealer.ttf");
+}
+
+#slogan{
+    -fx-font-family: Squealer;
+    -fx-font-size: 48px;
+    -fx-stroke: red;
+    -fx-stroke-width: 2px;
+}
