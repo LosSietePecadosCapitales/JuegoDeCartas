@@ -6,6 +6,10 @@
 package Controllers.Panels;
 
 
+import Features.Connection.ConnectionMySQL;
+import Features.Managements.AppControler;
+import static Features.Managements.AppControler.trayIcon;
+import Features.Managements.Notifications;
 import javafx.concurrent.Task;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -18,9 +22,9 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
-import javafx.stage.Window;
 
 import java.io.IOException;
+import java.sql.SQLException;
 
 public class Initial_Controller {
     @FXML public AnchorPane base;
@@ -38,22 +42,37 @@ public class Initial_Controller {
 
     @FXML
     public void initialize(){
+        new AppControler();
 
     }
 
     @FXML
-    public void login(){
-        if(user_TextField.getText().equals("mono") &&
-           pass_TextField.getText().equals("mono")){
-            try{
-                Stage stage = (Stage) base.getScene().getWindow();
-                Parent root = FXMLLoader.load(getClass().getResource("/Views/Panels/Principal_Panel_View.fxml"));
-                Scene scene = new Scene(root);
-                stage.setScene(scene);
-
-            } catch (IOException e) {
-                //Saltar alarma que no se puede iniciar sesion
-            }
+    private void login(){
+        try {
+            ConnectionMySQL dataBase = new ConnectionMySQL();
+            String user = user_TextField.getText();
+            String pass = pass_TextField.getText();         
+            String SQLsentence = "SELECT correo, nick, contrasenia "
+                    + "FROM Jugador WHERE (correo='"+user+"' or nick='"+user+"') and contrasenia='"+pass+"';";
+            dataBase.ConectarBasedeDatos();
+            dataBase.result = dataBase.sentence.executeQuery(SQLsentence);            
+                if(dataBase.result.next()){
+                    new Notifications().notification("Bienvenido "+user,"Estadisticas del dia",9);
+                    try{
+                        trayIcon.setToolTip(user+"-LogOut");
+                        Stage stage = (Stage) base.getScene().getWindow();
+                        Parent root = FXMLLoader.load(getClass().getResource("/Views/Panels/Principal_Panel_View.fxml"));
+                        Scene scene = new Scene(root);
+                        stage.setScene(scene);                        
+                    } catch (IOException e) {
+                        //Saltar alarma que no se puede iniciar sesion
+                    }
+                }else{
+                    
+                }                          
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+            System.out.println("No Funciono");
         }
     }
 

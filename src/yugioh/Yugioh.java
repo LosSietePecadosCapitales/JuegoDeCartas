@@ -13,14 +13,13 @@ import javafx.stage.Stage;
 
 /**
  *
- * @author Vicente
+ * @author Los Pecados Capitales
  */
 public class Yugioh extends Application {
     
     @Override
-    public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("/Views/Panels/Initial_View.fxml"));
-        
+    public void start(Stage stage) throws Exception {        
+        Parent root = FXMLLoader.load(getClass().getResource("/Views/Panels/Initial_View.fxml"));        
         Scene scene = new Scene(root);
         stage.setResizable(false);
         stage.setScene(scene);
@@ -30,7 +29,7 @@ public class Yugioh extends Application {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
+    public static void main(String[] args) {        
         launch(args);
     }
     
