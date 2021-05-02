@@ -22,7 +22,7 @@ public class Yugioh extends Application {
         Parent root = FXMLLoader.load(getClass().getResource("/Views/Panels/Initial_View.fxml"));
         
         Scene scene = new Scene(root);
-        
+        stage.setResizable(false);
         stage.setScene(scene);
         stage.show();
     }
