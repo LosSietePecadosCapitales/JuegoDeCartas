@@ -1,5 +1,11 @@
 package Controllers.Cards;
 
+import Controllers.Panels.Initial_Controller;
+import Features.Connection.ConnectionMySQL;
+import java.awt.image.RenderedImage;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -10,13 +16,21 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
-import javafx.stage.FileChooser;
+import javafx.embed.swing.SwingFXUtils;
+import javafx.scene.SnapshotParameters;
+import javafx.scene.image.Image;
+import javax.imageio.ImageIO;
 
 public class Cards_Create_Controller {
     
     @FXML public AnchorPane base;
+    @FXML public AnchorPane card_complete;
     @FXML public Button exit;
     @FXML public Button minimize;
     @FXML public Button back;
@@ -307,11 +321,39 @@ public class Cards_Create_Controller {
     }
     
     @FXML
+    public void insertCardCreated(){
+        try {
+            Image image_card_complete = card_complete.snapshot(new SnapshotParameters(), null);
+            File f2 = new File("temp.png");
+            RenderedImage ri = SwingFXUtils.fromFXImage(image_card_complete, null);
+            ImageIO.write(ri, "png", f2);            
+            File f = new File("temp.png");
+            FileInputStream fis = new FileInputStream(f);         
+            ConnectionMySQL dataBase = new ConnectionMySQL();      
+            dataBase.ConectarBasedeDatos();
+            PreparedStatement s;
+            s = dataBase.connection.prepareStatement(""
+                    + "INSERT INTO Carta (nombre, elemento, ataque, defensa, estrellas, imagen, tipo, descripcion, ref_Jugador)"
+                    + " VALUES (?,?,?,?,?,?,?,?,?);");
+            s.setString(1, name_Card_TF.getText());
+            s.setString(2, String.valueOf(element_Card_CB.getValue()));
+            s.setInt(3, Integer.valueOf(atk_Card_TF.getText()));
+            s.setInt(4, Integer.valueOf(def_Card_TF.getText()));
+            s.setInt(5, Integer.valueOf(String.valueOf(stars_Amounts_S.getValue())));
+            s.setBlob(6, fis);
+            s.setString(7, String.valueOf(type_Card_TF.getValue()));
+            s.setString(8, description_Card_TA.getText());
+            s.setInt(9, Initial_Controller.ID_User);
+            s.execute();
+            f.delete(); /*SEE deleteOnExit();*/
+            dataBase.DesconectarBasedeDatos();
+        }
+        catch (FileNotFoundException | NumberFormatException | SQLException e) { System.out.println(e.getMessage());}
+        catch (IOException ex) {System.out.println(ex.getMessage());}
+    }
+    
+    @FXML
     public void uploadImage(){
         
-    }
-    public void insertCardCreated(){
-    
-    }
-    
+    }    
 }
