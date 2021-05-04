@@ -39,6 +39,7 @@ public class Initial_Controller {
     @FXML public Rectangle shape_Register_Button;
 
     private Thread thread_Register;
+    public static int ID_User;
 
     @FXML
     public void initialize(){
@@ -57,8 +58,9 @@ public class Initial_Controller {
             dataBase.ConectarBasedeDatos();
             dataBase.result = dataBase.sentence.executeQuery(SQLsentence);            
                 if(dataBase.result.next()){
-                    new Notifications().notification("Bienvenido "+user,"Estadisticas del dia",9);
+                    Notifications.notification("Bienvenido "+user,"Estadisticas del dia",9);
                     try{
+                        dataBase.DesconectarBasedeDatos();
                         trayIcon.setToolTip(user+"-LogOut");
                         Stage stage = (Stage) base.getScene().getWindow();
                         Parent root = FXMLLoader.load(getClass().getResource("/Views/Panels/Principal_Panel_View.fxml"));
