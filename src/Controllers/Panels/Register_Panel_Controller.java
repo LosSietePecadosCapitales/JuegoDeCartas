@@ -15,11 +15,13 @@ import java.util.logging.Logger;
 import javafx.concurrent.Task;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
@@ -51,18 +53,7 @@ public class Register_Panel_Controller {
     public void initialize(){
 
     }
-    
-    @FXML
-    public void back() {
-        try {
-            Stage stage = (Stage) base.getScene().getWindow();
-            Parent root = FXMLLoader.load(getClass().getResource("/Views/Panels/Initial_View.fxml"));
-            Scene scene = new Scene(root);
-            stage.setScene(scene);
-        } catch (IOException e) {
-        }
-    }
-    
+        
     @FXML
     private void register() {     
         Validations validator = new Validations();
@@ -103,55 +94,24 @@ public class Register_Panel_Controller {
     }
     
     @FXML
-    public void shape_In_Register(){
-        Task<Void> task = new Task<Void>() {
-            @Override
-            protected Void call() {
-                try {
-                    for (double i = shape_Register_Button.getWidth(); i <= 150; i = i + 1) {
-                        Thread.sleep(1);
-                        shape_Register_Button.setWidth(i);
-                    }
-                } catch (InterruptedException e) {
-                }
-                return null;
-            }
-        };
-
-        try{
-            thread_Register.stop();
-        } catch (Exception e) {
+    public void back() {
+        try {
+            Stage stage = (Stage) base.getScene().getWindow();
+            Parent root = FXMLLoader.load(getClass().getResource("/Views/Panels/Initial_View.fxml"));
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+        } catch (IOException e) {
         }
-        Thread thread = new Thread(task);
-        thread_Register = thread;
-        thread.setDaemon(true);
-        thread.start();
     }
-
+    
     @FXML
-    public void shape_Out_Register(){
-        Task<Void> task = new Task<Void>() {
-            @Override
-            protected Void call() {
-                try {
-                    for (double i = shape_Register_Button.getWidth(); i > 0; i = i - 1) {
-                        Thread.sleep(1);
-                        shape_Register_Button.setWidth(i);
-                    }
-                } catch (InterruptedException e) {
-                }
-                return null;
-            }
-        };
-
-        try{
-            thread_Register.stop();
-        } catch (Exception e) {
-        }
-
-        Thread thread = new Thread(task);
-        thread_Register = thread;
-        thread.setDaemon(true);
-        thread.start();
+    public void minimize(){
+        Stage s = (Stage) base.getScene().getWindow();
+        s.setIconified(true);
+    }
+    
+    @FXML
+    public void exit(){        
+        System.exit(1);
     }
 }

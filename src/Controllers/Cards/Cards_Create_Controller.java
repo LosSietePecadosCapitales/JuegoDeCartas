@@ -58,9 +58,23 @@ public class Cards_Create_Controller {
     @FXML public ImageView star_9, star_10, star_11;
     @FXML public ImageView element_Icon;
     @FXML public ImageView image_Card;
+    @FXML public AnchorPane card_complete;
 
+    
+    
+    
+    /* TEMPORALES*/
+    private final String url_bd = "jdbc:mysql://186.64.121.26:3306/yugioh";
+    private final String userBD ="yugioh";
+    private final String passBD ="Y5g34H";
+    private PreparedStatement s;
+    private File file;
+    /**/
+    
     @FXML
     public void initialize(){
+        file = null;
+        s = null;
         //Estrellas
         //Atributos combo box (Cantidad de estrellas)
         stars_Amounts_S.getItems().addAll("1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11");
@@ -321,6 +335,9 @@ public class Cards_Create_Controller {
     }
     
     @FXML
+        catch (IOException ex) {System.out.println(ex.getMessage());}
+        
+    @FXML    
     public void insertCardCreated(){
         try {
             Image image_card_complete = card_complete.snapshot(new SnapshotParameters(), null);
@@ -351,9 +368,28 @@ public class Cards_Create_Controller {
         catch (FileNotFoundException | NumberFormatException | SQLException e) { System.out.println(e.getMessage());}
         catch (IOException ex) {System.out.println(ex.getMessage());}
     }
-    
+
     @FXML
     public void uploadImage(){
-        
-    }    
+        try {
+            FileChooser fc = new FileChooser();
+            file = fc.showOpenDialog(base.getScene().getWindow());
+            FileInputStream fis = new FileInputStream(file);
+            Image image = new Image(fis);
+            image_Card.setImage(image);
+        } catch (FileNotFoundException e) {
+        }
+    }
+    
+    @FXML
+    public void minimize(){
+        Stage s = (Stage) base.getScene().getWindow();
+        s.setIconified(true);
+    }
+    
+    @FXML
+    public void exit(){
+        Stage s = (Stage) base.getScene().getWindow();
+        System.exit(1);
+    }
 }

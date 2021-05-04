@@ -17,6 +17,8 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import javafx.scene.Node;
+import javafx.scene.input.MouseEvent;
 
 public class Principal_Panel_Controller {
     
@@ -78,4 +80,17 @@ public class Principal_Panel_Controller {
         } catch (IOException e) {
         }
     }
+    
+    @FXML
+    public void minimize(){
+        Stage s = (Stage) base.getScene().getWindow();
+        s.setIconified(true);
+    }
+    
+    @FXML
+    public void exit(){
+        Stage s = (Stage) base.getScene().getWindow();
+        System.exit(1);
+    }
+    
 }
