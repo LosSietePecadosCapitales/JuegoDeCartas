@@ -14,10 +14,10 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="base" maxHeight="198.0" maxWidth="1024.0" minHeight="798.0" minWidth="1024.0" prefHeight="798.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.Panels.Principal_Panel_Controller">
+<AnchorPane fx:id="base" maxHeight="690.0" maxWidth="1230.0" minHeight="690.0" minWidth="1230.0" prefHeight="690.0" prefWidth="1230.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.Panels.Principal_Panel_Controller">
    <children>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" height="798.0" stroke="BLACK" strokeType="INSIDE" width="1024.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" height="30.0" opacity="0.42" stroke="BLACK" strokeType="INSIDE" width="1024.0">
+      <Rectangle arcHeight="5.0" arcWidth="5.0" height="690.0" stroke="BLACK" strokeType="INSIDE" width="1230.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" height="30.0" opacity="0.42" stroke="BLACK" strokeType="INSIDE" width="1230.0">
          <fill>
             <LinearGradient endX="1.0" endY="1.0">
                <stops>
@@ -30,33 +30,33 @@
             </LinearGradient>
          </fill>
       </Rectangle>
-      <ImageView fitHeight="768.0" fitWidth="1024.0" layoutY="30.0" opacity="0.23" pickOnBounds="true">
+      <ImageView fitHeight="660.0" fitWidth="1230.0" layoutY="30.0" pickOnBounds="true">
          <image>
-            <Image url="@../../Assets/Images/Background_Panels.jpg" />
+            <Image url="@../../Assets/Images/Background_2.png" />
          </image>
       </ImageView>
-      <Label fx:id="title" alignment="CENTER" layoutY="2.0" prefHeight="26.0" prefWidth="1024.0" stylesheets="@../../Assets/CSS/Initial_CSS.css" text="Yu-Gi-Oh! - Principal Panel" textAlignment="CENTER" textFill="#bcbcbc">
+      <Label fx:id="title" alignment="CENTER" layoutY="2.0" prefHeight="26.0" prefWidth="1230.0" stylesheets="@../../Assets/CSS/Initial_CSS.css" text="Yu-Gi-Oh! - Principal Panel" textAlignment="CENTER" textFill="#bcbcbc">
          <font>
             <Font name="Arial Black" size="18.0" />
          </font>
       </Label>
-      <Button fx:id="exit" layoutX="997.0" layoutY="2.0" maxHeight="25.0" maxWidth="25.0" minHeight="25.0" minWidth="25.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="25.0" stylesheets="@../../Assets/CSS/Initial_CSS.css" text="X" />
-      <Button fx:id="minimize" layoutX="968.0" layoutY="2.0" maxHeight="25.0" maxWidth="25.0" minHeight="25.0" minWidth="25.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="25.0" stylesheets="@../../Assets/CSS/Initial_CSS.css" text="_">
+      <Button fx:id="exit" layoutX="1199.0" layoutY="2.0" maxHeight="25.0" maxWidth="25.0" minHeight="25.0" minWidth="25.0" mnemonicParsing="false" onAction="#exit" prefHeight="25.0" prefWidth="25.0" stylesheets="@../../Assets/CSS/Initial_CSS.css" text="X" />
+      <Button fx:id="minimize" layoutX="1170.0" layoutY="2.0" maxHeight="25.0" maxWidth="25.0" minHeight="25.0" minWidth="25.0" mnemonicParsing="false" onAction="#minimize" prefHeight="25.0" prefWidth="25.0" stylesheets="@../../Assets/CSS/Initial_CSS.css" text="_">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </Button>
-      <ImageView fitHeight="170.0" fitWidth="317.0" layoutX="642.0" layoutY="89.0" opacity="0.8" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="179.0" fitWidth="450.0" layoutX="678.0" layoutY="82.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../Assets/Images/Logo.png" />
          </image>
       </ImageView>
-      <Text id="slogan" fx:id="slogan" fill="WHITE" layoutX="708.0" layoutY="196.0" strokeLineCap="ROUND" strokeType="OUTSIDE" strokeWidth="0.0" text="DUMIES ONLINE CARD GAME" underline="true">
+      <Text id="slogan" fx:id="slogan" fill="WHITE" layoutX="751.0" layoutY="250.0" strokeLineCap="ROUND" strokeType="OUTSIDE" strokeWidth="0.0" text="DUMIES ONLINE CARD GAME" underline="true">
          <font>
-            <Font size="14.0" />
+            <Font size="23.0" />
          </font>
       </Text>
-      <GridPane layoutX="53.0" layoutY="123.0" prefHeight="630.0" prefWidth="500.0" style="-fx-border-color: red;">
+      <GridPane layoutX="50.0" layoutY="100.0" prefHeight="540.0" prefWidth="500.0" style="-fx-border-color: red;">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -68,7 +68,6 @@
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
             <AnchorPane maxHeight="90.0" maxWidth="250.0" minHeight="90.0" minWidth="250.0" prefHeight="90.0" prefWidth="250.0" style="-fx-background-color: gray; -fx-border-color: blue;">
@@ -239,13 +238,11 @@
                   </Label>
                </children>
             </AnchorPane>
-            <AnchorPane maxHeight="90.0" maxWidth="250.0" minHeight="90.0" minWidth="250.0" prefHeight="90.0" prefWidth="250.0" style="-fx-background-color: gray; -fx-border-color: blue;" GridPane.rowIndex="6" />
-            <AnchorPane maxHeight="90.0" maxWidth="250.0" minHeight="90.0" minWidth="250.0" prefHeight="90.0" prefWidth="250.0" style="-fx-background-color: gray; -fx-border-color: blue;" GridPane.columnIndex="1" GridPane.rowIndex="6" />
          </children>
       </GridPane>
-      <Button fx:id="cards" layoutX="700.0" layoutY="313.0" mnemonicParsing="false" onAction="#goToCards" prefHeight="62.0" prefWidth="202.0" text="CARTAS" />
-      <Button fx:id="decks" layoutX="699.0" layoutY="399.0" mnemonicParsing="false" onAction="#goToDecks" prefHeight="62.0" prefWidth="202.0" text="MAZOS" />
-      <Button fx:id="createGame" layoutX="699.0" layoutY="534.0" mnemonicParsing="false" onAction="#createGame" prefHeight="62.0" prefWidth="202.0" text="CREAR PARTIDA" />
-      <Button fx:id="joinGame" layoutX="699.0" layoutY="626.0" mnemonicParsing="false" onAction="#joinGame" prefHeight="62.0" prefWidth="202.0" text="UNIRSE A UNA PARTIDA" />
+      <Button fx:id="cards" layoutX="655.0" layoutY="353.0" mnemonicParsing="false" onAction="#goToCards" prefHeight="62.0" prefWidth="202.0" text="CARTAS" />
+      <Button fx:id="decks" layoutX="654.0" layoutY="456.0" mnemonicParsing="false" onAction="#goToDecks" prefHeight="62.0" prefWidth="202.0" text="MAZOS" />
+      <Button fx:id="createGame" layoutX="958.0" layoutY="353.0" mnemonicParsing="false" onAction="#createGame" prefHeight="62.0" prefWidth="202.0" text="CREAR PARTIDA" />
+      <Button fx:id="joinGame" layoutX="958.0" layoutY="462.0" mnemonicParsing="false" onAction="#joinGame" prefHeight="62.0" prefWidth="202.0" text="UNIRSE A UNA PARTIDA" />
    </children>
 </AnchorPane>
