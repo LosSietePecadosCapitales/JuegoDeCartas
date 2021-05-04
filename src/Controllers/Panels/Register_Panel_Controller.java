@@ -5,7 +5,13 @@
  */
 package Controllers.Panels;
 
+import Features.Connection.ConnectionMySQL;
+import Features.Managements.Notifications;
+import Features.Managements.Validations;
 import java.io.IOException;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.concurrent.Task;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -38,7 +44,7 @@ public class Register_Panel_Controller {
     @FXML public Button register;
     @FXML public Rectangle shape_Register_Button;
     @FXML public AnchorPane base_Button_Register;
-
+     
     private Thread thread_Register;
     
     @FXML
@@ -58,17 +64,41 @@ public class Register_Panel_Controller {
     }
     
     @FXML
-    public void register() {
-        /*
-        * AQUI VA LA QUERY PARA LA DB
-        */
-        
-        try {
-            Stage stage = (Stage) base.getScene().getWindow();
-            Parent root = FXMLLoader.load(getClass().getResource("/Views/Panels/Initial_View.fxml"));
-            Scene scene = new Scene(root);
-            stage.setScene(scene);
-        } catch (IOException e) {
+    private void register() {     
+        Validations validator = new Validations();
+        try {       
+            String nick = this.nick.getText();
+            String emailDirection = this.email.getText();        
+            String pass = this.password.getText();    
+            if (!validator.validateNick(nick)) {
+                System.out.println("a");
+                return;                
+            } 
+            if (!validator.validateEmail(emailDirection)) {
+                System.out.println("b");
+                return;                
+            }          
+            if (!validator.validatePassword(pass)) {
+                System.out.println("c");
+                return;                
+            }          
+            ConnectionMySQL dataBase = new ConnectionMySQL();
+            String SQLsentence = "INSERT INTO Jugador (correo, nick, contrasenia) "
+                    + "Values ('"+emailDirection+"' ,'"+nick+"' , '"+pass+"');";
+            System.out.println(SQLsentence);
+            dataBase.ConectarBasedeDatos();
+            boolean ready = dataBase.sentence.execute(SQLsentence);
+            dataBase.DesconectarBasedeDatos();
+            Notifications.notification("Bienvenido "+nick, "Usuario Creado Exitosamente", 0);
+            try {
+                Stage stage = (Stage) base.getScene().getWindow();
+                Parent root = FXMLLoader.load(getClass().getResource("/Views/Panels/Initial_View.fxml"));
+                Scene scene = new Scene(root);
+                stage.setScene(scene);
+            } catch (IOException e) {
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Register_Panel_Controller.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     

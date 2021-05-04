@@ -61,4 +61,18 @@ public class Cards_Edit_Controller {
         } catch (IOException e) {
         }
     }
+    
+    @FXML
+    public void save(){
+        String aux = "";
+        aux = this.name_Card_TF.getText() + " " +this.stars_Amounts_S.getValue().toString() +
+             " "+ this.type_Card_TF.getText() + " " + this.element_Card_CB.getValue().toString() +
+                " "+ this.description_Card_TA.getText() + " "+this.atk_Card_TF.getText() +
+                " "+ this.def_Card_TF.getText();
+        //escribir sobre BD
+    }
+    
+    public void insertCardCreated(){
+    
+    }
 }
