@@ -39,10 +39,13 @@
             <Font name="Arial Black" size="18.0" />
          </font>
       </Label>
-      <Button fx:id="exit" layoutX="1199.0" layoutY="2.0" maxHeight="25.0" maxWidth="25.0" minHeight="25.0" minWidth="25.0" mnemonicParsing="false" onAction="#exit" prefHeight="25.0" prefWidth="25.0" stylesheets="@../../Assets/CSS/Initial_CSS.css" text="X" />
+      <Button fx:id="exit" layoutX="1199.0" layoutY="2.0" maxHeight="25.0" maxWidth="25.0" minHeight="25.0" minWidth="25.0" mnemonicParsing="false" onAction="#exit" prefHeight="25.0" prefWidth="25.0" stylesheets="@../../Assets/CSS/Initial_CSS.css" text="X">
+         <font>
+            <Font name="Arial Black" size="10.0" />
+         </font></Button>
       <Button fx:id="minimize" layoutX="1170.0" layoutY="2.0" maxHeight="25.0" maxWidth="25.0" minHeight="25.0" minWidth="25.0" mnemonicParsing="false" onAction="#minimize" prefHeight="25.0" prefWidth="25.0" stylesheets="@../../Assets/CSS/Initial_CSS.css" text="_">
          <font>
-            <Font name="System Bold" size="12.0" />
+            <Font name="Arial Black" size="12.0" />
          </font>
       </Button>
       <ImageView fitHeight="244.0" fitWidth="668.0" layoutX="263.0" layoutY="67.0" pickOnBounds="true" preserveRatio="true">
@@ -52,32 +55,46 @@
       </ImageView>
       <TextField fx:id="user_TextField" layoutX="447.0" layoutY="372.0" prefHeight="50.0" prefWidth="300.0" promptText="USER" stylesheets="@../../Assets/CSS/Initial_CSS.css">
          <font>
-            <Font name="System Italic" size="20.0" />
+            <Font name="Arial Black" size="20.0" />
          </font>
       </TextField>
       <PasswordField fx:id="pass_TextField" layoutX="447.0" layoutY="471.0" prefHeight="50.0" prefWidth="300.0" promptText="******">
          <font>
-            <Font name="System Italic" size="20.0" />
+            <Font name="Arial Black" size="20.0" />
          </font>
       </PasswordField>
-      <Text id="slogan" fx:id="slogan" fill="WHITE" layoutX="338.0" layoutY="323.0" strokeLineCap="ROUND" strokeType="OUTSIDE" strokeWidth="0.0" text="DUMMIES ONLINE CARD GAME" underline="true">
+      <Text id="slogan" fx:id="slogan" fill="WHITE" layoutX="339.0" layoutY="321.0" strokeLineCap="ROUND" strokeType="OUTSIDE" strokeWidth="0.0" text="DUMMIES ONLINE CARD GAME" underline="true">
          <font>
             <Font size="24.0" />
          </font>
       </Text>
-      <Text fx:id="register" fill="#1500ff" layoutX="555.0" layoutY="659.0" onMouseClicked="#register" strokeType="OUTSIDE" strokeWidth="0.0" text="REGISTER">
+      <Button fx:id="login" layoutX="536.0" layoutY="554.0" mnemonicParsing="false" onAction="#login" prefHeight="50.0" prefWidth="113.0" stylesheets="@../../Assets/CSS/Initial_CSS.css" text="Iniciar Sesion" textAlignment="CENTER">
          <font>
-            <Font size="18.0" />
+            <Font name="Arial Black" size="12.0" />
          </font>
-      </Text>
-      <AnchorPane fx:id="base_Button_Register" layoutX="512.0" layoutY="556.0" prefHeight="60.0" prefWidth="170.0">
+      </Button>
+      <Button fx:id="register" layoutX="563.0" layoutY="630.0" mnemonicParsing="false" onAction="#register" prefHeight="27.0" prefWidth="60.0" text="Register">
+         <font>
+            <Font name="Arial Black" size="9.0" />
+         </font>
+      </Button>
+      <AnchorPane fx:id="alertBase" layoutX="808.0" layoutY="289.0" opacity="0.0" prefHeight="401.0" prefWidth="342.0">
          <children>
-            <Rectangle fx:id="shape_Register_Button" arcHeight="5.0" arcWidth="5.0" fill="RED" height="40.0" layoutX="10.0" layoutY="10.0" stroke="BLACK" strokeType="INSIDE" width="1.0" />
-            <Button fx:id="login" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#login" onMouseEntered="#shape_In_Login" onMouseExited="#shape_Out_Login" prefHeight="40.0" prefWidth="150.0" stylesheets="@../../Assets/CSS/Register_Panel_CSS.css" text="Iniciar Sesion">
+            <ImageView fitHeight="236.0" fitWidth="195.0" layoutX="14.0" layoutY="165.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../Assets/Images/Error.gif" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="160.0" layoutY="32.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../Assets/Images/bubble.png" />
+               </image>
+            </ImageView>
+            <Label fx:id="alertMsg" alignment="CENTER" contentDisplay="CENTER" layoutX="177.0" layoutY="45.0" prefHeight="97.0" prefWidth="113.0" rotate="-2.7" text="Revisa tu coneccion a internet" textAlignment="CENTER" wrapText="true">
                <font>
-                  <Font name="Arial Black" size="12.0" />
+                  <Font name="Arial Black" size="17.0" />
                </font>
-            </Button>
+            </Label>
          </children>
       </AnchorPane>
    </children>
