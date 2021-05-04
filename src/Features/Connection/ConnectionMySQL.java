@@ -44,4 +44,8 @@ public class ConnectionMySQL {
     public Connection getConnection() {
         return connection;
     }
+
+    public ResultSet getResult() {
+        return result;
+    }
 }

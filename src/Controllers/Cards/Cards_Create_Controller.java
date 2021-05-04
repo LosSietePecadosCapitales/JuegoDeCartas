@@ -25,6 +25,7 @@ import javafx.beans.value.ObservableValue;
 import javafx.embed.swing.SwingFXUtils;
 import javafx.scene.SnapshotParameters;
 import javafx.scene.image.Image;
+import javafx.stage.FileChooser;
 import javax.imageio.ImageIO;
 
 public class Cards_Create_Controller {
@@ -58,23 +59,9 @@ public class Cards_Create_Controller {
     @FXML public ImageView star_9, star_10, star_11;
     @FXML public ImageView element_Icon;
     @FXML public ImageView image_Card;
-    @FXML public AnchorPane card_complete;
-
-    
-    
-    
-    /* TEMPORALES*/
-    private final String url_bd = "jdbc:mysql://186.64.121.26:3306/yugioh";
-    private final String userBD ="yugioh";
-    private final String passBD ="Y5g34H";
-    private PreparedStatement s;
-    private File file;
-    /**/
     
     @FXML
-    public void initialize(){
-        file = null;
-        s = null;
+    public void initialize(){        
         //Estrellas
         //Atributos combo box (Cantidad de estrellas)
         stars_Amounts_S.getItems().addAll("1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11");
@@ -333,9 +320,6 @@ public class Cards_Create_Controller {
             " "+ this.description_Card_TA.getText() + " "+this.atk_Card_TF.getText() +
             " "+ this.def_Card_TF.getText();
     }
-    
-    @FXML
-        catch (IOException ex) {System.out.println(ex.getMessage());}
         
     @FXML    
     public void insertCardCreated(){
@@ -373,7 +357,7 @@ public class Cards_Create_Controller {
     public void uploadImage(){
         try {
             FileChooser fc = new FileChooser();
-            file = fc.showOpenDialog(base.getScene().getWindow());
+            File file = fc.showOpenDialog(base.getScene().getWindow());
             FileInputStream fis = new FileInputStream(file);
             Image image = new Image(fis);
             image_Card.setImage(image);

@@ -57,11 +57,12 @@ public class Initial_Controller {
             ConnectionMySQL dataBase = new ConnectionMySQL();
             String user = user_TextField.getText();
             String pass = pass_TextField.getText();         
-            String SQLsentence = "SELECT correo, nick, contrasenia "
+            String SQLsentence = "SELECT id, correo, nick, contrasenia "
                     + "FROM Jugador WHERE (correo='"+user+"' or nick='"+user+"') and contrasenia='"+pass+"';";
             dataBase.ConectarBasedeDatos();
-            dataBase.result = dataBase.sentence.executeQuery(SQLsentence);            
+            dataBase.result = dataBase.sentence.executeQuery(SQLsentence);       
                 if(dataBase.result.next()){
+                    ID_User = dataBase.result.getInt(1);
                     Notifications.notification("Bienvenido "+user,"Estadisticas del dia",9);
                     try{
                         dataBase.DesconectarBasedeDatos();
