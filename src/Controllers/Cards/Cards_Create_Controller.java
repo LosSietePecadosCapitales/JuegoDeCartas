@@ -1,5 +1,12 @@
 package Controllers.Cards;
 
+import Features.Connection.ConnectionMySQL;
+import com.mysql.cj.jdbc.Blob;
+import java.awt.image.RenderedImage;
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -10,9 +17,22 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
+import javafx.embed.swing.SwingFXUtils;
+import javafx.scene.SnapshotParameters;
+import javafx.scene.image.Image;
+import javafx.scene.image.WritableImage;
 import javafx.stage.FileChooser;
+import javax.imageio.ImageIO;
 
 public class Cards_Create_Controller {
     
@@ -44,9 +64,23 @@ public class Cards_Create_Controller {
     @FXML public ImageView star_9, star_10, star_11;
     @FXML public ImageView element_Icon;
     @FXML public ImageView image_Card;
+    @FXML public AnchorPane card_complete;
 
+    
+    
+    
+    /* TEMPORALES*/
+    private final String url_bd = "jdbc:mysql://186.64.121.26:3306/yugioh";
+    private final String userBD ="yugioh";
+    private final String passBD ="Y5g34H";
+    private PreparedStatement s;
+    private File file;
+    /**/
+    
     @FXML
     public void initialize(){
+        file = null;
+        s = null;
         //Estrellas
         //Atributos combo box (Cantidad de estrellas)
         stars_Amounts_S.getItems().addAll("1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11");
@@ -308,10 +342,25 @@ public class Cards_Create_Controller {
     
     @FXML
     public void uploadImage(){
-        
+        try {
+            FileChooser fc = new FileChooser();
+            file = fc.showOpenDialog(base.getScene().getWindow());
+            FileInputStream fis = new FileInputStream(file);
+            Image image = new Image(fis);
+            image_Card.setImage(image);
+        } catch (FileNotFoundException e) {
+        }
     }
-    public void insertCardCreated(){
     
+    @FXML
+    public void minimize(){
+        Stage s = (Stage) base.getScene().getWindow();
+        s.setIconified(true);
     }
     
+    @FXML
+    public void exit(){
+        Stage s = (Stage) base.getScene().getWindow();
+        System.exit(1);
+    }
 }

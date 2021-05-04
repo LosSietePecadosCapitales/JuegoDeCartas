@@ -22,9 +22,13 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import javafx.scene.control.PasswordField;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import javafx.scene.Node;
+import javafx.scene.input.MouseEvent;
+
 
 public class Initial_Controller {
     @FXML public AnchorPane base;
@@ -33,7 +37,7 @@ public class Initial_Controller {
     @FXML public Button minimize;
     @FXML public Text slogan;
     @FXML public TextField user_TextField;
-    @FXML public TextField pass_TextField;
+    @FXML public PasswordField pass_TextField;
     @FXML public Button login;
     @FXML public Text register;
     @FXML public Rectangle shape_Register_Button;
@@ -77,13 +81,19 @@ public class Initial_Controller {
     }
 
     @FXML
+    public void minimize(){
+        Stage s = (Stage) base.getScene().getWindow();
+        s.setIconified(true);
+    }
+    
+    @FXML
+    public void exit(){
+        Stage s = (Stage) base.getScene().getWindow();
+        System.exit(1);
+    }
+    
+    @FXML
     public void register() {
-        /*
-         * Aqui va la query para la db para registrar
-         */
-
-        System.out.println("registrado");
-
         try{
             Stage stage = (Stage) base.getScene().getWindow();
             Parent root = FXMLLoader.load(getClass().getResource("/Views/Panels/Register_Panel_View.fxml"));

@@ -12,7 +12,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="base" maxHeight="798.0" maxWidth="1024.0" minHeight="798.0" minWidth="1024.0" prefHeight="798.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.Decks.Decks_Main_Controller">
+<AnchorPane fx:id="base" maxHeight="798.0" maxWidth="1024.0" minHeight="798.0" minWidth="1024.0" prefHeight="798.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/8.0.291" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.Decks.Decks_Main_Controller">
     <children>
         <Rectangle arcHeight="5.0" arcWidth="5.0" height="798.0" stroke="BLACK" strokeType="INSIDE" width="1024.0" />
         <Rectangle arcHeight="5.0" arcWidth="5.0" height="30.0" opacity="0.42" stroke="BLACK" strokeType="INSIDE" width="1024.0">
@@ -28,9 +28,9 @@
                 </LinearGradient>
             </fill>
         </Rectangle>
-        <ImageView fitHeight="768.0" fitWidth="1024.0" layoutY="30.0" opacity="0.23" pickOnBounds="true">
+        <ImageView fitHeight="768.0" fitWidth="1024.0" layoutY="30.0" pickOnBounds="true">
             <image>
-                <Image url="@../../Assets/Images/Background_Panels.jpg" />
+                <Image url="@../../Assets/Images/Background_2.png" />
             </image>
         </ImageView>
         <Button fx:id="exit" layoutX="997.0" layoutY="2.0" maxHeight="25.0" maxWidth="25.0" minHeight="25.0" minWidth="25.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="25.0" stylesheets="@../../Assets/CSS/Initial_CSS.css" text="X" />

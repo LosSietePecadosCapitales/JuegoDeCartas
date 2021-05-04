@@ -15,11 +15,13 @@ import java.util.logging.Logger;
 import javafx.concurrent.Task;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
@@ -51,18 +53,7 @@ public class Register_Panel_Controller {
     public void initialize(){
 
     }
-    
-    @FXML
-    public void back() {
-        try {
-            Stage stage = (Stage) base.getScene().getWindow();
-            Parent root = FXMLLoader.load(getClass().getResource("/Views/Panels/Initial_View.fxml"));
-            Scene scene = new Scene(root);
-            stage.setScene(scene);
-        } catch (IOException e) {
-        }
-    }
-    
+        
     @FXML
     private void register() {     
         Validations validator = new Validations();
@@ -100,6 +91,29 @@ public class Register_Panel_Controller {
         } catch (SQLException ex) {
             Logger.getLogger(Register_Panel_Controller.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+    
+    @FXML
+    public void back() {
+        try {
+            Stage stage = (Stage) base.getScene().getWindow();
+            Parent root = FXMLLoader.load(getClass().getResource("/Views/Panels/Initial_View.fxml"));
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+        } catch (IOException e) {
+        }
+    }
+    
+    @FXML
+    public void minimize(){
+        Stage s = (Stage) base.getScene().getWindow();
+        s.setIconified(true);
+    }
+    
+    @FXML
+    public void exit(){
+        Stage s = (Stage) base.getScene().getWindow();
+        System.exit(1);
     }
     
     @FXML
