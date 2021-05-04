@@ -12,7 +12,7 @@ public class ConnectionMySQL {
     public Connection connection;
     public Statement sentence;
     public ResultSet result;
-    private final String url_bd = "jdbc:mysql://65.21.151.58:3306/yugioh";
+    private final String url_bd = "jdbc:mysql://186.64.121.26:3306/yugioh";
     private final String userBD ="yugioh";
     private final String passBD ="Y5g34H";
 
