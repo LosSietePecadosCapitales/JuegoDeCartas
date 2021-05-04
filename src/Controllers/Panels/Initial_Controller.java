@@ -69,7 +69,7 @@ public class Initial_Controller {
                 dataBase.result = dataBase.sentence.executeQuery(SQLsentence);       
                     if(dataBase.result.next()){
                         ID_User = dataBase.result.getInt(1);
-                        Name_User = dataBase.result.getString(2);
+                        Name_User = dataBase.result.getString(3);
                         Notifications.notification("Bienvenido "+user,"Estadisticas del dia",9);
                         try{
                             dataBase.DesconectarBasedeDatos();

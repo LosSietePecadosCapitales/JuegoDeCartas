@@ -25,6 +25,7 @@ import javafx.beans.value.ObservableValue;
 import javafx.embed.swing.SwingFXUtils;
 import javafx.scene.SnapshotParameters;
 import javafx.scene.image.Image;
+import javafx.scene.text.Font;
 import javafx.stage.FileChooser;
 import javax.imageio.ImageIO;
 
@@ -61,7 +62,14 @@ public class Cards_Create_Controller {
     @FXML public ImageView image_Card;
     
     @FXML
-    public void initialize(){        
+    public void initialize(){
+        created_by_Card_Label.setText(created_by_Card_Label.getText()+" "+Initial_Controller.Name_User);
+        Font font = Font.loadFont(Cards_Create_Controller.class.getResource("/Assets/Fonts/matrixb.ttf").toExternalForm(), 14);
+        Font font2 = Font.loadFont(Cards_Create_Controller.class.getResource("/Assets/Fonts/matrixr.ttf").toExternalForm(), 16);
+        name_Card_Label.setFont(font2);
+        type_Card_Label.setFont(font);
+        description_Card_Label.setFont(font);
+        
         //Estrellas
         //Atributos combo box (Cantidad de estrellas)
         stars_Amounts_S.getItems().addAll("1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11");
