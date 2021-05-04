@@ -48,7 +48,7 @@ public class Register_Panel_Controller {
     
     @FXML
     public void initialize(){
-
+        
     }
         
     @FXML
