@@ -12,16 +12,13 @@ import java.io.IOException;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javafx.concurrent.Task;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
@@ -35,6 +32,7 @@ public class Register_Panel_Controller {
     
     @FXML public AnchorPane base;
     @FXML public Label title;
+    @FXML public Label alertMsg;
     @FXML public Button exit;
     @FXML public Button minimize;
     @FXML public Button back;
@@ -46,8 +44,7 @@ public class Register_Panel_Controller {
     @FXML public Button register;
     @FXML public Rectangle shape_Register_Button;
     @FXML public AnchorPane base_Button_Register;
-     
-    private Thread thread_Register;
+    @FXML public AnchorPane alertBase;
     
     @FXML
     public void initialize(){
@@ -55,22 +52,22 @@ public class Register_Panel_Controller {
     }
         
     @FXML
-    private void register() {     
+    public void register() {     
         Validations validator = new Validations();
         try {       
             String nick = this.nick.getText();
             String emailDirection = this.email.getText();        
             String pass = this.password.getText();    
             if (!validator.validateNick(nick)) {
-                System.out.println("a");
+                // Mensaje de Problema con Nick
                 return;                
             } 
             if (!validator.validateEmail(emailDirection)) {
-                System.out.println("b");
+                // Mensaje de Problema con email
                 return;                
             }          
             if (!validator.validatePassword(pass)) {
-                System.out.println("c");
+                // Mensaje de Problema con pass
                 return;                
             }          
             ConnectionMySQL dataBase = new ConnectionMySQL();
@@ -113,5 +110,101 @@ public class Register_Panel_Controller {
     @FXML
     public void exit(){        
         System.exit(1);
+    }
+    
+    @FXML
+    public void inEmailField(){
+        email.setStyle("-fx-background-image: url('../Images/Buttons/Button_4_Hit.png');\n" +
+                    "    -fx-background-repeat: no-repeat;\n" +
+                    "    -fx-background-size: cover, auto;\n" +
+                    "    -fx-background-color: transparent;\n" +
+                    "    -fx-background-radius: 0px;    \n" +
+                    "    -fx-prompt-text-fill: rgba(15,15,15,0.7);\n" +
+                    "    -fx-text-fill: rgba(20,20,20,0.85);");
+    }
+    
+    @FXML
+    public void outEmailField(){
+        if (email.getText().equals("")) {
+            email.setStyle("-fx-background-image: url('../Images/Buttons/Button_4.png');\n" +
+                    "    -fx-background-repeat: no-repeat;\n" +
+                    "    -fx-background-size: cover, auto;\n" +
+                    "    -fx-background-color: transparent;\n" +
+                    "    -fx-background-radius: 0px;\n" +
+                    "    -fx-prompt-text-fill: rgba(15,15,15,0.7);\n" +
+                    "    -fx-text-fill: rgba(20,20,20,0.85);");
+        }
+    }
+    
+    @FXML
+    public void inNickField(){
+        nick.setStyle("-fx-background-image: url('../Images/Buttons/Button_4_Hit.png');\n" +
+                    "    -fx-background-repeat: no-repeat;\n" +
+                    "    -fx-background-size: cover, auto;\n" +
+                    "    -fx-background-color: transparent;\n" +
+                    "    -fx-background-radius: 0px;    \n" +
+                    "    -fx-prompt-text-fill: rgba(15,15,15,0.7);\n" +
+                    "    -fx-text-fill: rgba(20,20,20,0.85);");
+    }
+    
+    @FXML
+    public void outNickField(){
+        if (nick.getText().equals("")) {
+            nick.setStyle("-fx-background-image: url('../Images/Buttons/Button_4.png');\n" +
+                    "    -fx-background-repeat: no-repeat;\n" +
+                    "    -fx-background-size: cover, auto;\n" +
+                    "    -fx-background-color: transparent;\n" +
+                    "    -fx-background-radius: 0px;\n" +
+                    "    -fx-prompt-text-fill: rgba(15,15,15,0.7);\n" +
+                    "    -fx-text-fill: rgba(20,20,20,0.85);");
+        }
+    }
+    
+    @FXML
+    public void inPassField(){
+        password.setStyle("-fx-background-image: url('../Images/Buttons/Button_4_Hit.png');\n" +
+                    "    -fx-background-repeat: no-repeat;\n" +
+                    "    -fx-background-size: cover, auto;\n" +
+                    "    -fx-background-color: transparent;\n" +
+                    "    -fx-background-radius: 0px;    \n" +
+                    "    -fx-prompt-text-fill: rgba(15,15,15,0.7);\n" +
+                    "    -fx-text-fill: rgba(20,20,20,0.85);");
+    }
+    
+    @FXML
+    public void outPassField(){
+        if (password.getText().equals("")) {
+            password.setStyle("-fx-background-image: url('../Images/Buttons/Button_4.png');\n" +
+                    "    -fx-background-repeat: no-repeat;\n" +
+                    "    -fx-background-size: cover, auto;\n" +
+                    "    -fx-background-color: transparent;\n" +
+                    "    -fx-background-radius: 0px;\n" +
+                    "    -fx-prompt-text-fill: rgba(15,15,15,0.7);\n" +
+                    "    -fx-text-fill: rgba(20,20,20,0.85);");
+        }
+    }
+    
+    @FXML
+    public void inConfField(){
+        confirmpass.setStyle("-fx-background-image: url('../Images/Buttons/Button_4_Hit.png');\n" +
+                    "    -fx-background-repeat: no-repeat;\n" +
+                    "    -fx-background-size: cover, auto;\n" +
+                    "    -fx-background-color: transparent;\n" +
+                    "    -fx-background-radius: 0px;    \n" +
+                    "    -fx-prompt-text-fill: rgba(15,15,15,0.7);\n" +
+                    "    -fx-text-fill: rgba(20,20,20,0.85);");
+    }
+    
+    @FXML
+    public void outConfField(){
+        if (confirmpass.getText().equals("")) {
+            confirmpass.setStyle("-fx-background-image: url('../Images/Buttons/Button_4.png');\n" +
+                    "    -fx-background-repeat: no-repeat;\n" +
+                    "    -fx-background-size: cover, auto;\n" +
+                    "    -fx-background-color: transparent;\n" +
+                    "    -fx-background-radius: 0px;\n" +
+                    "    -fx-prompt-text-fill: rgba(15,15,15,0.7);\n" +
+                    "    -fx-text-fill: rgba(20,20,20,0.85);");
+        }
     }
 }

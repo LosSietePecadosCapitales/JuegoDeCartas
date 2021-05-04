@@ -25,7 +25,7 @@ public class Validations {
     private final Pattern patternPassword = Pattern
                 .compile("^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=\\S+$).{6,10}$");
     private final Pattern patternNick = Pattern
-                .compile("[a-zA-Z0-9_ ]{6,8}");
+                .compile("[a-zA-Z0-9_]{8,16}");
     private final Pattern patternCardName = Pattern
                 .compile("^[A-Z][a-zA-Z_ ]*$");
     

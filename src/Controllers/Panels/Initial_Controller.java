@@ -49,6 +49,7 @@ public class Initial_Controller {
         
     
     public static int ID_User;
+    public static String Name_User;
 
     @FXML
     public void initialize(){
@@ -68,6 +69,7 @@ public class Initial_Controller {
                 dataBase.result = dataBase.sentence.executeQuery(SQLsentence);       
                     if(dataBase.result.next()){
                         ID_User = dataBase.result.getInt(1);
+                        Name_User = dataBase.result.getString(2);
                         Notifications.notification("Bienvenido "+user,"Estadisticas del dia",9);
                         try{
                             dataBase.DesconectarBasedeDatos();

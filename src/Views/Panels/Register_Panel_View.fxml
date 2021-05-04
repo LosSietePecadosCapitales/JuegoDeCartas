@@ -44,34 +44,59 @@
             <Image url="@../../Assets/Images/Background_2.png" />
          </image>
       </ImageView>
-      <TextField fx:id="email" alignment="CENTER" layoutX="152.0" layoutY="266.0" prefHeight="40.0" prefWidth="250.0" promptText="EMAIL" />
-      <TextField fx:id="nick" alignment="CENTER" layoutX="152.0" layoutY="325.0" prefHeight="40.0" prefWidth="250.0" promptText="NICK" />
-      <TextField fx:id="password" alignment="CENTER" layoutX="152.0" layoutY="385.0" prefHeight="40.0" prefWidth="250.0" promptText="PASSWORD" />
-      <TextField fx:id="confirmpass" alignment="CENTER" layoutX="152.0" layoutY="444.0" prefHeight="40.0" prefWidth="250.0" promptText="CONFIRM PASSWORD" />
-      <ImageView fitHeight="450.0" fitWidth="377.0" layoutX="527.0" layoutY="196.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../../Assets/Images/Alert.gif" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="138.0" fitWidth="494.0" layoutX="316.0" layoutY="58.0" opacity="0.8" pickOnBounds="true" preserveRatio="true">
+      <TextField fx:id="email" alignment="CENTER" layoutX="450.0" layoutY="275.0" prefHeight="40.0" prefWidth="330.0" promptText="Email">
+         <font>
+            <Font name="Arial Black" size="12.0" />
+         </font></TextField>
+      <TextField fx:id="nick" alignment="CENTER" layoutX="450.0" layoutY="334.0" prefHeight="40.0" prefWidth="330.0" promptText="Nick">
+         <font>
+            <Font name="Arial Black" size="12.0" />
+         </font></TextField>
+      <TextField fx:id="password" alignment="CENTER" layoutX="450.0" layoutY="394.0" prefHeight="40.0" prefWidth="330.0" promptText="Password">
+         <font>
+            <Font name="Arial Black" size="12.0" />
+         </font></TextField>
+      <TextField fx:id="confirmpass" alignment="CENTER" layoutX="450.0" layoutY="453.0" prefHeight="40.0" prefWidth="330.0" promptText="Confirm Password">
+         <font>
+            <Font name="Arial Black" size="12.0" />
+         </font></TextField>
+      <ImageView fitHeight="138.0" fitWidth="494.0" layoutX="419.0" layoutY="58.0" opacity="0.8" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../Assets/Images/Logo.png" />
          </image>
       </ImageView>
-      <Text id="slogan" fx:id="slogan" fill="WHITE" layoutX="361.0" layoutY="197.0" strokeLineCap="ROUND" strokeType="OUTSIDE" strokeWidth="0.0" text="DUMMIES ONLINE CARD GAME" underline="true">
+      <Text id="slogan" fx:id="slogan" fill="WHITE" layoutX="464.0" layoutY="197.0" strokeLineCap="ROUND" strokeType="OUTSIDE" strokeWidth="0.0" text="DUMMIES ONLINE CARD GAME" underline="true">
          <font>
             <Font size="24.0" />
          </font>
       </Text>
-      <Button fx:id="back" layoutX="36.0" layoutY="58.0" mnemonicParsing="false" onAction="#back" prefHeight="44.0" prefWidth="44.0" text="&lt;">
+      <Button fx:id="back" layoutX="36.0" layoutY="58.0" mnemonicParsing="false" onAction="#back" prefHeight="44.0" prefWidth="44.0" stylesheets="@../../Assets/CSS/Register_Panel_CSS.css" text="&lt;">
          <font>
             <Font name="Arial Black" size="24.0" />
          </font>
       </Button>
-      <Button fx:id="register" layoutX="220.0" layoutY="570.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="113.0" stylesheets="@../../Assets/CSS/Register_Panel_CSS.css" text="Registrar">
+      <Button fx:id="register" layoutX="558.0" layoutY="569.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="113.0" stylesheets="@../../Assets/CSS/Register_Panel_CSS.css" text="Registrar">
          <font>
             <Font name="Arial Black" size="12.0" />
          </font>
       </Button>
+      <AnchorPane fx:id="alertBase" layoutX="883.0" layoutY="326.0" prefHeight="365.0" prefWidth="255.0">
+         <children>
+            <ImageView fitHeight="187.0" fitWidth="214.0" layoutX="60.0" layoutY="177.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../Assets/Images/Error.gif" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="55.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../Assets/Images/bubble.png" />
+               </image>
+            </ImageView>
+            <Label alignment="CENTER" layoutX="74.0" layoutY="34.0" prefHeight="84.0" prefWidth="113.0" rotate="-2.27" textAlignment="CENTER" wrapText="true">
+               <font>
+                  <Font name="Arial Black" size="16.0" />
+               </font>
+            </Label>
+         </children></AnchorPane>
    </children>
 </AnchorPane>
