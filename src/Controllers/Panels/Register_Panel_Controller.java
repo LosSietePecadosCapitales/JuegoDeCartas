@@ -111,61 +111,7 @@ public class Register_Panel_Controller {
     }
     
     @FXML
-    public void exit(){
-        Stage s = (Stage) base.getScene().getWindow();
+    public void exit(){        
         System.exit(1);
-    }
-    
-    @FXML
-    public void shape_In_Register(){
-        Task<Void> task = new Task<Void>() {
-            @Override
-            protected Void call() {
-                try {
-                    for (double i = shape_Register_Button.getWidth(); i <= 150; i = i + 1) {
-                        Thread.sleep(1);
-                        shape_Register_Button.setWidth(i);
-                    }
-                } catch (InterruptedException e) {
-                }
-                return null;
-            }
-        };
-
-        try{
-            thread_Register.stop();
-        } catch (Exception e) {
-        }
-        Thread thread = new Thread(task);
-        thread_Register = thread;
-        thread.setDaemon(true);
-        thread.start();
-    }
-
-    @FXML
-    public void shape_Out_Register(){
-        Task<Void> task = new Task<Void>() {
-            @Override
-            protected Void call() {
-                try {
-                    for (double i = shape_Register_Button.getWidth(); i > 0; i = i - 1) {
-                        Thread.sleep(1);
-                        shape_Register_Button.setWidth(i);
-                    }
-                } catch (InterruptedException e) {
-                }
-                return null;
-            }
-        };
-
-        try{
-            thread_Register.stop();
-        } catch (Exception e) {
-        }
-
-        Thread thread = new Thread(task);
-        thread_Register = thread;
-        thread.setDaemon(true);
-        thread.start();
     }
 }

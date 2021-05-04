@@ -50,12 +50,12 @@
             <Image url="@../../Assets/Images/Logo.png" />
          </image>
       </ImageView>
-      <TextField fx:id="user_TextField" layoutX="447.0" layoutY="372.0" prefHeight="50.0" prefWidth="300.0" promptText="USER" stylesheets="@../../Assets/CSS/Initial_CSS.css" text="asd">
+      <TextField fx:id="user_TextField" layoutX="447.0" layoutY="372.0" prefHeight="50.0" prefWidth="300.0" promptText="USER" stylesheets="@../../Assets/CSS/Initial_CSS.css">
          <font>
             <Font name="System Italic" size="20.0" />
          </font>
       </TextField>
-      <PasswordField fx:id="pass_TextField" layoutX="447.0" layoutY="471.0" prefHeight="50.0" prefWidth="300.0" promptText="******" text="asdasda">
+      <PasswordField fx:id="pass_TextField" layoutX="447.0" layoutY="471.0" prefHeight="50.0" prefWidth="300.0" promptText="******">
          <font>
             <Font name="System Italic" size="20.0" />
          </font>
