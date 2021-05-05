@@ -93,52 +93,52 @@
                   <Image url="@../../Assets/Images/Star.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="star_2" fitHeight="25.0" fitWidth="22.0" layoutX="290.0" layoutY="70.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="star_2" fitHeight="25.0" fitWidth="22.0" layoutX="290.0" layoutY="70.0" pickOnBounds="true" preserveRatio="true" visible="false">
                <image>
                   <Image url="@../../Assets/Images/Star.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="star_3" fitHeight="25.0" fitWidth="22.0" layoutX="263.0" layoutY="70.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="star_3" fitHeight="25.0" fitWidth="22.0" layoutX="263.0" layoutY="70.0" pickOnBounds="true" preserveRatio="true" visible="false">
                <image>
                   <Image url="@../../Assets/Images/Star.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="star_4" fitHeight="25.0" fitWidth="22.0" layoutX="236.0" layoutY="70.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="star_4" fitHeight="25.0" fitWidth="22.0" layoutX="236.0" layoutY="70.0" pickOnBounds="true" preserveRatio="true" visible="false">
                <image>
                   <Image url="@../../Assets/Images/Star.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="star_5" fitHeight="25.0" fitWidth="22.0" layoutX="209.0" layoutY="70.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="star_5" fitHeight="25.0" fitWidth="22.0" layoutX="209.0" layoutY="70.0" pickOnBounds="true" preserveRatio="true" visible="false">
                <image>
                   <Image url="@../../Assets/Images/Star.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="star_6" fitHeight="25.0" fitWidth="22.0" layoutX="182.0" layoutY="70.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="star_6" fitHeight="25.0" fitWidth="22.0" layoutX="182.0" layoutY="70.0" pickOnBounds="true" preserveRatio="true" visible="false">
                <image>
                   <Image url="@../../Assets/Images/Star.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="star_7" fitHeight="25.0" fitWidth="22.0" layoutX="155.0" layoutY="70.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="star_7" fitHeight="25.0" fitWidth="22.0" layoutX="155.0" layoutY="70.0" pickOnBounds="true" preserveRatio="true" visible="false">
                <image>
                   <Image url="@../../Assets/Images/Star.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="star_8" fitHeight="25.0" fitWidth="22.0" layoutX="128.0" layoutY="70.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="star_8" fitHeight="25.0" fitWidth="22.0" layoutX="128.0" layoutY="70.0" pickOnBounds="true" preserveRatio="true" visible="false">
                <image>
                   <Image url="@../../Assets/Images/Star.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="star_9" fitHeight="25.0" fitWidth="22.0" layoutX="101.0" layoutY="70.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="star_9" fitHeight="25.0" fitWidth="22.0" layoutX="101.0" layoutY="70.0" pickOnBounds="true" preserveRatio="true" visible="false">
                <image>
                   <Image url="@../../Assets/Images/Star.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="star_10" fitHeight="25.0" fitWidth="22.0" layoutX="74.0" layoutY="70.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="star_10" fitHeight="25.0" fitWidth="22.0" layoutX="74.0" layoutY="70.0" pickOnBounds="true" preserveRatio="true" visible="false">
                <image>
                   <Image url="@../../Assets/Images/Star.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="star_11" fitHeight="25.0" fitWidth="22.0" layoutX="47.0" layoutY="70.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="star_11" fitHeight="25.0" fitWidth="22.0" layoutX="47.0" layoutY="70.0" pickOnBounds="true" preserveRatio="true" visible="false">
                <image>
                   <Image url="@../../Assets/Images/Star.png" />
                </image>
@@ -190,6 +190,23 @@
       <ComboBox fx:id="type_Card_TF" layoutX="479.0" layoutY="288.0" prefHeight="46.0" prefWidth="189.0" promptText="Tipo de la Carta" />
       <Button fx:id="uploadImg" layoutX="495.0" layoutY="552.0" mnemonicParsing="false" onAction="#uploadImage" prefHeight="40.0" prefWidth="100.0" text="Cargar imagen" />
       <ComboBox fx:id="stars_Amounts_S" layoutX="811.0" layoutY="225.0" prefHeight="46.0" prefWidth="80.0" promptText="Stars" />
-      <AnchorPane layoutX="943.0" layoutY="225.0" prefHeight="430.0" prefWidth="233.0" style="-fx-border-color: red;" />
+      <AnchorPane layoutX="943.0" layoutY="262.0" prefHeight="430.0" prefWidth="233.0">
+         <children>
+            <ImageView fitHeight="209.0" fitWidth="189.0" layoutX="37.0" layoutY="219.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../Assets/Images/Error.gif" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="209.0" fitWidth="213.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../Assets/Images/bubble.png" />
+               </image>
+            </ImageView>
+            <Label fx:id="msgLabel" alignment="CENTER" layoutX="45.0" layoutY="32.0" prefHeight="129.0" prefWidth="157.0" rotate="-2.7" text="Aquí podrás crear una carta como tu quieras" textAlignment="CENTER" wrapText="true">
+               <font>
+                  <Font name="Arial Black" size="18.0" />
+               </font>
+            </Label>
+         </children></AnchorPane>
    </children>
 </AnchorPane>

@@ -14,7 +14,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="base" maxHeight="690.0" maxWidth="1230.0" minHeight="690.0" minWidth="1230.0" prefHeight="690.0" prefWidth="1230.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.Panels.Principal_Panel_Controller">
+<AnchorPane fx:id="base" maxHeight="690.0" maxWidth="1230.0" minHeight="690.0" minWidth="1230.0" prefHeight="690.0" prefWidth="1230.0" stylesheets="@../../Assets/CSS/Principal_Panel_CSS.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.Panels.Principal_Panel_Controller">
    <children>
       <Rectangle arcHeight="5.0" arcWidth="5.0" height="690.0" stroke="BLACK" strokeType="INSIDE" width="1230.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" height="30.0" opacity="0.42" stroke="BLACK" strokeType="INSIDE" width="1230.0">
@@ -51,12 +51,12 @@
             <Image url="@../../Assets/Images/Logo.png" />
          </image>
       </ImageView>
-      <Text id="slogan" fx:id="slogan" fill="WHITE" layoutX="751.0" layoutY="250.0" strokeLineCap="ROUND" strokeType="OUTSIDE" strokeWidth="0.0" text="DUMIES ONLINE CARD GAME" underline="true">
+      <Text id="slogan" fx:id="slogan" fill="WHITE" layoutX="746.0" layoutY="242.0" strokeLineCap="ROUND" strokeType="OUTSIDE" strokeWidth="0.0" text="DUMIES ONLINE CARD GAME" underline="true">
          <font>
             <Font size="23.0" />
          </font>
       </Text>
-      <GridPane layoutX="50.0" layoutY="100.0" prefHeight="540.0" prefWidth="500.0" style="-fx-border-color: red;">
+      <GridPane layoutX="50.0" layoutY="100.0" prefHeight="540.0" prefWidth="500.0">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -70,179 +70,191 @@
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <AnchorPane maxHeight="90.0" maxWidth="250.0" minHeight="90.0" minWidth="250.0" prefHeight="90.0" prefWidth="250.0" style="-fx-background-color: gray; -fx-border-color: blue;">
+            <AnchorPane fx:id="ap01" maxHeight="90.0" maxWidth="240.0" minHeight="80.0" minWidth="240.0" prefHeight="80.0" prefWidth="240.0">
                <children>
-                  <Label alignment="CENTER" layoutY="10.0" prefHeight="20.0" prefWidth="250.0" text="Usuario" textAlignment="CENTER" textFill="WHITE">
+                  <Label alignment="CENTER" layoutY="18.0" prefHeight="20.0" prefWidth="238.0" text="Usuario" textAlignment="CENTER" textFill="#d4d4d4">
                      <font>
-                        <Font size="14.0" />
+                        <Font name="Arial Bold" size="14.0" />
                      </font>
                   </Label>
-                  <Label alignment="CENTER" layoutY="45.0" prefHeight="20.0" prefWidth="250.0" text="PharaJP" textAlignment="CENTER" textFill="WHITE">
+                  <Label fx:id="nick" alignment="CENTER" layoutY="46.0" prefHeight="20.0" prefWidth="238.0" text="PharaJP" textAlignment="CENTER" textFill="#d4d4d4">
                      <font>
-                        <Font size="18.0" />
+                        <Font name="Arial Black" size="18.0" />
                      </font>
                   </Label>
                </children>
             </AnchorPane>
-            <AnchorPane maxHeight="90.0" maxWidth="250.0" minHeight="90.0" minWidth="250.0" prefHeight="90.0" prefWidth="250.0" style="-fx-background-color: gray; -fx-border-color: blue;" GridPane.columnIndex="1">
+            <AnchorPane fx:id="ap02" maxHeight="90.0" maxWidth="240.0" minHeight="80.0" minWidth="240.0" prefHeight="80.0" prefWidth="240.0" GridPane.columnIndex="1">
                <children>
-                  <Label alignment="CENTER" layoutY="10.0" prefHeight="20.0" prefWidth="250.0" text="Partidas Ganadas" textAlignment="CENTER" textFill="WHITE">
+                  <Label alignment="CENTER" layoutY="18.0" prefHeight="20.0" prefWidth="238.0" text="Partidas Ganadas" textAlignment="CENTER" textFill="#d4d4d4">
                      <font>
-                        <Font size="14.0" />
+                        <Font name="Arial Bold" size="14.0" />
                      </font>
                   </Label>
-                  <Label alignment="CENTER" layoutY="45.0" prefHeight="20.0" prefWidth="250.0" text="0" textAlignment="CENTER" textFill="WHITE">
+                  <Label alignment="CENTER" layoutY="46.0" prefHeight="20.0" prefWidth="238.0" text="0" textAlignment="CENTER" textFill="#d4d4d4">
                      <font>
-                        <Font size="18.0" />
+                        <Font name="Arial Black" size="18.0" />
                      </font>
                   </Label>
                </children>
             </AnchorPane>
-            <AnchorPane maxHeight="90.0" maxWidth="250.0" minHeight="90.0" minWidth="250.0" prefHeight="90.0" prefWidth="250.0" style="-fx-background-color: gray; -fx-border-color: blue;" GridPane.rowIndex="1">
+            <AnchorPane fx:id="ap11" maxHeight="90.0" maxWidth="240.0" minHeight="80.0" minWidth="240.0" prefHeight="80.0" prefWidth="240.0" GridPane.rowIndex="1">
                <children>
-                  <Label alignment="CENTER" layoutY="10.0" prefHeight="20.0" prefWidth="250.0" text="Partidas Perdidas" textAlignment="CENTER" textFill="WHITE">
+                  <Label alignment="CENTER" layoutY="20.0" prefHeight="20.0" prefWidth="238.0" text="Partidas Perdidas" textAlignment="CENTER" textFill="#d4d4d4">
                      <font>
-                        <Font size="14.0" />
+                        <Font name="Arial Bold" size="14.0" />
                      </font>
                   </Label>
-                  <Label alignment="CENTER" layoutY="45.0" prefHeight="20.0" prefWidth="250.0" text="0" textAlignment="CENTER" textFill="WHITE">
+                  <Label alignment="CENTER" layoutY="46.0" prefHeight="20.0" prefWidth="238.0" text="0" textAlignment="CENTER" textFill="#d4d4d4">
                      <font>
-                        <Font size="18.0" />
+                        <Font name="Arial Black" size="18.0" />
                      </font>
                   </Label>
                </children>
             </AnchorPane>
-            <AnchorPane maxHeight="90.0" maxWidth="250.0" minHeight="90.0" minWidth="250.0" prefHeight="90.0" prefWidth="250.0" style="-fx-background-color: gray; -fx-border-color: blue;" GridPane.columnIndex="1" GridPane.rowIndex="1">
+            <AnchorPane fx:id="ap12" maxHeight="90.0" maxWidth="240.0" minHeight="80.0" minWidth="240.0" prefHeight="80.0" prefWidth="240.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <children>
-                  <Label alignment="CENTER" layoutY="10.0" prefHeight="20.0" prefWidth="250.0" text="Partidas Desconectadas" textAlignment="CENTER" textFill="WHITE">
+                  <Label alignment="CENTER" layoutY="20.0" prefHeight="20.0" prefWidth="238.0" text="Partidas Desconectadas" textAlignment="CENTER" textFill="#d4d4d4">
                      <font>
-                        <Font size="14.0" />
+                        <Font name="Arial Bold" size="14.0" />
                      </font>
                   </Label>
-                  <Label alignment="CENTER" layoutY="45.0" prefHeight="20.0" prefWidth="250.0" text="0" textAlignment="CENTER" textFill="WHITE">
+                  <Label alignment="CENTER" layoutY="46.0" prefHeight="20.0" prefWidth="238.0" text="0" textAlignment="CENTER" textFill="#d4d4d4">
                      <font>
-                        <Font size="18.0" />
+                        <Font name="Arial Black" size="18.0" />
                      </font>
                   </Label>
                </children>
             </AnchorPane>
-            <AnchorPane maxHeight="90.0" maxWidth="250.0" minHeight="90.0" minWidth="250.0" prefHeight="90.0" prefWidth="250.0" style="-fx-background-color: gray; -fx-border-color: blue;" GridPane.rowIndex="2">
+            <AnchorPane fx:id="ap21" maxHeight="90.0" maxWidth="240.0" minHeight="80.0" minWidth="240.0" prefHeight="80.0" prefWidth="240.0" GridPane.rowIndex="2">
                <children>
-                  <Label alignment="CENTER" layoutY="10.0" prefHeight="20.0" prefWidth="250.0" text="Cartas Monstruo Invocadas" textAlignment="CENTER" textFill="WHITE">
+                  <Label alignment="CENTER" layoutY="20.0" prefHeight="20.0" prefWidth="238.0" text="Cartas Monstruo Invocadas" textAlignment="CENTER" textFill="#d4d4d4">
                      <font>
-                        <Font size="14.0" />
+                        <Font name="Arial Bold" size="14.0" />
                      </font>
                   </Label>
-                  <Label alignment="CENTER" layoutY="45.0" prefHeight="20.0" prefWidth="250.0" text="0" textAlignment="CENTER" textFill="WHITE">
+                  <Label alignment="CENTER" layoutY="46.0" prefHeight="20.0" prefWidth="238.0" text="0" textAlignment="CENTER" textFill="#d4d4d4">
                      <font>
-                        <Font size="18.0" />
+                        <Font name="Arial Black" size="18.0" />
                      </font>
                   </Label>
                </children>
             </AnchorPane>
-            <AnchorPane maxHeight="90.0" maxWidth="250.0" minHeight="90.0" minWidth="250.0" prefHeight="90.0" prefWidth="250.0" style="-fx-background-color: gray; -fx-border-color: blue;" GridPane.columnIndex="1" GridPane.rowIndex="2">
+            <AnchorPane fx:id="ap22" maxHeight="90.0" maxWidth="240.0" minHeight="80.0" minWidth="240.0" prefHeight="80.0" prefWidth="240.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
                <children>
-                  <Label alignment="CENTER" layoutY="10.0" prefHeight="20.0" prefWidth="250.0" text="Cartas Monstruo Destruidas" textAlignment="CENTER" textFill="WHITE">
+                  <Label alignment="CENTER" layoutY="20.0" prefHeight="20.0" prefWidth="238.0" text="Cartas Monstruo Destruidas" textAlignment="CENTER" textFill="#d4d4d4">
                      <font>
-                        <Font size="14.0" />
+                        <Font name="Arial Bold" size="14.0" />
                      </font>
                   </Label>
-                  <Label alignment="CENTER" layoutY="45.0" prefHeight="20.0" prefWidth="250.0" text="0" textAlignment="CENTER" textFill="WHITE">
+                  <Label alignment="CENTER" layoutY="46.0" prefHeight="20.0" prefWidth="238.0" text="0" textAlignment="CENTER" textFill="#d4d4d4">
                      <font>
-                        <Font size="18.0" />
+                        <Font name="Arial Black" size="18.0" />
                      </font>
                   </Label>
                </children>
             </AnchorPane>
-            <AnchorPane maxHeight="90.0" maxWidth="250.0" minHeight="90.0" minWidth="250.0" prefHeight="90.0" prefWidth="250.0" style="-fx-background-color: gray; -fx-border-color: blue;" GridPane.rowIndex="3">
+            <AnchorPane fx:id="ap31" maxHeight="90.0" maxWidth="240.0" minHeight="80.0" minWidth="240.0" prefHeight="80.0" prefWidth="240.0" GridPane.rowIndex="3">
                <children>
-                  <Label alignment="CENTER" layoutY="10.0" prefHeight="20.0" prefWidth="250.0" text="Cartas Mágicas Activadas" textAlignment="CENTER" textFill="WHITE">
+                  <Label alignment="CENTER" layoutY="20.0" prefHeight="20.0" prefWidth="238.0" text="Cartas Mágicas Activadas" textAlignment="CENTER" textFill="#d4d4d4">
                      <font>
-                        <Font size="14.0" />
+                        <Font name="Arial Bold" size="14.0" />
                      </font>
                   </Label>
-                  <Label alignment="CENTER" layoutY="45.0" prefHeight="20.0" prefWidth="250.0" text="0" textAlignment="CENTER" textFill="WHITE">
+                  <Label alignment="CENTER" layoutY="46.0" prefHeight="20.0" prefWidth="238.0" text="0" textAlignment="CENTER" textFill="#d4d4d4">
                      <font>
-                        <Font size="18.0" />
+                        <Font name="Arial Black" size="18.0" />
                      </font>
                   </Label>
                </children>
             </AnchorPane>
-            <AnchorPane maxHeight="90.0" maxWidth="250.0" minHeight="90.0" minWidth="250.0" prefHeight="90.0" prefWidth="250.0" style="-fx-background-color: gray; -fx-border-color: blue;" GridPane.columnIndex="1" GridPane.rowIndex="3">
+            <AnchorPane fx:id="ap32" maxHeight="90.0" maxWidth="240.0" minHeight="80.0" minWidth="240.0" prefHeight="80.0" prefWidth="240.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
                <children>
-                  <Label alignment="CENTER" layoutY="10.0" prefHeight="20.0" prefWidth="250.0" text="Cartas Mágicas Anuladas" textAlignment="CENTER" textFill="WHITE">
+                  <Label alignment="CENTER" layoutY="20.0" prefHeight="20.0" prefWidth="238.0" text="Cartas Mágicas Anuladas" textAlignment="CENTER" textFill="#d4d4d4">
                      <font>
-                        <Font size="14.0" />
+                        <Font name="Arial Bold" size="14.0" />
                      </font>
                   </Label>
-                  <Label alignment="CENTER" layoutY="45.0" prefHeight="20.0" prefWidth="250.0" text="0" textAlignment="CENTER" textFill="WHITE">
+                  <Label alignment="CENTER" layoutY="46.0" prefHeight="20.0" prefWidth="238.0" text="0" textAlignment="CENTER" textFill="#d4d4d4">
                      <font>
-                        <Font size="18.0" />
+                        <Font name="Arial Black" size="18.0" />
                      </font>
                   </Label>
                </children>
             </AnchorPane>
-            <AnchorPane maxHeight="90.0" maxWidth="250.0" minHeight="90.0" minWidth="250.0" prefHeight="90.0" prefWidth="250.0" style="-fx-background-color: gray; -fx-border-color: blue;" GridPane.rowIndex="4">
+            <AnchorPane fx:id="ap41" maxHeight="90.0" maxWidth="240.0" minHeight="80.0" minWidth="240.0" prefHeight="80.0" prefWidth="240.0" GridPane.rowIndex="4">
                <children>
-                  <Label alignment="CENTER" layoutY="10.0" prefHeight="20.0" prefWidth="250.0" text="Cartas Trampa Activadas" textAlignment="CENTER" textFill="WHITE">
+                  <Label alignment="CENTER" layoutY="20.0" prefHeight="20.0" prefWidth="238.0" text="Cartas Trampa Activadas" textAlignment="CENTER" textFill="#d4d4d4">
                      <font>
-                        <Font size="14.0" />
+                        <Font name="Arial Bold" size="14.0" />
                      </font>
                   </Label>
-                  <Label alignment="CENTER" layoutY="45.0" prefHeight="20.0" prefWidth="250.0" text="0" textAlignment="CENTER" textFill="WHITE">
+                  <Label alignment="CENTER" layoutY="46.0" prefHeight="20.0" prefWidth="238.0" text="0" textAlignment="CENTER" textFill="#d4d4d4">
                      <font>
-                        <Font size="18.0" />
+                        <Font name="Arial Black" size="18.0" />
                      </font>
                   </Label>
                </children>
             </AnchorPane>
-            <AnchorPane maxHeight="90.0" maxWidth="250.0" minHeight="90.0" minWidth="250.0" prefHeight="90.0" prefWidth="250.0" style="-fx-background-color: gray; -fx-border-color: blue;" GridPane.columnIndex="1" GridPane.rowIndex="4">
+            <AnchorPane fx:id="ap42" maxHeight="90.0" maxWidth="240.0" minHeight="80.0" minWidth="240.0" prefHeight="80.0" prefWidth="240.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
                <children>
-                  <Label alignment="CENTER" layoutY="10.0" prefHeight="20.0" prefWidth="250.0" text="Cartas Trampa Anuladas" textAlignment="CENTER" textFill="WHITE">
+                  <Label alignment="CENTER" layoutY="20.0" prefHeight="20.0" prefWidth="238.0" text="Cartas Trampa Anuladas" textAlignment="CENTER" textFill="#d4d4d4">
                      <font>
-                        <Font size="14.0" />
+                        <Font name="Arial Bold" size="14.0" />
                      </font>
                   </Label>
-                  <Label alignment="CENTER" layoutY="45.0" prefHeight="20.0" prefWidth="250.0" text="0" textAlignment="CENTER" textFill="WHITE">
+                  <Label alignment="CENTER" layoutY="46.0" prefHeight="20.0" prefWidth="238.0" text="0" textAlignment="CENTER" textFill="#d4d4d4">
                      <font>
-                        <Font size="18.0" />
+                        <Font name="Arial Black" size="18.0" />
                      </font>
                   </Label>
                </children>
             </AnchorPane>
-            <AnchorPane maxHeight="90.0" maxWidth="250.0" minHeight="90.0" minWidth="250.0" prefHeight="90.0" prefWidth="250.0" style="-fx-background-color: gray; -fx-border-color: blue;" GridPane.rowIndex="5">
+            <AnchorPane fx:id="ap51" maxHeight="90.0" maxWidth="240.0" minHeight="80.0" minWidth="240.0" prefHeight="80.0" prefWidth="240.0" GridPane.rowIndex="5">
                <children>
-                  <Label alignment="CENTER" layoutY="10.0" prefHeight="20.0" prefWidth="250.0" text="Cantidad de Mazos Creados" textAlignment="CENTER" textFill="WHITE">
+                  <Label alignment="CENTER" layoutY="20.0" prefHeight="20.0" prefWidth="238.0" text="Cantidad de Mazos Creados" textAlignment="CENTER" textFill="#d4d4d4">
                      <font>
-                        <Font size="14.0" />
+                        <Font name="Arial Bold" size="14.0" />
                      </font>
                   </Label>
-                  <Label alignment="CENTER" layoutY="45.0" prefHeight="20.0" prefWidth="250.0" text="0" textAlignment="CENTER" textFill="WHITE">
+                  <Label alignment="CENTER" layoutY="46.0" prefHeight="20.0" prefWidth="238.0" text="0" textAlignment="CENTER" textFill="#d4d4d4">
                      <font>
-                        <Font size="18.0" />
+                        <Font name="Arial Black" size="18.0" />
                      </font>
                   </Label>
                </children>
             </AnchorPane>
-            <AnchorPane maxHeight="90.0" maxWidth="250.0" minHeight="90.0" minWidth="250.0" prefHeight="90.0" prefWidth="250.0" style="-fx-background-color: gray; -fx-border-color: blue;" GridPane.columnIndex="1" GridPane.rowIndex="5">
+            <AnchorPane fx:id="ap52" maxHeight="90.0" maxWidth="240.0" minHeight="80.0" minWidth="240.0" prefHeight="80.0" prefWidth="240.0" GridPane.columnIndex="1" GridPane.rowIndex="5">
                <children>
-                  <Label alignment="CENTER" layoutY="10.0" prefHeight="20.0" prefWidth="250.0" text="Cantidad de Mazos" textAlignment="CENTER" textFill="WHITE">
+                  <Label alignment="CENTER" layoutY="20.0" prefHeight="20.0" prefWidth="238.0" text="Cantidad de Mazos" textAlignment="CENTER" textFill="#d4d4d4">
                      <font>
-                        <Font size="14.0" />
+                        <Font name="Arial Bold" size="14.0" />
                      </font>
                   </Label>
-                  <Label alignment="CENTER" layoutY="45.0" prefHeight="20.0" prefWidth="250.0" text="0" textAlignment="CENTER" textFill="WHITE">
+                  <Label alignment="CENTER" layoutY="46.0" prefHeight="20.0" prefWidth="238.0" text="0" textAlignment="CENTER" textFill="#d4d4d4">
                      <font>
-                        <Font size="18.0" />
+                        <Font name="Arial Black" size="18.0" />
                      </font>
                   </Label>
                </children>
             </AnchorPane>
          </children>
       </GridPane>
-      <Button fx:id="cards" layoutX="655.0" layoutY="353.0" mnemonicParsing="false" onAction="#goToCards" prefHeight="62.0" prefWidth="202.0" text="CARTAS" />
-      <Button fx:id="decks" layoutX="654.0" layoutY="456.0" mnemonicParsing="false" onAction="#goToDecks" prefHeight="62.0" prefWidth="202.0" text="MAZOS" />
-      <Button fx:id="createGame" layoutX="958.0" layoutY="353.0" mnemonicParsing="false" onAction="#createGame" prefHeight="62.0" prefWidth="202.0" text="CREAR PARTIDA" />
-      <Button fx:id="joinGame" layoutX="958.0" layoutY="462.0" mnemonicParsing="false" onAction="#joinGame" prefHeight="62.0" prefWidth="202.0" text="UNIRSE A UNA PARTIDA" />
+      <Button fx:id="cards" layoutX="655.0" layoutY="353.0" mnemonicParsing="false" onAction="#goToCards" prefHeight="90.0" prefWidth="202.0" text="CARTAS">
+         <font>
+            <Font name="Arial Black" size="18.0" />
+         </font></Button>
+      <Button fx:id="decks" layoutX="655.0" layoutY="494.0" mnemonicParsing="false" onAction="#goToDecks" prefHeight="90.0" prefWidth="202.0" text="MAZOS">
+         <font>
+            <Font name="Arial Black" size="18.0" />
+         </font></Button>
+      <Button fx:id="createGame" layoutX="958.0" layoutY="353.0" mnemonicParsing="false" onAction="#createGame" prefHeight="90.0" prefWidth="202.0" text="CREAR PARTIDA">
+         <font>
+            <Font name="Arial Black" size="18.0" />
+         </font></Button>
+      <Button fx:id="joinGame" alignment="CENTER" contentDisplay="CENTER" layoutX="958.0" layoutY="494.0" mnemonicParsing="false" onAction="#joinGame" prefHeight="90.0" prefWidth="202.0" text="UNIRSE A UNA PARTIDA" textAlignment="CENTER" wrapText="true">
+         <font>
+            <Font name="Arial Black" size="14.0" />
+         </font></Button>
    </children>
 </AnchorPane>

@@ -5,7 +5,34 @@
 
 #slogan{
     -fx-font-family: Squealer;
-    -fx-font-size: 48px;
+    -fx-font-size: 30px;
     -fx-stroke: red;
     -fx-stroke-width: 2px;
+}
+
+#cards, #decks, #createGame, #joinGame{
+    -fx-background-image: url('../Images/Buttons/Button_1.png');
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: cover, auto;
+    -fx-background-color: transparent;
+    -fx-background-radius: 0px;
+    -fx-text-fill: gray;
+}
+
+#cards:pressed, #decks:pressed, #createGame:pressed, #joinGame:pressed{
+    -fx-background-image: url('../Images/Buttons/Button_1_Hit.png');
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: cover, auto;
+    -fx-background-color: transparent;
+    -fx-background-radius: 0px;
+    -fx-text-fill: gray;
+}
+
+#ap01, #ap02, #ap11, #ap12, #ap21, #ap22, 
+#ap31, #ap32, #ap41, #ap42, #ap51, #ap52{
+    -fx-background-image: url('../Images/Buttons/Button_5.png');
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: cover, auto;
+    -fx-background-color: transparent;
+    -fx-background-radius: 0px;
 }
