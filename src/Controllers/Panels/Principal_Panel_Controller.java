@@ -28,10 +28,26 @@ public class Principal_Panel_Controller {
     @FXML public Button decks;
     @FXML public Button createGame;
     @FXML public Button joinGame;
+    
+    @FXML public Label nick;
 
+    @FXML public AnchorPane ap01;
+    @FXML public AnchorPane ap02;
+    @FXML public AnchorPane ap11;
+    @FXML public AnchorPane ap12;
+    @FXML public AnchorPane ap21;
+    @FXML public AnchorPane ap22;
+    @FXML public AnchorPane ap31;
+    @FXML public AnchorPane ap32;
+    @FXML public AnchorPane ap41;
+    @FXML public AnchorPane ap42;
+    @FXML public AnchorPane ap51;
+    @FXML public AnchorPane ap52;
+    
+    
     @FXML
     public void initialize(){
-
+        nick.setText(Initial_Controller.Name_User);
     }
 
     @FXML
