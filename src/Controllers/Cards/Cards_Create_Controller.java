@@ -273,7 +273,7 @@ public class Cards_Create_Controller {
         });
         //Atributos combo box (Tipo)
         type_Card_TF.getItems().addAll("Aqua", "Bestia", "Demonio", "Dinosaurio", "Dragon", "Guerrero",
-                "Guerrero-Bestia", "Hada", "Insecto", "Landor de conjuros", "Maquina", "Pez", "Planta",
+                "Guerrero-Bestia", "Hada", "Insecto", "Lanzador de conjuros", "Maquina", "Pez", "Planta",
                 "Psiquico", "Piro", "Reptil", "Roca", "Serpiente marina", "Trueno", "Zombi");
         //Cambio del tipo de carta (dinamico)
         type_Card_TF.valueProperty().addListener(new ChangeListener<String>() {
@@ -301,9 +301,9 @@ public class Cards_Create_Controller {
                 auxString = def_Card_TF.getText();
                 def_Card_Label.setText(auxString);
             }
-        });
+        });        
     }
-
+    
     @FXML
     public void back() {
         try {

@@ -51,14 +51,14 @@
             <Font name="Arial Black" size="12.0" />
          </font>
       </Button>
-      <ImageView fitHeight="179.0" fitWidth="450.0" layoutX="689.0" layoutY="95.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="138.0" fitWidth="427.0" layoutX="815.0" layoutY="50.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../Assets/Images/Logo.png" />
          </image>
       </ImageView>
-      <Text id="slogan" fx:id="slogan" fill="WHITE" layoutX="762.0" layoutY="263.0" strokeLineCap="ROUND" strokeType="OUTSIDE" strokeWidth="0.0" text="DUMIES ONLINE CARD GAME" underline="true">
+      <Text id="slogan" fx:id="slogan" fill="WHITE" layoutX="892.0" layoutY="182.0" strokeLineCap="ROUND" strokeType="OUTSIDE" strokeWidth="0.0" text="DUMIES ONLINE CARD GAME" underline="true">
          <font>
-            <Font size="23.0" />
+            <Font size="18.0" />
          </font>
       </Text>
       <Button layoutX="285.0" layoutY="119.0" mnemonicParsing="false" text="Originales" />
@@ -80,7 +80,7 @@
             <ImageView fx:id="card23" fitHeight="159.0" fitWidth="113.0" layoutX="377.0" layoutY="336.0" pickOnBounds="true" preserveRatio="true" />
          </children>
       </AnchorPane>
-      <AnchorPane layoutX="565.0" layoutY="312.0" prefHeight="200.0" prefWidth="190.0" style="-fx-border-color: white; -fx-border-width: 2px;">
+      <AnchorPane layoutX="566.0" layoutY="216.0" prefHeight="200.0" prefWidth="190.0" style="-fx-border-color: white; -fx-border-width: 2px;">
          <children>
             <ImageView fx:id="prevCard" fitHeight="340.0" fitWidth="242.0" layoutX="3.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true" />
          </children>

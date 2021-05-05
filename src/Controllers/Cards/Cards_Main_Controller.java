@@ -49,7 +49,7 @@ public class Cards_Main_Controller {
 
     private final int itemsPerPage = 12;
     private int page;
-    private Cards selectCard;
+    static public Cards selectCard;
     private ArrayList<Cards> cards;
     private ArrayList<ImageView> cards_ImagesView;
     
