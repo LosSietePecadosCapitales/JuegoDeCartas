@@ -45,6 +45,7 @@ public class Cards_Create_Controller {
     @FXML public Label created_by_Card_Label;
     @FXML public Label atk_Card_Label;
     @FXML public Label def_Card_Label;
+    @FXML public Label msgLabel;
 
     @FXML public TextField name_Card_TF;
     @FXML public TextField atk_Card_TF;
@@ -349,7 +350,7 @@ public class Cards_Create_Controller {
             s.setString(8, description_Card_TA.getText());
             s.setInt(9, Initial_Controller.ID_User);
             s.execute();
-            f.delete(); /*SEE deleteOnExit();*/
+            f2.delete(); /*SEE deleteOnExit();*/
             dataBase.DesconectarBasedeDatos();
         }
         catch (FileNotFoundException | NumberFormatException | SQLException e) { System.out.println(e.getMessage());}
