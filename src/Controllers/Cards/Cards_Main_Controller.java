@@ -18,8 +18,10 @@ import java.sql.Blob;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import javafx.embed.swing.SwingFXUtils;
+import javafx.event.EventHandler;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javax.imageio.ImageIO;
 
 public class Cards_Main_Controller {
@@ -49,7 +51,7 @@ public class Cards_Main_Controller {
 
     private final int itemsPerPage = 12;
     private int page;
-    private Cards selectCard;
+    public static Cards selectCard;
     private ArrayList<Cards> cards;
     private ArrayList<ImageView> cards_ImagesView;
     
@@ -61,6 +63,42 @@ public class Cards_Main_Controller {
         cards_ImagesView = new ArrayList<>();
         getArrayImagesViews();
         fillBook();
+        card00.setOnMouseClicked((MouseEvent event) -> {
+               Cards_Main_Controller.this.setPrevisualize(card00);
+        });
+        card01.setOnMouseClicked((MouseEvent event) -> {
+               Cards_Main_Controller.this.setPrevisualize(card01);
+        });
+        card02.setOnMouseClicked((MouseEvent event) -> {
+               Cards_Main_Controller.this.setPrevisualize(card02);
+        });
+        card03.setOnMouseClicked((MouseEvent event) -> {
+               Cards_Main_Controller.this.setPrevisualize(card03);
+        });
+        card10.setOnMouseClicked((MouseEvent event) -> {
+               Cards_Main_Controller.this.setPrevisualize(card10);
+        });
+        card11.setOnMouseClicked((MouseEvent event) -> {
+               Cards_Main_Controller.this.setPrevisualize(card11);
+        });
+        card12.setOnMouseClicked((MouseEvent event) -> {
+               Cards_Main_Controller.this.setPrevisualize(card12);
+        });
+        card13.setOnMouseClicked((MouseEvent event) -> {
+               Cards_Main_Controller.this.setPrevisualize(card13);
+        });
+        card20.setOnMouseClicked((MouseEvent event) -> {
+               Cards_Main_Controller.this.setPrevisualize(card20);
+        });
+        card21.setOnMouseClicked((MouseEvent event) -> {
+               Cards_Main_Controller.this.setPrevisualize(card21);
+        });
+        card22.setOnMouseClicked((MouseEvent event) -> {
+               Cards_Main_Controller.this.setPrevisualize(card22);
+        });
+        card23.setOnMouseClicked((MouseEvent event) -> {
+               Cards_Main_Controller.this.setPrevisualize(card23);
+        });
     }
 
     private void getArrayImagesViews(){
@@ -105,9 +143,9 @@ public class Cards_Main_Controller {
             dataBase.DesconectarBasedeDatos();
         } catch (SQLException e) {
         }
-    }
+    } 
     
-    private void showPrevisualize(ImageView iv){
+    private void setPrevisualize(ImageView iv){
         prevCard.setImage(iv.getImage());
     }
     

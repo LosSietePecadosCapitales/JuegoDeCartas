@@ -69,6 +69,7 @@ public class Initial_Controller {
                 dataBase.result = dataBase.sentence.executeQuery(SQLsentence);       
                     if(dataBase.result.next()){
                         ID_User = dataBase.result.getInt(1);
+                        System.out.println(ID_User);
                         Name_User = dataBase.result.getString(3);
                         Notifications.notification("Bienvenido "+user,"Estadisticas del dia",9);
                         try{
