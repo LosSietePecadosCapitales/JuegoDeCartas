@@ -64,11 +64,6 @@ public class Cards_Create_Controller {
     @FXML
     public void initialize(){
         created_by_Card_Label.setText(created_by_Card_Label.getText()+" "+Initial_Controller.Name_User);
-        Font font = Font.loadFont(Cards_Create_Controller.class.getResource("/Assets/Fonts/matrixb.ttf").toExternalForm(), 14);
-        Font font2 = Font.loadFont(Cards_Create_Controller.class.getResource("/Assets/Fonts/matrixr.ttf").toExternalForm(), 16);
-        name_Card_Label.setFont(font2);
-        type_Card_Label.setFont(font);
-        description_Card_Label.setFont(font);
         
         //Estrellas
         //Atributos combo box (Cantidad de estrellas)
