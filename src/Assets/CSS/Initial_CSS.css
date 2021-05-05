@@ -1,0 +1,70 @@
+@font-face {
+    -fx-font-family: Squaler;
+    src: url("../Fonts/Squealer.ttf");
+}
+
+#slogan{
+    -fx-font-family: Squealer;
+    -fx-font-size: 48px;
+    -fx-stroke: red;
+    -fx-stroke-width: 2px;
+}
+
+#user_TextField, #pass_TextField{
+    -fx-background-radius: 0px 0px 0px 5px;
+    -fx-background-color: transparent;
+    -fx-border-radius: 0px 0px 5px 5px;
+    -fx-border-color: transparent transparent red red;
+    -fx-border-width: 2px;
+    -fx-text-fill: white;
+}
+
+#minimize, #exit{
+    -fx-background-image: url('../Images/Buttons/Button_3.png');
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: cover, auto;
+    -fx-background-color: transparent;    
+    -fx-text-fill: rgb(50,50,50);
+}
+
+#minimize:pressed, #exit:pressed{
+    -fx-background-image: url('../Images/Buttons/Button_3_Hit.png');
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: cover, auto;
+    -fx-background-color: transparent;    
+    -fx-text-fill: rgb(50,50,50);
+}
+
+#login {
+    -fx-background-image: url('../Images/Buttons/Button_1.png');
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: cover, auto;
+    -fx-background-color: transparent;
+    -fx-background-radius: 0px;
+    -fx-text-fill: gray;
+}
+
+#login:pressed {
+    -fx-background-image: url('../Images/Buttons/Button_1_Hit.png');
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: cover, auto;
+    -fx-background-color: transparent;
+    -fx-background-radius: 0px;    
+}
+
+#register {
+    -fx-background-image: url('../Images/Buttons/Button_2.png');
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: cover, auto;
+    -fx-background-color: transparent;
+    -fx-background-radius: 0px;
+    -fx-text-fill: gray;
+}
+
+#register:pressed {
+    -fx-background-image: url('../Images/Buttons/Button_2_Hit.png');
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: cover, auto;
+    -fx-background-color: transparent;
+    -fx-background-radius: 0px;    
+}
