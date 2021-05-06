@@ -65,39 +65,51 @@ public class Cards_Main_Controller {
         fillBook();
         card00.setOnMouseClicked((MouseEvent event) -> {
                Cards_Main_Controller.this.setPrevisualize(card00);
+               selectCard = cards.get(0);
         });
         card01.setOnMouseClicked((MouseEvent event) -> {
                Cards_Main_Controller.this.setPrevisualize(card01);
+               selectCard = cards.get(1);
         });
         card02.setOnMouseClicked((MouseEvent event) -> {
                Cards_Main_Controller.this.setPrevisualize(card02);
+               selectCard = cards.get(2);
         });
         card03.setOnMouseClicked((MouseEvent event) -> {
                Cards_Main_Controller.this.setPrevisualize(card03);
+               selectCard = cards.get(3);
         });
         card10.setOnMouseClicked((MouseEvent event) -> {
                Cards_Main_Controller.this.setPrevisualize(card10);
+               selectCard = cards.get(4);
         });
         card11.setOnMouseClicked((MouseEvent event) -> {
                Cards_Main_Controller.this.setPrevisualize(card11);
+               selectCard = cards.get(5);
         });
         card12.setOnMouseClicked((MouseEvent event) -> {
                Cards_Main_Controller.this.setPrevisualize(card12);
+               selectCard = cards.get(6);
         });
         card13.setOnMouseClicked((MouseEvent event) -> {
                Cards_Main_Controller.this.setPrevisualize(card13);
+               selectCard = cards.get(7);
         });
         card20.setOnMouseClicked((MouseEvent event) -> {
                Cards_Main_Controller.this.setPrevisualize(card20);
+               selectCard = cards.get(8);
         });
         card21.setOnMouseClicked((MouseEvent event) -> {
                Cards_Main_Controller.this.setPrevisualize(card21);
+               selectCard = cards.get(9);
         });
         card22.setOnMouseClicked((MouseEvent event) -> {
                Cards_Main_Controller.this.setPrevisualize(card22);
+               selectCard = cards.get(10);
         });
         card23.setOnMouseClicked((MouseEvent event) -> {
                Cards_Main_Controller.this.setPrevisualize(card23);
+               selectCard = cards.get(11);
         });
     }
 
@@ -211,10 +223,12 @@ public class Cards_Main_Controller {
     @FXML
     public void editCard(){
         try{
+            System.out.println("entre a la vista de editar");
             Stage stage = (Stage) base.getScene().getWindow();
             Parent root = FXMLLoader.load(getClass().getResource("/Views/Cards/Edit_Card_View.fxml"));
             Scene scene = new Scene(root);
             stage.setScene(scene);
+            System.out.println("Final de la vista!");
         } catch (IOException e) {
         }
     }
@@ -226,21 +240,21 @@ public class Cards_Main_Controller {
     
     @FXML
     public void originalCards(){
-        editCardButton.setDisable(true);
+        //editCardButton.setDisable(true);
         deleteCardButton.setDisable(true);
         page = 0;
     }
     
     @FXML
     public void PersonalizeCards(){
-        editCardButton.setDisable(true);
+        //editCardButton.setDisable(true);
         deleteCardButton.setDisable(true);
         page = 0;
     }
     
     @FXML
     public void OwnCards(){
-        editCardButton.setDisable(false);
+        //editCardButton.setDisable(false);
         deleteCardButton.setDisable(false);
         page = 0;
     }
