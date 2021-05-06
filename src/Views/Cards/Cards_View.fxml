@@ -44,7 +44,7 @@
          </font>
       </Button>
       <Button fx:id="createCardButton" layoutX="893.0" layoutY="327.0" mnemonicParsing="false" onAction="#createCard" prefHeight="62.0" prefWidth="202.0" text="CREAR CARTA" />
-      <Button fx:id="editCardButton" disable="true" layoutX="892.0" layoutY="418.0" mnemonicParsing="false" onAction="#editCard" prefHeight="62.0" prefWidth="202.0" text="EDITAR CARTA" />
+      <Button fx:id="editCardButton" layoutX="892.0" layoutY="418.0" mnemonicParsing="false" onAction="#editCard" prefHeight="62.0" prefWidth="202.0" text="EDITAR CARTA" />
       <Button fx:id="deleteCardButton" disable="true" layoutX="893.0" layoutY="508.0" mnemonicParsing="false" onAction="#deleteCard" prefHeight="62.0" prefWidth="202.0" text="ELIMINAR CARTA" />
       <Button fx:id="back" layoutX="25.0" layoutY="50.0" mnemonicParsing="false" onAction="#back" prefHeight="40.0" prefWidth="40.0" text="◄">
          <font>
