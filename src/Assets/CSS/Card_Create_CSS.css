@@ -1,0 +1,40 @@
+@font-face {
+    -fx-font-family: Squaler;
+ 
+   src: url("../Fonts/Squealer.ttf");
+}
+
+@font-face {
+    -fx-font-family: Coalition;
+    src: url("../Fonts/Coalition_v2.ttf");
+}
+
+#slogan{
+    -fx-font-family: Squealer;
+    -fx-font-size: 28px;
+    -fx-stroke: rgb(214, 0, 0);
+    -fx-stroke-width: 2px;
+}
+
+
+#back {
+    -fx-background-image: url('../Images/Buttons/Button_Back.png');
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: cover, auto;
+    -fx-background-color: transparent;
+    -fx-background-radius: 0px;
+    -fx-text-fill: black;
+    -fx-font-family: Coalition;
+    -fx-font-size: 24px;
+}
+
+#back:pressed {
+    -fx-background-image: url('../Images/Buttons/Button_Back_Hit.png');
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: cover, auto;
+    -fx-background-color: transparent;
+    -fx-background-radius: 0px;
+    -fx-text-fill: black;
+    -fx-font-family: Coalition;
+    -fx-font-size: 24px;
+}
