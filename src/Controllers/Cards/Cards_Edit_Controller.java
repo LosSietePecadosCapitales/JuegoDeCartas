@@ -68,6 +68,7 @@ public class Cards_Edit_Controller {
     @FXML
     public void initialize(){
         created_by_Card_Label.setText(created_by_Card_Label.getText()+" "+Initial_Controller.Name_User);
+        initializeCardInfo();
         
         //Estrellas
         //Atributos combo box (Cantidad de estrellas)
@@ -142,7 +143,7 @@ public class Cards_Edit_Controller {
                 def_Card_Label.setText(auxString);
             }
         });
-        initializeCardInfo();
+        
     }
     
     private void init_element(String auxString){
@@ -378,17 +379,11 @@ public class Cards_Edit_Controller {
             ConnectionMySQL dataBase = new ConnectionMySQL();      
             dataBase.ConectarBasedeDatos();
             PreparedStatement s;
+            
+            int auxId = Cards_Main_Controller.selectCard.getId();
+            
             //FALTA ACTUALIZAR
-            s = dataBase.connection.prepareStatement("UPDATE Carta SET"
-                    + "nombre = ?,"
-                    + "elemento = ?,"
-                    + "ataque = ?,"
-                    + "defensa = ?,"
-                    + "estrellas = ?,"
-                    + "imagen = ?,"
-                    + "tipo = ?,"
-                    + "descripcion = ? "
-                    + "WHERE id = "+Cards_Main_Controller.selectCard.getId()+";");
+            s = dataBase.connection.prepareStatement("UPDATE Carta SET nombre = ?, elemento = ?, ataque = ?, defensa = ?, estrellas = ?, imagen = ?, tipo = ?, descripcion = ? WHERE id = "+ auxId +";");
             s.setString(1, name_Card_TF.getText());
             s.setString(2, String.valueOf(element_Card_CB.getValue()));
             s.setInt(3, Integer.valueOf(atk_Card_TF.getText()));

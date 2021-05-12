@@ -11,7 +11,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="base" maxHeight="690.0" maxWidth="1230.0" minHeight="690.0" minWidth="1230.0" prefHeight="690.0" prefWidth="1230.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.Cards.Cards_Main_Controller">
+<AnchorPane fx:id="base" maxHeight="690.0" maxWidth="1230.0" minHeight="690.0" minWidth="1230.0" prefHeight="690.0" prefWidth="1230.0" stylesheets="@../../Assets/CSS/Card_Create_CSS.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.Cards.Cards_Main_Controller">
    <children>
       <Rectangle arcHeight="5.0" arcWidth="5.0" height="690.0" stroke="BLACK" strokeType="INSIDE" width="1230.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" height="30.0" opacity="0.42" stroke="BLACK" strokeType="INSIDE" width="1230.0">
@@ -44,9 +44,9 @@
          </font>
       </Button>
       <Button fx:id="createCardButton" layoutX="893.0" layoutY="327.0" mnemonicParsing="false" onAction="#createCard" prefHeight="62.0" prefWidth="202.0" text="CREAR CARTA" />
-      <Button fx:id="editCardButton" disable="true" layoutX="892.0" layoutY="418.0" mnemonicParsing="false" onAction="#editCard" prefHeight="62.0" prefWidth="202.0" text="EDITAR CARTA" />
+      <Button fx:id="editCardButton" layoutX="892.0" layoutY="418.0" mnemonicParsing="false" onAction="#editCard" prefHeight="62.0" prefWidth="202.0" text="EDITAR CARTA" />
       <Button fx:id="deleteCardButton" disable="true" layoutX="893.0" layoutY="508.0" mnemonicParsing="false" onAction="#deleteCard" prefHeight="62.0" prefWidth="202.0" text="ELIMINAR CARTA" />
-      <Button fx:id="back" layoutX="25.0" layoutY="50.0" mnemonicParsing="false" onAction="#back" prefHeight="40.0" prefWidth="40.0" text="◄">
+      <Button fx:id="back" layoutX="25.0" layoutY="50.0" maxHeight="44.0" maxWidth="44.0" minHeight="44.0" minWidth="44.0" mnemonicParsing="false" onAction="#back" prefHeight="44.0" prefWidth="44.0" stylesheets="@../../Assets/CSS/Card_Create_CSS.css" text="&lt;">
          <font>
             <Font name="Arial Black" size="12.0" />
          </font>
@@ -56,14 +56,14 @@
             <Image url="@../../Assets/Images/Logo.png" />
          </image>
       </ImageView>
-      <Text id="slogan" fx:id="slogan" fill="WHITE" layoutX="892.0" layoutY="182.0" strokeLineCap="ROUND" strokeType="OUTSIDE" strokeWidth="0.0" text="DUMIES ONLINE CARD GAME" underline="true">
+      <Text id="slogan" fx:id="slogan" fill="WHITE" layoutX="869.0" layoutY="182.0" strokeLineCap="ROUND" strokeType="OUTSIDE" strokeWidth="0.0" text="DUMIES ONLINE CARD GAME" underline="true">
          <font>
             <Font size="18.0" />
          </font>
       </Text>
-      <Button layoutX="285.0" layoutY="119.0" mnemonicParsing="false" text="Originales" />
-      <Button layoutX="367.0" layoutY="119.0" mnemonicParsing="false" text="Personalizadas" />
-      <Button layoutX="469.0" layoutY="119.0" mnemonicParsing="false" text="Propias" />
+      <Button fx:id="originalCardButton" layoutX="275.0" layoutY="119.0" mnemonicParsing="false" onAction="#originalCards" text="Originales" />
+      <Button fx:id="perzonalizeCardButton" layoutX="367.0" layoutY="119.0" mnemonicParsing="false" onAction="#PersonalizeCards" text="Personalizadas" />
+      <Button fx:id="ownCardButton" layoutX="469.0" layoutY="119.0" mnemonicParsing="false" onAction="#OwnCards" text="Propias" />
       <AnchorPane layoutX="25.0" layoutY="144.0" prefHeight="500.0" prefWidth="500.0" style="-fx-border-color: red;">
          <children>
             <ImageView fx:id="card00" fitHeight="159.0" fitWidth="113.0" layoutX="15.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true" />

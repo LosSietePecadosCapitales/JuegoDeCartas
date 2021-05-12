@@ -80,6 +80,7 @@ public class Principal_Panel_Controller {
             Scene scene = new Scene(root);
             stage.setScene(scene);
         } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 
@@ -91,6 +92,7 @@ public class Principal_Panel_Controller {
             Scene scene = new Scene(root);
             stage.setScene(scene);
         } catch (IOException e) {
+            e.printStackTrace();
         }
     }
     
