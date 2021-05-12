@@ -302,8 +302,21 @@ public class Cards_Main_Controller {
     }
 
     @FXML
-    public void deleteCard(){
-
+    public void deleteCard() throws SQLException{
+        
+        ConnectionMySQL dataBase = new ConnectionMySQL();
+        dataBase.ConectarBasedeDatos();
+        String query = "DELETE FROM Carta WHERE id = "+selectCard.getId()+";";
+        dataBase.sentence.executeUpdate(query);
+        dataBase.DesconectarBasedeDatos();
+        
+        prevCard.setImage(null);
+        selectCard = null;
+        cleanImagesViews();
+        fillBook();
+        
+        
+        
     }
     
     @FXML
