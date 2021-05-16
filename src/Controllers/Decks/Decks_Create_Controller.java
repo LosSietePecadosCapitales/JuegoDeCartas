@@ -25,14 +25,17 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.HBox;
 import javax.imageio.ImageIO;
 
 public class Decks_Create_Controller {
     
     @FXML public AnchorPane base;
     @FXML public ScrollPane eligible_Cards;
+    @FXML public HBox hbox_cards;
     @FXML public Label number_Label;
     @FXML public Label amount_Label;
+    @FXML public Label title;
     @FXML public Text slogan;
     @FXML public TextField nameDeck;
     
@@ -53,14 +56,7 @@ public class Decks_Create_Controller {
     @FXML public ImageView card21;
     @FXML public ImageView card22;
     @FXML public ImageView card23;
-    
-    @FXML public ImageView card000;
-    @FXML public ImageView card001;
-    @FXML public ImageView card002;
-    @FXML public ImageView card003;
-    @FXML public ImageView card004;
 
-    @FXML public ImageView defaultCard;
     @FXML public ImageView prevCard;
     
     private final int itemsPerPage = 12;
@@ -68,15 +64,19 @@ public class Decks_Create_Controller {
     public static Cards selectCard;
     private ArrayList<Cards> cards;
     private ArrayList<Cards> cardsSelected;
-    private ArrayList<ImageView> cards_ImagesView;
+    private ArrayList<ImageView> cards_ImagesView_Book;
+    private ArrayList<ImageView> cards_ImagesView_Selected;
     private int count = 0;
 
     @FXML
     public void initialize(){
+        for (int i = 0; i < 5; i++) {
+            hbox_cards.getChildren().add(createButon());
+        }
         page = 0;
         selectCard = null;
         cards = new ArrayList<>();
-        cards_ImagesView = new ArrayList<>();
+        cards_ImagesView_Book = new ArrayList<>();
         cardsSelected = new ArrayList<>();
         getArrayImagesViews();
         fillBook();
@@ -128,7 +128,7 @@ public class Decks_Create_Controller {
                Decks_Create_Controller.this.setImagePanel(card23);
                selectCard = cards.get(11);
         });
-
+/*
         card000.setOnMouseClicked((MouseEvent event) -> {
                Decks_Create_Controller.this.setImagePanel(card000, new ImageView("/Assets/Images/Card_Back.png"));
                amount_Label.setText((Decks_Create_Controller.this.count--)+"/40");
@@ -149,7 +149,7 @@ public class Decks_Create_Controller {
                Decks_Create_Controller.this.setImagePanel(card004, new ImageView("/Assets/Images/Card_Back.png"));              
                amount_Label.setText((Decks_Create_Controller.this.count--)+"/40");             
         });    
-        
+
         prevCard.setOnMouseClicked((MouseEvent event) -> {     
             if(card000.getImage()==null)   
                Decks_Create_Controller.this.setImagePanel(card000, prevCard);
@@ -172,7 +172,7 @@ public class Decks_Create_Controller {
             Decks_Create_Controller.this.prevCard.setImage(new Image("/Assets/Images/Card_Back.png"));
             Decks_Create_Controller.this.amount_Label.setText((Decks_Create_Controller.this.count++)+"/40");
         });
-        
+        */
     }
     
     private void setImagePanel(ImageView selected){
@@ -184,18 +184,18 @@ public class Decks_Create_Controller {
     }
     
      private void getArrayImagesViews(){
-        cards_ImagesView.add(card00);
-        cards_ImagesView.add(card01);
-        cards_ImagesView.add(card02);
-        cards_ImagesView.add(card03);
-        cards_ImagesView.add(card10);
-        cards_ImagesView.add(card11);
-        cards_ImagesView.add(card12);
-        cards_ImagesView.add(card13);
-        cards_ImagesView.add(card20);
-        cards_ImagesView.add(card21);
-        cards_ImagesView.add(card22);
-        cards_ImagesView.add(card23);
+        cards_ImagesView_Book.add(card00);
+        cards_ImagesView_Book.add(card01);
+        cards_ImagesView_Book.add(card02);
+        cards_ImagesView_Book.add(card03);
+        cards_ImagesView_Book.add(card10);
+        cards_ImagesView_Book.add(card11);
+        cards_ImagesView_Book.add(card12);
+        cards_ImagesView_Book.add(card13);
+        cards_ImagesView_Book.add(card20);
+        cards_ImagesView_Book.add(card21);
+        cards_ImagesView_Book.add(card22);
+        cards_ImagesView_Book.add(card23);
     }
     
     private void fillBook(){
@@ -217,7 +217,7 @@ public class Decks_Create_Controller {
                 imageAux,
                 dataBase.result.getString(8),
                 dataBase.result.getString(9));
-                cards_ImagesView.get(i).setImage(imageAux);
+                cards_ImagesView_Book.get(i).setImage(imageAux);
                 cards.add(c);
                 i+=1;
             }
@@ -227,6 +227,10 @@ public class Decks_Create_Controller {
         }
     } 
     
+    @FXML
+    public void add(){
+        hbox_cards.getChildren().add(createButon());
+    }
     
     @FXML
     public void saveClick(){
@@ -252,8 +256,19 @@ public class Decks_Create_Controller {
         }
     } 
     
+    private Button createButon(){
+        Button b = new Button("caca");
+        b.setMinWidth(60);
+        b.setMinHeight(20);
+        b.setPrefWidth(60);
+        b.setPrefHeight(20);
+        b.setMaxWidth(60);
+        b.setMaxHeight(20);
+        return b;
+    }
+    
     private void cleanImagesViews(){
-        cards_ImagesView.forEach((i) -> {
+        cards_ImagesView_Book.forEach((i) -> {
             i.setImage(null);
         });
     }
