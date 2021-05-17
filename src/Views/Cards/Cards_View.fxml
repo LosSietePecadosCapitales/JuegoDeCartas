@@ -44,7 +44,7 @@
          </font>
       </Button>
       <Button fx:id="createCardButton" layoutX="893.0" layoutY="327.0" mnemonicParsing="false" onAction="#createCard" prefHeight="62.0" prefWidth="202.0" text="CREAR CARTA" />
-      <Button fx:id="editCardButton" disable="true" layoutX="892.0" layoutY="418.0" mnemonicParsing="false" onAction="#editCard" prefHeight="62.0" prefWidth="202.0" text="EDITAR CARTA" />
+      <Button fx:id="editCardButton" layoutX="892.0" layoutY="418.0" mnemonicParsing="false" onAction="#editCard" prefHeight="62.0" prefWidth="202.0" text="EDITAR CARTA" />
       <Button fx:id="deleteCardButton" disable="true" layoutX="893.0" layoutY="508.0" mnemonicParsing="false" onAction="#deleteCard" prefHeight="62.0" prefWidth="202.0" text="ELIMINAR CARTA" />
       <Button fx:id="back" layoutX="25.0" layoutY="50.0" maxHeight="44.0" maxWidth="44.0" minHeight="44.0" minWidth="44.0" mnemonicParsing="false" onAction="#back" prefHeight="44.0" prefWidth="44.0" stylesheets="@../../Assets/CSS/Card_Create_CSS.css" text="&lt;">
          <font>
@@ -56,14 +56,14 @@
             <Image url="@../../Assets/Images/Logo.png" />
          </image>
       </ImageView>
-      <Text id="slogan" fx:id="slogan" fill="WHITE" layoutX="869.0" layoutY="182.0" strokeLineCap="ROUND" strokeType="OUTSIDE" strokeWidth="0.0" text="DUMIES ONLINE CARD GAME" underline="true">
+      <Text id="slogan" fx:id="slogan" fill="WHITE" layoutX="826.0" layoutY="184.0" strokeLineCap="ROUND" strokeType="OUTSIDE" strokeWidth="0.0" text="DUMIES ONLINE CARD GAME" underline="true">
          <font>
             <Font size="18.0" />
          </font>
       </Text>
-      <Button layoutX="285.0" layoutY="119.0" mnemonicParsing="false" text="Originales" />
-      <Button layoutX="367.0" layoutY="119.0" mnemonicParsing="false" text="Personalizadas" />
-      <Button layoutX="469.0" layoutY="119.0" mnemonicParsing="false" text="Propias" />
+      <Button fx:id="originalCardButton" layoutX="275.0" layoutY="119.0" mnemonicParsing="false" onAction="#originalCards" text="Originales" />
+      <Button fx:id="perzonalizeCardButton" layoutX="360.0" layoutY="119.0" mnemonicParsing="false" onAction="#PersonalizeCards" text="Personalizadas" />
+      <Button fx:id="ownCardButton" layoutX="469.0" layoutY="119.0" mnemonicParsing="false" onAction="#OwnCards" text="Propias" />
       <AnchorPane layoutX="25.0" layoutY="144.0" prefHeight="500.0" prefWidth="500.0" style="-fx-border-color: red;">
          <children>
             <ImageView fx:id="card00" fitHeight="159.0" fitWidth="113.0" layoutX="15.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true" />
@@ -80,7 +80,7 @@
             <ImageView fx:id="card23" fitHeight="159.0" fitWidth="113.0" layoutX="377.0" layoutY="336.0" pickOnBounds="true" preserveRatio="true" />
          </children>
       </AnchorPane>
-      <AnchorPane layoutX="566.0" layoutY="216.0" prefHeight="200.0" prefWidth="190.0" style="-fx-border-color: white; -fx-border-width: 2px;">
+      <AnchorPane layoutX="600.0" layoutY="216.0" prefHeight="200.0" prefWidth="190.0" style="-fx-border-color: white; -fx-border-width: 2px;">
          <children>
             <ImageView fx:id="prevCard" fitHeight="340.0" fitWidth="242.0" layoutX="3.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true" />
          </children>
