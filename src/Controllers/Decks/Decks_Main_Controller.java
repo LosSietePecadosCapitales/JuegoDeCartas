@@ -11,6 +11,9 @@ import Features.Managements.Adapters;
 import Features.Objects.Cards;
 import Features.Objects.Deck;
 import Features.Managements.Notifications;
+import java.awt.Toolkit;
+import java.awt.datatransfer.Clipboard;
+import java.awt.datatransfer.StringSelection;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -30,6 +33,7 @@ import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 
 public class Decks_Main_Controller {
     
@@ -50,10 +54,10 @@ public class Decks_Main_Controller {
     @FXML public ImageView deck20, deck21, deck22, deck23;
     
     public static Deck deck; // PARA GUARDAR EL DECK SELECCIONADO ANTES EN EL CLICK
+    public static int deckID;
     
-    public static ArrayList<ArrayList<Cards>> decks;
+    public static ArrayList<Deck> decks;
     private final ArrayList<Cards> cards = new ArrayList<>();
-    private final ArrayList<String> info = new ArrayList<>();
     private int actualDeckID;
     
     @FXML
@@ -68,13 +72,14 @@ public class Decks_Main_Controller {
             dataBase.ConectarBasedeDatos();    
             dataBase.result = dataBase.sentence.executeQuery(SQLsentence);          
             int i = 0;
+            Deck aux;
             while (dataBase.result.next()) {
                 if(actualDeckID != dataBase.result.getInt(1))
                 {                    
-                    decks.add(cards);
+                    aux = new Deck(dataBase.result.getInt(1),dataBase.result.getString(2),cards);
+                    decks.add(aux);
                     cards.clear();
                     actualDeckID = dataBase.result.getInt(1);
-                    info.add(dataBase.result.getString(2));
                     Image imageAux = Adapters.blobToImage(dataBase.result.getBlob(9));
                     Cards c = new Cards(dataBase.result.getInt(3),
                     dataBase.result.getString(4),
@@ -110,21 +115,21 @@ public class Decks_Main_Controller {
             dataBase.DesconectarBasedeDatos();
             System.out.println(decks.size());
             
-            ObservableList<ArrayList<Cards>> oList = FXCollections.observableArrayList(decks);
+            ObservableList<Deck> oList = FXCollections.observableArrayList(decks);
             cards_of_Deck.setItems(oList);            
-            cards_of_Deck.setCellFactory(param -> new ListCell<ArrayList<ArrayList<Cards>>>() {
-            private ImageView imageView = new ImageView(new Image ("src/Assets/Images/Logo.png"));
+            cards_of_Deck.setCellFactory(param -> new ListCell<Deck>() {
+            private ImageView imageView = new ImageView(new Image ("/Assets/Images/Logo.png"));
             
             @Override
-            public void updateItem(ArrayList<ArrayList<Cards>> deck, boolean empty) {
+            public void updateItem(Deck deck, boolean empty) {
                 super.updateItem(deck, empty);
                 if (empty) {
                     setText(null);
                     setGraphic(null);
                 } else {                      
-                    imageView.setImage(new Image ("src/Assets/Images/Logo.png"));    
+                    imageView.setImage(new Image ("/Assets/Images/Logo.png"));    
                     setGraphic(imageView);
-                    setText(" > "+info.get(cards_of_Deck.getEditingIndex())+" < \n"+"      > Numero de Cartas: "+deck.get(cards_of_Deck.getEditingIndex()).size());                                
+                    setText(" > "+deck.getName()+" < \n"+"      > Numero de Cartas: "+deck.getCardsCount());                                
                 }
             }
             });
@@ -199,9 +204,33 @@ public class Decks_Main_Controller {
         // EN EL LIST VIEW CARDS_OF_DECK
     }
     
+    public void seleccionDeck(MouseEvent event){
+        try{
+            Deck aux =  (Deck) cards_of_Deck.getSelectionModel().getSelectedItem();
+            String idString = String.valueOf(aux.getID());
+            StringSelection stringSelect = new StringSelection(idString);
+            Clipboard cb = Toolkit.getDefaultToolkit().getSystemClipboard();
+            cb.setContents(stringSelect, null);
+            deck = aux;           
+            deckID = aux.getID();
+        }catch(NullPointerException e){
+        }
+    }
+    
     @FXML
     public void deleteDeck(){
-        // VERIFICAR QUE DECK ESTÉ SELECCIONADO Y LUEGO HACER LA QUERY Y REFRESH
-        // DEL VIEW CON ALGUN METODO EKIS DE
+        try {
+            ConnectionMySQL dataBase = new ConnectionMySQL();
+            String SQLsentence = "DELETE FROM Mazo WHERE Mazo.id = "+deck.getID()+" ;";
+            dataBase.ConectarBasedeDatos();
+            dataBase.sentence.execute(SQLsentence);
+            dataBase.DesconectarBasedeDatos();
+            
+            
+            // VERIFICAR QUE DECK ESTÉ SELECCIONADO Y LUEGO HACER LA QUERY Y REFRESH
+            // DEL VIEW CON ALGUN METODO EKIS DE
+        } catch (SQLException ex) {
+            Logger.getLogger(Decks_Main_Controller.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 }
