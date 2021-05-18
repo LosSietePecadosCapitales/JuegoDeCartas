@@ -98,8 +98,16 @@ public class Game_Join_Controller {
         }
     }
     
+    @FXML
     public void joinGame(){
-        //Abrir los sockets
+        try {
+            Stage stage = (Stage) base.getScene().getWindow();
+            Parent root = FXMLLoader.load(getClass().getResource("/Views/Game/Game_View.fxml"));
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
     
     private void initializeTableView(){        

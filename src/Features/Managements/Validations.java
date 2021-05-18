@@ -59,7 +59,6 @@ public class Validations {
         return false;
     }
     public boolean validateDescription(String text){        
-        //-285 caracteres
-        return false;
+        return text.length()<=280 && text.length()>0;
     }
 }

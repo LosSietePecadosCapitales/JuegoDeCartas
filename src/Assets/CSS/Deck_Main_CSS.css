@@ -1,0 +1,24 @@
+#base_decks{
+    -fx-border-color: red;
+}
+#back {
+    -fx-background-image: url('../Images/Buttons/Button_Back.png');
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: cover, auto;
+    -fx-background-color: transparent;
+    -fx-background-radius: 0px;
+    -fx-text-fill: black;
+    -fx-font-family: Coalition;
+    -fx-font-size: 24px;
+}
+
+#back:pressed {
+    -fx-background-image: url('../Images/Buttons/Button_Back_Hit.png');
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: cover, auto;
+    -fx-background-color: transparent;
+    -fx-background-radius: 0px;
+    -fx-text-fill: black;
+    -fx-font-family: Coalition;
+    -fx-font-size: 24px;
+}

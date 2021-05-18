@@ -1,0 +1,68 @@
+@font-face {
+    -fx-font-family: Squaler;
+    src: url("../Fonts/Squealer.ttf");
+}
+
+#user_TextField, #pass_TextField{
+    -fx-background-radius: 0px 0px 0px 5px;
+    -fx-background-color: transparent;
+    -fx-border-radius: 0px 0px 5px 5px;
+    -fx-border-color: transparent transparent red red;
+    -fx-border-width: 2px;
+    -fx-text-fill: white;
+}
+
+#minimize, #exit{
+    -fx-background-image: url('../Images/Buttons/Button_3.png');
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: cover, auto;
+    -fx-background-color: transparent;    
+    -fx-text-fill: rgb(50,50,50);
+}
+
+#minimize:pressed, #exit:pressed{
+    -fx-background-image: url('../Images/Buttons/Button_3_Hit.png');
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: cover, auto;
+    -fx-background-color: transparent;    
+    -fx-text-fill: rgb(50,50,50);
+}
+
+#ownAPMo1, #ownAPMo2, #ownAPMo3, #ownAPMo4, #ownAPMo5{
+    -fx-background-color: rgba(0,0,0,1);
+    -fx-border-color: white;
+    -fx-border-width: 3px;
+}
+
+#ownAPMa1, #ownAPMa2, #ownAPMa3, #ownAPMa4, #ownAPMa5{
+    -fx-background-color: rgba(0,0,0,1);
+    -fx-border-color: white;
+    -fx-border-width: 3px;
+}
+
+#eneAPMo1, #eneAPMo2, #eneAPMo3, #eneAPMo4, #eneAPMo5{
+    -fx-background-color: rgba(0,0,0,1);
+    -fx-border-color: white;
+    -fx-border-width: 3px;
+}
+
+#eneAPMa1, #eneAPMa2, #eneAPMa3, #eneAPMa4, #eneAPMa5{
+    -fx-background-color: rgba(0,0,0,1);
+    -fx-border-color: white;
+    -fx-border-width: 3px;
+}
+
+#prevCardAP, #cemAP, #deckAP{
+    -fx-border-color: white;
+    -fx-background-color: rgba(0,0,0,1);
+    -fx-border-width: 3px;
+}
+
+#cemLabel, #deckLabel{
+    -fx-text-fill: red;
+}
+
+#handOwnAP, #handEneAP{
+    -fx-border-color: red;
+    -fx-border-width: 2px;
+}
