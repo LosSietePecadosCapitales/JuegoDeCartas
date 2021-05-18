@@ -5,6 +5,8 @@
  */
 package Controllers.Decks;
 
+import Features.Managements.Notifications;
+import Features.Objects.Deck;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -27,12 +29,15 @@ public class Decks_Main_Controller {
     @FXML public Button createDeckButton;
     @FXML public Button editDeckButton;
     @FXML public Button deleteDeckButton;
+    @FXML public Button prefDeckButton;
     
     @FXML public ListView cards_of_Deck;
 
     @FXML public ImageView deck00, deck01, deck02, deck03;
     @FXML public ImageView deck10, deck11, deck12, deck13;
     @FXML public ImageView deck20, deck21, deck22, deck23;
+    
+    public static Deck deck; // PARA GUARDAR EL DECK SELECCIONADO ANTES EN EL CLICK
     
     @FXML
     public void initialize(){
@@ -72,11 +77,6 @@ public class Decks_Main_Controller {
         } catch (IOException e) {
         }
     }
-
-    @FXML
-    public void deleteDeck(){
-
-    }
     
     @FXML
     public void minimize(){
@@ -87,5 +87,29 @@ public class Decks_Main_Controller {
     @FXML
     public void exit(){
         System.exit(1);
+    }
+    
+    /* DESDE AQUÍ SON LOS METODOS QUE FALTAN DE ESTA CLASE LEER LAS INSTRUCCIONES*/
+    
+    @FXML
+    public void setPrefDeck(){
+        // AQUI DEBERÍA IR EL METODO PARA ELEGIR EL MAZO PREFERIDO Y GUARDARLO EN LA DB
+        if (deck==null) {
+            Notifications.notification("Error", "Debes seleccionar un mazo antes", 1);
+        }
+        else{
+            // SETEAR EL MAZO PREFERIDO EN LA BASE DE DATOS
+        }
+    }
+    
+    public void viewCardsOfDecks(){
+        // HACER LA QUERY PARA LAS CARTAS Y MOSTRAR SOLAMENTE EL NOMBRE
+        // EN EL LIST VIEW CARDS_OF_DECK
+    }
+    
+    @FXML
+    public void deleteDeck(){
+        // VERIFICAR QUE DECK ESTÉ SELECCIONADO Y LUEGO HACER LA QUERY Y REFRESH
+        // DEL VIEW CON ALGUN METODO EKIS DE
     }
 }
