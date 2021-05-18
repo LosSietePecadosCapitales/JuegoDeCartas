@@ -9,21 +9,26 @@ import java.util.ArrayList;
 
 /**
  *
- * @author F. Pino Cambiar
+ * @author F. Pino 
  */
 public class Deck {
     private final int ID;
     private String name;
     private int cardsCount;
-    private final int ref_player;
-    private final ArrayList<Cards> cards;
+    private ArrayList<Cards> cards;
 
-    public Deck(int ID, String name, int cardsCount, int ref_player) {
+    public Deck(int ID, String name, ArrayList<Cards> cards) {
         this.ID = ID;
         this.name = name;
-        this.cardsCount = cardsCount;
-        this.ref_player = ref_player;
+        this.cards = cards;
+        this.cardsCount = cards.size();        
+    }
+    
+    public Deck(int ID, String name) {
+        this.ID = ID;
+        this.name = name;
         this.cards = new ArrayList<>();
+        this.cardsCount = this.cards.size();        
     }
 
     public int getID() {
@@ -36,10 +41,6 @@ public class Deck {
 
     public int getCardsCount() {
         return this.cards.size();
-    }
-
-    public int getRef_player() {
-        return ref_player;
     }
 
     public void setName(String name) {
@@ -57,5 +58,12 @@ public class Deck {
     public Cards getCard(int cardNumber){
         return this.cards.get(cardNumber);
     }
-    
+
+    public void setCards(ArrayList<Cards> cards) {
+        this.cards = cards;
+    }
+
+    public ArrayList<Cards> getCards() {
+        return cards;
+    }
 }
