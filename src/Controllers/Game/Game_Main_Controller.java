@@ -22,7 +22,7 @@ import javafx.stage.Stage;
 public class Game_Main_Controller {
     
     @FXML public AnchorPane base;
-    @FXML public Label title;
+    @FXML public Label title, ownLifeL, eneLifeL;
     @FXML public Button exit, minimize;
     
     @FXML public AnchorPane ownAPMo1, ownAPMo2, ownAPMo3, ownAPMo4, ownAPMo5;
@@ -72,4 +72,47 @@ public class Game_Main_Controller {
         System.exit(1);
     }
     
+    /* FALTA ESTO POR IMPLEMENTAR*/
+    
+    public void moveOwnHandAP(){
+        // ANIMACION PARA MOVER LA MANO
+    }
+    
+    public void moveEneHandAP(){
+        // ANIMACION PARA MOVER LA MANO
+    }
+    
+    public void addCardHand(){
+        // CLICK EN EL MAZO Y AGREGAR CARTA
+    }
+    
+    public void invoqueDef(){
+        // INVOCAR EN MODO DEFENSA CON GRADOS -90
+    }
+    
+    public void invoqueAtk(){
+        // INVOCAR EN MODO DEFENSA CON GRADOS 0
+    }
+    
+    public void sacrifice(){
+        // SACRIFICAR UNA CARTA Y MOVER AL CEMENTERIO
+    }
+    
+    public void prevCard(){
+        // MOSTRAR CARTA EN EL PREV
+    }
+    
+    public void putCardTable(){
+        // COLOCAR LA CARTA SELECCIONADA LUEGO DEL MODO EN EL TABLERO
+        // SOLAMENTE EN LA PRIMERA LINEA, LA SEGUNDA SON LAS MAGICAS Y TRAMPAS
+        // QUE NO ESTAN :V 
+    }
+    
+    public void calc_Damage(){
+        // CALCULAR LA DIFERENCIA DE DAÑO Y DEPENDIENDO DE QUIEN RECIBE ESA
+        // DIFERENCIA ES A QUIEN SE LE DISMINUYE LA VIDA
+        // VERIFICAR ACA TAMBIEN QUE PASA SI EL DAÑO ES 0 O MENOR
+        // ALGUN MENSAJE PARA GANAR PARTIDA Y TERMINAR PARTIDA
+        // DESPUES IMPORTANTE REDIRIGIR A LA PANTALLA PRINCIPAL
+    }
 }
