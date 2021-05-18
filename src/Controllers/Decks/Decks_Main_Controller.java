@@ -10,7 +10,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
@@ -59,6 +58,7 @@ public class Decks_Main_Controller {
             Scene scene = new Scene(root);
             stage.setScene(scene);
         } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 
@@ -76,5 +76,16 @@ public class Decks_Main_Controller {
     @FXML
     public void deleteDeck(){
 
+    }
+    
+    @FXML
+    public void minimize(){
+        Stage s = (Stage) base.getScene().getWindow();
+        s.setIconified(true);
+    }
+    
+    @FXML
+    public void exit(){
+        System.exit(1);
     }
 }

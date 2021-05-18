@@ -51,19 +51,19 @@
             <Font name="Arial Black" size="12.0" />
          </font>
       </Button>
-      <ImageView fitHeight="62.0" fitWidth="332.0" layoutX="1019.0" layoutY="39.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="62.0" fitWidth="332.0" layoutX="1002.0" layoutY="56.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../Assets/Images/Logo.png" />
          </image>
       </ImageView>
-      <Text id="slogan" fx:id="slogan" fill="WHITE" layoutX="1014.0" layoutY="106.0" strokeLineCap="ROUND" strokeType="OUTSIDE" strokeWidth="0.0" text="DUMIES ONLINE CARD GAME" underline="true">
+      <Text id="slogan" fx:id="slogan" fill="WHITE" layoutX="997.0" layoutY="123.0" strokeLineCap="ROUND" strokeType="OUTSIDE" strokeWidth="0.0" text="DUMIES ONLINE CARD GAME" underline="true">
          <font>
             <Font size="13.0" />
          </font>
       </Text>
-      <Button layoutX="275.0" layoutY="119.0" mnemonicParsing="false" text="Originales" />
-      <Button layoutX="360.0" layoutY="119.0" mnemonicParsing="false" text="Personalizadas" />
-      <Button layoutX="469.0" layoutY="119.0" mnemonicParsing="false" text="Propias" />
+      <Button fx:id="originalCards" layoutX="275.0" layoutY="119.0" mnemonicParsing="false" onAction="#originalCards" text="Originales" />
+      <Button fx:id="PersonalizeCards" layoutX="360.0" layoutY="119.0" mnemonicParsing="false" onAction="#PersonalizeCards" text="Personalizadas" />
+      <Button fx:id="OwnCards" layoutX="469.0" layoutY="119.0" mnemonicParsing="false" onAction="#OwnCards" text="Propias" />
       <AnchorPane layoutX="25.0" layoutY="144.0" prefHeight="500.0" prefWidth="500.0" style="-fx-border-color: red;">
          <children>
             <ImageView fx:id="card00" fitHeight="159.0" fitWidth="113.0" layoutX="15.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true" />
@@ -102,11 +102,10 @@
          </font>
       </Label>
       <Button fx:id="save" layoutX="954.0" layoutY="447.0" mnemonicParsing="false" onAction="#saveClick" prefHeight="62.0" prefWidth="202.0" text="Guardar" />
-      <ScrollPane fx:id="eligible_Cards" layoutX="548.0" layoutY="119.0" maxHeight="180.0" maxWidth="660.0" prefHeight="180.0" prefWidth="660.0">
+      <ScrollPane fx:id="eligible_Cards" layoutX="549.0" layoutY="134.0" maxHeight="175.0" maxWidth="660.0" minHeight="175.0" minWidth="660.0" prefHeight="175.0" prefWidth="660.0">
          <content>
-            <HBox fx:id="hbox_cards" alignment="CENTER" maxHeight="165.0" minHeight="165.0" minWidth="0.0" prefHeight="165.0" />
+            <HBox fx:id="hbox_cards" alignment="CENTER_LEFT" maxHeight="156.0" minHeight="156.0" minWidth="0.0" prefHeight="156.0" />
          </content>
       </ScrollPane>
-      <Button layoutX="443.0" layoutY="58.0" mnemonicParsing="false" onAction="#add" text="sumar 1" />
    </children>
 </AnchorPane>
