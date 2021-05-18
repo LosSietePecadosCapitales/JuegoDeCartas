@@ -21,7 +21,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -53,17 +52,17 @@ public class Decks_Main_Controller {
     @FXML public ImageView deck10, deck11, deck12, deck13;
     @FXML public ImageView deck20, deck21, deck22, deck23;
     
-    public static Deck deck; // PARA GUARDAR EL DECK SELECCIONADO ANTES EN EL CLICK
+    public static Deck deckSelected; 
     public static int deckID;
     
-    public static ArrayList<Deck> decks;
+    private final ArrayList<Deck> decks = new ArrayList<>();
     private final ArrayList<Cards> cards = new ArrayList<>();
     private int actualDeckID;
+    Deck auxDeck;
     
     @FXML
     public void initialize(){
         try {
-            decks = new ArrayList<>();
             ConnectionMySQL dataBase = new ConnectionMySQL();
             String SQLsentence = "SELECT Mazo.id, Mazo.nombre, Carta.id, Carta.nombre, Carta.elemento, Carta.ataque, Carta.defensa, "
                     + "Carta.estrellas, Carta.imagen, Carta.tipo, Carta.descripcion "
@@ -72,53 +71,70 @@ public class Decks_Main_Controller {
             dataBase.ConectarBasedeDatos();    
             dataBase.result = dataBase.sentence.executeQuery(SQLsentence);          
             int i = 0;
-            Deck aux;
+            
             while (dataBase.result.next()) {
-                if(actualDeckID != dataBase.result.getInt(1))
-                {                    
-                    aux = new Deck(dataBase.result.getInt(1),dataBase.result.getString(2),cards);
-                    decks.add(aux);
-                    cards.clear();
-                    actualDeckID = dataBase.result.getInt(1);
-                    Image imageAux = Adapters.blobToImage(dataBase.result.getBlob(9));
-                    Cards c = new Cards(dataBase.result.getInt(3),
-                    dataBase.result.getString(4),
-                    dataBase.result.getString(5),
-                    dataBase.result.getInt(6),
-                    dataBase.result.getInt(7),
-                    dataBase.result.getInt(8),
-                    imageAux,
-                    dataBase.result.getString(10),
-                    dataBase.result.getString(11));
-                    //cards_ImagesView.get(i).setImage(imageAux);
-                    
-                    cards.add(c);
-                    i+=1;
-                    
+                if(i==0){                        
+                        auxDeck = new Deck(dataBase.result.getInt(1),dataBase.result.getString(2));
+                        actualDeckID = dataBase.result.getInt(1);
+                        Image imageAux = Adapters.blobToImage(dataBase.result.getBlob(9));
+                        Cards c = new Cards(dataBase.result.getInt(3),
+                        dataBase.result.getString(4),
+                        dataBase.result.getString(5),
+                        dataBase.result.getInt(6),
+                        dataBase.result.getInt(7),
+                        dataBase.result.getInt(8),
+                        imageAux,
+                        dataBase.result.getString(10),
+                        dataBase.result.getString(11));
+                        //cards_ImagesView.get(i).setImage(imageAux);
+                        cards.add(c);
                 }else{
-                    Image imageAux = Adapters.blobToImage(dataBase.result.getBlob(9));
-                    Cards c = new Cards(dataBase.result.getInt(3),
-                    dataBase.result.getString(4),
-                    dataBase.result.getString(5),
-                    dataBase.result.getInt(6),
-                    dataBase.result.getInt(7),
-                    dataBase.result.getInt(8),
-                    imageAux,
-                    dataBase.result.getString(10),
-                    dataBase.result.getString(11));
-                    //cards_ImagesView.get(i).setImage(imageAux);
-                    cards.add(c);
-                    i+=1;                  
-                }                
-               
-            }
+                    if(actualDeckID != dataBase.result.getInt(1))
+                    {                    
+                        auxDeck.setCards((ArrayList<Cards>) cards.clone());
+                        decks.add(auxDeck);
+                        cards.clear();
+                        auxDeck = new Deck(dataBase.result.getInt(1),dataBase.result.getString(2));
+                        actualDeckID = dataBase.result.getInt(1);
+                        Image imageAux = Adapters.blobToImage(dataBase.result.getBlob(9));
+                        Cards c = new Cards(dataBase.result.getInt(3),
+                        dataBase.result.getString(4),
+                        dataBase.result.getString(5),
+                        dataBase.result.getInt(6),
+                        dataBase.result.getInt(7),
+                        dataBase.result.getInt(8),
+                        imageAux,
+                        dataBase.result.getString(10),
+                        dataBase.result.getString(11));
+                        //cards_ImagesView.get(i).setImage(imageAux);
+                        cards.add(c);
+                    }else{
+                        Image imageAux = Adapters.blobToImage(dataBase.result.getBlob(9));
+                        Cards c = new Cards(dataBase.result.getInt(3),
+                        dataBase.result.getString(4),
+                        dataBase.result.getString(5),
+                        dataBase.result.getInt(6),
+                        dataBase.result.getInt(7),
+                        dataBase.result.getInt(8),
+                        imageAux,
+                        dataBase.result.getString(10),
+                        dataBase.result.getString(11));
+                        //cards_ImagesView.get(i).setImage(imageAux);
+                        cards.add(c);                                    
+                    }                     
+                }
+                i++;         
+            }          
+            auxDeck.setCards((ArrayList<Cards>) cards.clone());           
+            decks.add(auxDeck);
+            cards.clear();
             dataBase.DesconectarBasedeDatos();
-            System.out.println(decks.size());
+            System.out.println(decks.get(0).getName());
             
             ObservableList<Deck> oList = FXCollections.observableArrayList(decks);
             cards_of_Deck.setItems(oList);            
             cards_of_Deck.setCellFactory(param -> new ListCell<Deck>() {
-            private ImageView imageView = new ImageView(new Image ("/Assets/Images/Logo.png"));
+            private final ImageView imageView = new ImageView(new Image ("/Assets/Images/Card_Back.png", 20, 30, false, false));
             
             @Override
             public void updateItem(Deck deck, boolean empty) {
@@ -127,7 +143,7 @@ public class Decks_Main_Controller {
                     setText(null);
                     setGraphic(null);
                 } else {                      
-                    imageView.setImage(new Image ("/Assets/Images/Logo.png"));    
+                    imageView.setImage(new Image ("/Assets/Images/Card_Back.png", 20, 30, false, false));    
                     setGraphic(imageView);
                     setText(" > "+deck.getName()+" < \n"+"      > Numero de Cartas: "+deck.getCardsCount());                                
                 }
@@ -138,7 +154,6 @@ public class Decks_Main_Controller {
             ex.printStackTrace();
             Logger.getLogger(Decks_Edit_Controller.class.getName()).log(Level.SEVERE, null, ex);
         } 
-
     }
 
     @FXML
@@ -191,7 +206,7 @@ public class Decks_Main_Controller {
     @FXML
     public void setPrefDeck(){
         // AQUI DEBERÍA IR EL METODO PARA ELEGIR EL MAZO PREFERIDO Y GUARDARLO EN LA DB
-        if (deck==null) {
+        if (deckSelected==null) {
             Notifications.notification("Error", "Debes seleccionar un mazo antes", 1);
         }
         else{
@@ -204,15 +219,16 @@ public class Decks_Main_Controller {
         // EN EL LIST VIEW CARDS_OF_DECK
     }
     
+    @FXML
     public void seleccionDeck(MouseEvent event){
         try{
-            Deck aux =  (Deck) cards_of_Deck.getSelectionModel().getSelectedItem();
-            String idString = String.valueOf(aux.getID());
+            Deck temp =  (Deck) cards_of_Deck.getSelectionModel().getSelectedItem();
+            String idString = String.valueOf(temp.getID());
             StringSelection stringSelect = new StringSelection(idString);
             Clipboard cb = Toolkit.getDefaultToolkit().getSystemClipboard();
             cb.setContents(stringSelect, null);
-            deck = aux;           
-            deckID = aux.getID();
+            deckSelected = temp;           
+            deckID = temp.getID();
         }catch(NullPointerException e){
         }
     }
@@ -220,15 +236,12 @@ public class Decks_Main_Controller {
     @FXML
     public void deleteDeck(){
         try {
+            System.out.println(deckSelected.getID());
             ConnectionMySQL dataBase = new ConnectionMySQL();
-            String SQLsentence = "DELETE FROM Mazo WHERE Mazo.id = "+deck.getID()+" ;";
+            String SQLsentence = "DELETE FROM Mazo WHERE id = "+deckID+" ;";
             dataBase.ConectarBasedeDatos();
             dataBase.sentence.execute(SQLsentence);
             dataBase.DesconectarBasedeDatos();
-            
-            
-            // VERIFICAR QUE DECK ESTÉ SELECCIONADO Y LUEGO HACER LA QUERY Y REFRESH
-            // DEL VIEW CON ALGUN METODO EKIS DE
         } catch (SQLException ex) {
             Logger.getLogger(Decks_Main_Controller.class.getName()).log(Level.SEVERE, null, ex);
         }

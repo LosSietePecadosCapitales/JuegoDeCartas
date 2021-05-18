@@ -15,13 +15,20 @@ public class Deck {
     private final int ID;
     private String name;
     private int cardsCount;
-    private final ArrayList<Cards> cards;
+    private ArrayList<Cards> cards;
 
     public Deck(int ID, String name, ArrayList<Cards> cards) {
         this.ID = ID;
         this.name = name;
-        this.cardsCount = cards.size();
         this.cards = cards;
+        this.cardsCount = cards.size();        
+    }
+    
+    public Deck(int ID, String name) {
+        this.ID = ID;
+        this.name = name;
+        this.cards = new ArrayList<>();
+        this.cardsCount = this.cards.size();        
     }
 
     public int getID() {
@@ -51,5 +58,12 @@ public class Deck {
     public Cards getCard(int cardNumber){
         return this.cards.get(cardNumber);
     }
-    
+
+    public void setCards(ArrayList<Cards> cards) {
+        this.cards = cards;
+    }
+
+    public ArrayList<Cards> getCards() {
+        return cards;
+    }
 }
