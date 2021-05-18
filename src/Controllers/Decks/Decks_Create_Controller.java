@@ -4,6 +4,7 @@ import static Controllers.Cards.Cards_Main_Controller.selectCard;
 import Controllers.Panels.Initial_Controller;
 import static Controllers.Panels.Initial_Controller.ID_User;
 import Features.Connection.ConnectionMySQL;
+import Features.Managements.Notifications;
 import Features.Objects.Cards;
 import java.awt.image.BufferedImage;
 import javafx.fxml.FXML;
@@ -133,7 +134,7 @@ public class Decks_Create_Controller {
         card13.setOnMouseClicked((MouseEvent event) -> {
             try {
                 selectCard = cards.get(7);
-                Decks_Create_Controller.this.setImagePanel(card13);                
+                Decks_Create_Controller.this.setImagePanel(card13);
             } catch (Exception e) {
             }
         });
@@ -188,11 +189,15 @@ public class Decks_Create_Controller {
         });    
 */
         prevCard.setOnMouseClicked((MouseEvent event) -> {
-            
-            cardsSelected.add(selectCard);
-            
-            addCard();            
-            selectCard = null;
+            if (cardsSelected.size()<40) {
+                //cardsSelected.add(selectCard);
+                addCard();
+                selectCard = null;
+            }
+            else{
+                Notifications.notification("Error", "No puedes tener más de 40 cartas en tu mazo.", 1);
+            }
+                
 //            
 //            if(card000.getImage()==null)   
 //               Decks_Create_Controller.this.setImagePanel(card000, prevCard);
@@ -235,7 +240,7 @@ public class Decks_Create_Controller {
                         amount_Label.setText(count+"/40");
                         break;
                     }
-                }                
+                }
             });
             cards_ImagesView_Selected.add(im);
             cardsSelected.add(selectCard);
@@ -361,8 +366,10 @@ public class Decks_Create_Controller {
         this.save();
     }
     
-    
     private void save(){
+        if (cardsSelected.size()<40) {
+            Notifications.notification("Error", "Debes tener 40 Cartas en tu mazo",1);
+        }
         try {
             ConnectionMySQL dataBase = new ConnectionMySQL();
             dataBase.ConectarBasedeDatos();            
