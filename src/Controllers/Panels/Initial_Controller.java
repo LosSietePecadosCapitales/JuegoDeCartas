@@ -33,7 +33,6 @@ import javafx.concurrent.Task;
 public class Initial_Controller {
     
     @FXML public AnchorPane base;
-    @FXML public AnchorPane alertBase;
     
     @FXML public Button exit;
     @FXML public Button minimize;
@@ -42,18 +41,20 @@ public class Initial_Controller {
     
     @FXML public Text slogan;
     @FXML public Label title;
-    @FXML public Label alertMsg;
     
     @FXML public TextField user_TextField;
     @FXML public PasswordField pass_TextField;
-        
     
     public static int ID_User;
     public static String Name_User;
+    private AppControler ac = null;
 
     @FXML
     public void initialize(){
-        new AppControler();
+        try {
+            ac = new AppControler();
+        } catch (Exception e) {
+        }
     }
 
     @FXML
@@ -80,24 +81,17 @@ public class Initial_Controller {
                             Scene scene = new Scene(root);
                             stage.setScene(scene);                        
                         } catch (IOException e) {
-                            e.printStackTrace();
-                            alertMsg.setText("Usuario o Contraseña Invalidos");
-                            showAlert();
+                            Notifications.notification("Error", "Nombre de Usuario o Contraseña Inválidos", 9);
                         }
                     }else{
-                        alertMsg.setText("Usuario o Contraseña Invalidos");
-                        showAlert();
+                        Notifications.notification("Error", "Nombre de Usuario o Contraseña Inválidos", 9);
                     }                          
             } catch (SQLException ex) {
-                alertMsg.setText("Verifica tu conexion a internet");
-                showAlert();
-                System.out.println(ex.getMessage());
-                System.out.println("No Funciono");
+                Notifications.notification("Error", "Verifica tu conexión a internet", 9);
             }
         }
         else{
-            alertMsg.setText("Verifica tu conexion a internet");
-            showAlert();
+            Notifications.notification("Error", "Verifica tu conexión a internet", 9);
         }
     }
 
@@ -122,31 +116,6 @@ public class Initial_Controller {
         } catch (IOException e) {
             e.printStackTrace();
         }
-    }
-    
-    public void showAlert(){
-        Task<Void> task = new Task<Void>() {
-            @Override
-            protected Void call() {
-                try {
-                    for (double i = 0.0; i < 1.0; i = i + 0.01) {
-                        Thread.sleep(10);
-                        alertBase.setOpacity(i);
-                    }
-                    Thread.sleep(5000);
-                    for (double i = 1.0; i > 0.0; i = i - 0.01) {
-                        Thread.sleep(10);
-                        alertBase.setOpacity(i);
-                    }
-                } catch (InterruptedException e) {
-                }
-                return null;
-            }
-        };
-
-        Thread thread = new Thread(task);
-        thread.setDaemon(true);
-        thread.start();
     }
     
     private boolean internetStatus(){

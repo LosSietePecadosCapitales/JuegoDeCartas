@@ -5,11 +5,11 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.paint.LinearGradient?>
 <?import javafx.scene.paint.Stop?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
-
 
 <AnchorPane maxHeight="690.0" maxWidth="1230.0" minHeight="690.0" minWidth="1230.0" prefHeight="690.0" prefWidth="1230.0" stylesheets="@../../Assets/CSS/Battle_CSS.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.Game.Game_Main_Controller">
    <children>
@@ -140,8 +140,14 @@
       </AnchorPane>
       <Label fx:id="cemLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="923.0" layoutY="461.0" prefHeight="17.0" prefWidth="92.0" text="Mazo" textAlignment="CENTER" textFill="WHITE" />
       <Label fx:id="deckLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="1067.0" layoutY="461.0" prefHeight="17.0" prefWidth="92.0" text="Cementerio" textAlignment="CENTER" textFill="WHITE" />
-      <AnchorPane fx:id="handOwnAP" layoutX="99.0" layoutY="675.0" maxHeight="200.0" maxWidth="1000.0" minHeight="200.0" minWidth="1000.0" prefHeight="200.0" prefWidth="1000.0" />
-      <AnchorPane fx:id="handEneAP" layoutX="104.0" layoutY="-153.0" prefHeight="200.0" prefWidth="1022.0" />
+      <AnchorPane fx:id="handOwnAP" layoutX="99.0" layoutY="375.0" maxHeight="158.0" maxWidth="1022.0" minHeight="158.0" minWidth="1022.0" prefHeight="158.0" prefWidth="1022.0" style="-fx-background-color: gray;">
+         <children>
+            <HBox fx:id="handOwnHB" alignment="CENTER" layoutX="1.0" layoutY="1.0" maxHeight="156.0" maxWidth="1020.0" minHeight="156.0" minWidth="1020.0" prefHeight="156.0" prefWidth="1020.0" style="-fx-border-color: cyan;" />
+         </children></AnchorPane>
+      <AnchorPane fx:id="handEneAP" layoutX="104.0" layoutY="-153.0" maxHeight="200.0" maxWidth="1022.0" minHeight="200.0" minWidth="1022.0" prefHeight="200.0" prefWidth="1022.0">
+         <children>
+            <HBox fx:id="handEneHB" alignment="CENTER" layoutX="1.0" layoutY="1.0" maxHeight="198.0" maxWidth="1020.0" minHeight="198.0" minWidth="1020.0" prefHeight="198.0" prefWidth="1020.0" style="-fx-border-color: cyan;" />
+         </children></AnchorPane>
       <Rectangle arcHeight="5.0" arcWidth="5.0" height="30.0" stroke="BLACK" strokeType="INSIDE" width="1230.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" height="30.0" opacity="0.42" stroke="BLACK" strokeType="INSIDE" width="1230.0">
          <fill>
@@ -171,5 +177,6 @@
             <Font name="Arial Black" size="12.0" />
          </font>
       </Button>
+      <Button layoutX="29.0" layoutY="333.0" mnemonicParsing="false" onAction="#addCard" text="add card" />
    </children>
 </AnchorPane>

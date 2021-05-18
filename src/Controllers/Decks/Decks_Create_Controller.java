@@ -1,5 +1,7 @@
 package Controllers.Decks;
 
+import static Controllers.Cards.Cards_Main_Controller.selectCard;
+import Controllers.Panels.Initial_Controller;
 import static Controllers.Panels.Initial_Controller.ID_User;
 import Features.Connection.ConnectionMySQL;
 import Features.Objects.Cards;
@@ -66,67 +68,102 @@ public class Decks_Create_Controller {
     private ArrayList<Cards> cardsSelected;
     private ArrayList<ImageView> cards_ImagesView_Book;
     private ArrayList<ImageView> cards_ImagesView_Selected;
+    private String cardMenuState = "ORI";
     private int count = 0;
 
     @FXML
     public void initialize(){
-        for (int i = 0; i < 5; i++) {
-            hbox_cards.getChildren().add(createButon());
-        }
         page = 0;
         selectCard = null;
         cards = new ArrayList<>();
         cards_ImagesView_Book = new ArrayList<>();
+        cards_ImagesView_Selected = new ArrayList<>();
         cardsSelected = new ArrayList<>();
         getArrayImagesViews();
         fillBook();
         card00.setOnMouseClicked((MouseEvent event) -> {
-               Decks_Create_Controller.this.setImagePanel(card00);
-               selectCard = cards.get(0);
+            try {
+                selectCard = cards.get(0);
+                Decks_Create_Controller.this.setImagePanel(card00);
+            } catch (Exception e) {
+            }
         });
         card01.setOnMouseClicked((MouseEvent event) -> {
-               Decks_Create_Controller.this.setImagePanel(card01);
-               selectCard = cards.get(1);
+            try {
+                selectCard = cards.get(1);
+                Decks_Create_Controller.this.setImagePanel(card01);
+            } catch (Exception e) {
+            }
         });
         card02.setOnMouseClicked((MouseEvent event) -> {
-               Decks_Create_Controller.this.setImagePanel(card02);
-               selectCard = cards.get(2);
+            try {
+                selectCard = cards.get(2);
+                Decks_Create_Controller.this.setImagePanel(card02);
+            } catch (Exception e) {
+            }
         });
         card03.setOnMouseClicked((MouseEvent event) -> {
-               Decks_Create_Controller.this.setImagePanel(card03);
-               selectCard = cards.get(3);
+            try {
+                selectCard = cards.get(3);
+                Decks_Create_Controller.this.setImagePanel(card03);
+            } catch (Exception e) {
+            }
         });
         card10.setOnMouseClicked((MouseEvent event) -> {
-               Decks_Create_Controller.this.setImagePanel(card10);
-               selectCard = cards.get(4);
+            try {
+                selectCard = cards.get(4);
+                Decks_Create_Controller.this.setImagePanel(card10);
+            } catch (Exception e) {
+            }
         });
         card11.setOnMouseClicked((MouseEvent event) -> {
-               Decks_Create_Controller.this.setImagePanel(card11);
-               selectCard = cards.get(5);
+            try {
+                selectCard = cards.get(5);
+                Decks_Create_Controller.this.setImagePanel(card11);
+            } catch (Exception e) {
+            }
         });
         card12.setOnMouseClicked((MouseEvent event) -> {
-               Decks_Create_Controller.this.setImagePanel(card12);
-               selectCard = cards.get(6);
+            try {
+                selectCard = cards.get(6);
+                Decks_Create_Controller.this.setImagePanel(card12);                
+            } catch (Exception e) {
+            }
         });
         card13.setOnMouseClicked((MouseEvent event) -> {
-               Decks_Create_Controller.this.setImagePanel(card13);
-               selectCard = cards.get(7);
+            try {
+                selectCard = cards.get(7);
+                Decks_Create_Controller.this.setImagePanel(card13);                
+            } catch (Exception e) {
+            }
         });
         card20.setOnMouseClicked((MouseEvent event) -> {
-               Decks_Create_Controller.this.setImagePanel(card20);
-               selectCard = cards.get(8);
+            try {
+                selectCard = cards.get(8);
+                Decks_Create_Controller.this.setImagePanel(card20);
+            } catch (Exception e) {
+            }
         });
         card21.setOnMouseClicked((MouseEvent event) -> {
-               Decks_Create_Controller.this.setImagePanel(card21);
-               selectCard = cards.get(9);
+            try {
+                selectCard = cards.get(9);
+                Decks_Create_Controller.this.setImagePanel(card21);
+            } catch (Exception e) {
+            }
         });
         card22.setOnMouseClicked((MouseEvent event) -> {
-               Decks_Create_Controller.this.setImagePanel(card22);
-               selectCard = cards.get(10);
+            try {
+                selectCard = cards.get(10);
+                Decks_Create_Controller.this.setImagePanel(card22);
+            } catch (Exception e) {
+            }
         });
         card23.setOnMouseClicked((MouseEvent event) -> {
-               Decks_Create_Controller.this.setImagePanel(card23);
-               selectCard = cards.get(11);
+            try {
+                selectCard = cards.get(11);
+                Decks_Create_Controller.this.setImagePanel(card23);
+            } catch (Exception e) {
+            }
         });
 /*
         card000.setOnMouseClicked((MouseEvent event) -> {
@@ -149,30 +186,71 @@ public class Decks_Create_Controller {
                Decks_Create_Controller.this.setImagePanel(card004, new ImageView("/Assets/Images/Card_Back.png"));              
                amount_Label.setText((Decks_Create_Controller.this.count--)+"/40");             
         });    
-
-        prevCard.setOnMouseClicked((MouseEvent event) -> {     
-            if(card000.getImage()==null)   
-               Decks_Create_Controller.this.setImagePanel(card000, prevCard);
-            else if(card001.getImage()==null) 
-                Decks_Create_Controller.this.setImagePanel(card001, prevCard);
-            else if(card002.getImage()==null) 
-                Decks_Create_Controller.this.setImagePanel(card002, prevCard);
-            else if(card003.getImage()==null) 
-                Decks_Create_Controller.this.setImagePanel(card003, prevCard);
-            else if(card004.getImage()==null) 
-                Decks_Create_Controller.this.setImagePanel(card004, prevCard);
-            else{
-                Decks_Create_Controller.this.setImagePanel(card000, card001);  
-                Decks_Create_Controller.this.setImagePanel(card001, card002); 
-                Decks_Create_Controller.this.setImagePanel(card002, card003);    
-                Decks_Create_Controller.this.setImagePanel(card003, card004);
-                Decks_Create_Controller.this.setImagePanel(card004, prevCard);
-            }       
-            Decks_Create_Controller.this.cardsSelected.add(selectCard);
-            Decks_Create_Controller.this.prevCard.setImage(new Image("/Assets/Images/Card_Back.png"));
-            Decks_Create_Controller.this.amount_Label.setText((Decks_Create_Controller.this.count++)+"/40");
-        });
-        */
+*/
+        prevCard.setOnMouseClicked((MouseEvent event) -> {
+            
+            cardsSelected.add(selectCard);
+            
+            addCard();            
+            selectCard = null;
+//            
+//            if(card000.getImage()==null)   
+//               Decks_Create_Controller.this.setImagePanel(card000, prevCard);
+//            else if(card001.getImage()==null) 
+//                Decks_Create_Controller.this.setImagePanel(card001, prevCard);
+//            else if(card002.getImage()==null) 
+//                Decks_Create_Controller.this.setImagePanel(card002, prevCard);
+//            else if(card003.getImage()==null) 
+//                Decks_Create_Controller.this.setImagePanel(card003, prevCard);
+//            else if(card004.getImage()==null) 
+//                Decks_Create_Controller.this.setImagePanel(card004, prevCard);
+//            else{
+//                Decks_Create_Controller.this.setImagePanel(card000, card001);  
+//                Decks_Create_Controller.this.setImagePanel(card001, card002); 
+//                Decks_Create_Controller.this.setImagePanel(card002, card003);    
+//                Decks_Create_Controller.this.setImagePanel(card003, card004);
+//                Decks_Create_Controller.this.setImagePanel(card004, prevCard);
+//            }       
+//            Decks_Create_Controller.this.cardsSelected.add(selectCard);
+//            Decks_Create_Controller.this.prevCard.setImage(new Image("/Assets/Images/Card_Back.png"));
+//            Decks_Create_Controller.this.amount_Label.setText((Decks_Create_Controller.this.count++)+"/40");
+        });        
+    }
+    
+    public void addCard(){
+        try {
+            AnchorPane newAp = new AnchorPane();
+            newAp.setPrefHeight(0);
+            newAp.setPrefWidth(110);
+            
+            ImageView im = new ImageView(prevCard.getImage());
+            
+            im.setOnMouseClicked((MouseEvent event) ->{
+                for (int i = 0; i < cards_ImagesView_Selected.size(); i++) {
+                    if (cards_ImagesView_Selected.get(i).equals(event.getSource())) {                        
+                        hbox_cards.getChildren().remove(i);
+                        cardsSelected.remove(i);
+                        cards_ImagesView_Selected.remove(i);
+                        count-=1;
+                        amount_Label.setText(count+"/40");
+                        break;
+                    }
+                }                
+            });
+            cards_ImagesView_Selected.add(im);
+            cardsSelected.add(selectCard);
+            newAp.getChildren().add(im);
+            im.setX(5); im.setY(5);
+            im.setPreserveRatio(true);
+            im.setFitWidth(100);
+            
+            hbox_cards.getChildren().add(newAp);
+            eligible_Cards.setHvalue(1.0);
+            count+=1;
+            amount_Label.setText(count+"/40");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
     
     private void setImagePanel(ImageView selected){
@@ -199,37 +277,83 @@ public class Decks_Create_Controller {
     }
     
     private void fillBook(){
+        cards.clear();
         try {
-            ConnectionMySQL dataBase = new ConnectionMySQL();
-            dataBase.ConectarBasedeDatos();
-            String query = "SELECT * FROM Carta LIMIT "+(page*itemsPerPage)+","+itemsPerPage+";";
-            dataBase.result = dataBase.sentence.executeQuery(query);
-            
-            int i = 0;
-            while (dataBase.result.next()) {
-                Image imageAux = blobToImage(dataBase.result.getBlob(7));
-                Cards c = new Cards(dataBase.result.getInt(1),
-                dataBase.result.getString(2),
-                dataBase.result.getString(3),
-                dataBase.result.getInt(4),
-                dataBase.result.getInt(5),
-                dataBase.result.getInt(6),
-                imageAux,
-                dataBase.result.getString(8),
-                dataBase.result.getString(9));
-                cards_ImagesView_Book.get(i).setImage(imageAux);
-                cards.add(c);
-                i+=1;
+            if(cardMenuState.equals("ORI")){//ORIGINALES
+                ConnectionMySQL dataBase = new ConnectionMySQL();
+                dataBase.ConectarBasedeDatos();
+                String query = "SELECT * FROM Carta LIMIT "+(page*itemsPerPage)+","+itemsPerPage+";";
+                dataBase.result = dataBase.sentence.executeQuery(query);
+
+                int i = 0;
+                while (dataBase.result.next()) {
+                    Image imageAux = blobToImage(dataBase.result.getBlob(7));
+                    Cards c = new Cards(dataBase.result.getInt(1),
+                    dataBase.result.getString(2),
+                    dataBase.result.getString(3),
+                    dataBase.result.getInt(4),
+                    dataBase.result.getInt(5),
+                    dataBase.result.getInt(6),
+                    imageAux,
+                    dataBase.result.getString(8),
+                    dataBase.result.getString(9));
+                    cards_ImagesView_Book.get(i).setImage(imageAux);
+                    cards.add(c);
+                    i+=1;
+                }
+                dataBase.DesconectarBasedeDatos();
             }
-            
-            dataBase.DesconectarBasedeDatos();
+            else if(cardMenuState.equals("PER")){ //PERSONALIZE
+                ConnectionMySQL dataBase = new ConnectionMySQL();
+                dataBase.ConectarBasedeDatos();
+                String query = "SELECT * FROM Carta WHERE ref_jugador != 0 AND ref_jugador != "+Initial_Controller.ID_User+" LIMIT "+(page*itemsPerPage)+","+itemsPerPage+";";
+                dataBase.result = dataBase.sentence.executeQuery(query);
+
+                int i = 0;
+                while (dataBase.result.next()) {
+                    Image imageAux = blobToImage(dataBase.result.getBlob(7));
+                    Cards c = new Cards(dataBase.result.getInt(1),
+                    dataBase.result.getString(2),
+                    dataBase.result.getString(3),
+                    dataBase.result.getInt(4),
+                    dataBase.result.getInt(5),
+                    dataBase.result.getInt(6),
+                    imageAux,
+                    dataBase.result.getString(8),
+                    dataBase.result.getString(9));
+                    cards_ImagesView_Book.get(i).setImage(imageAux);
+                    cards.add(c);
+                    i+=1;
+                }
+                dataBase.DesconectarBasedeDatos();
+            }
+            else if(cardMenuState.equals("OWN")){//PROPIAS
+                ConnectionMySQL dataBase = new ConnectionMySQL();
+                dataBase.ConectarBasedeDatos();
+                String query = "SELECT * FROM Carta WHERE ref_jugador = "+Initial_Controller.ID_User+" LIMIT "+(page*itemsPerPage)+","+itemsPerPage+";";
+                dataBase.result = dataBase.sentence.executeQuery(query);
+                
+                int i = 0;
+                while (dataBase.result.next()) {
+                    Image imageAux = blobToImage(dataBase.result.getBlob(7));
+                    Cards c = new Cards(dataBase.result.getInt(1),
+                    dataBase.result.getString(2),
+                    dataBase.result.getString(3),
+                    dataBase.result.getInt(4),
+                    dataBase.result.getInt(5),
+                    dataBase.result.getInt(6),
+                    imageAux,
+                    dataBase.result.getString(8),
+                    dataBase.result.getString(9));
+                    cards_ImagesView_Book.get(i).setImage(imageAux);
+                    cards.add(c);
+                    i+=1;
+                }
+                dataBase.DesconectarBasedeDatos();
+            }
         } catch (SQLException e) {
+            e.printStackTrace();
         }
-    } 
-    
-    @FXML
-    public void add(){
-        hbox_cards.getChildren().add(createButon());
     }
     
     @FXML
@@ -256,21 +380,40 @@ public class Decks_Create_Controller {
         }
     } 
     
-    private Button createButon(){
-        Button b = new Button("caca");
-        b.setMinWidth(60);
-        b.setMinHeight(20);
-        b.setPrefWidth(60);
-        b.setPrefHeight(20);
-        b.setMaxWidth(60);
-        b.setMaxHeight(20);
-        return b;
-    }
-    
     private void cleanImagesViews(){
         cards_ImagesView_Book.forEach((i) -> {
             i.setImage(null);
         });
+    }
+    
+    @FXML
+    public void originalCards(){
+        page = 0;
+        cleanImagesViews();
+        prevCard.setImage(null);
+        selectCard = null;
+        cardMenuState = "ORI";
+        fillBook();
+    }
+    
+    @FXML
+    public void PersonalizeCards(){
+        page = 0;
+        cleanImagesViews();
+        prevCard.setImage(null);
+        selectCard = null;
+        cardMenuState = "PER";
+        fillBook();
+    }
+    
+    @FXML
+    public void OwnCards(){
+        page = 0;
+        cleanImagesViews();
+        prevCard.setImage(null);
+        selectCard = null;
+        cardMenuState = "OWN";
+        fillBook();
     }
     
     @FXML

@@ -10,23 +10,30 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import javafx.scene.control.ListView;
+import javafx.scene.image.ImageView;
 
 public class Decks_Main_Controller {
     
     @FXML public AnchorPane base;
-    @FXML public ScrollPane decks_Panel;
+    @FXML public AnchorPane base_decks;
     @FXML public Button exit;
     @FXML public Button minimize;
     @FXML public Button back;
     @FXML public Button createDeckButton;
     @FXML public Button editDeckButton;
     @FXML public Button deleteDeckButton;
+    
+    @FXML public ListView cards_of_Deck;
 
+    @FXML public ImageView deck00, deck01, deck02, deck03;
+    @FXML public ImageView deck10, deck11, deck12, deck13;
+    @FXML public ImageView deck20, deck21, deck22, deck23;
+    
     @FXML
     public void initialize(){
 
@@ -51,6 +58,7 @@ public class Decks_Main_Controller {
             Scene scene = new Scene(root);
             stage.setScene(scene);
         } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 
@@ -68,5 +76,16 @@ public class Decks_Main_Controller {
     @FXML
     public void deleteDeck(){
 
+    }
+    
+    @FXML
+    public void minimize(){
+        Stage s = (Stage) base.getScene().getWindow();
+        s.setIconified(true);
+    }
+    
+    @FXML
+    public void exit(){
+        System.exit(1);
     }
 }

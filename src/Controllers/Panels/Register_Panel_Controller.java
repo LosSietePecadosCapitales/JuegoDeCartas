@@ -59,21 +59,29 @@ public class Register_Panel_Controller {
             String emailDirection = this.email.getText();        
             String pass = this.password.getText();    
             if (!validator.validateNick(nick)) {
+                Notifications.notification("Problemas con el Nick", "Recuerda que el nick debe contener"
+                        + " entre 8 y 16 caracteres, y alfanumérico.", 1);
                 // Mensaje de Problema con Nick
                 return;                
             } 
             if (!validator.validateEmail(emailDirection)) {
+                Notifications.notification("Problemas con el Correo", "Recuerda que el correo debe contener"
+                        + " un @ entre el nombre y el dominio, adicionalmente terminar en el codominio.", 1);
                 // Mensaje de Problema con email
                 return;                
             }          
             if (!validator.validatePassword(pass)) {
+                Notifications.notification("Problemas con la contraseña", "Recuerda que la contraseña debe contener"
+                        + " entre 6 y 10 caracteres, y como mínimo una mayúscula, una minúscula y un número.", 1);
                 // Mensaje de Problema con pass
                 return;                
-            }          
+            }
+            if (!password.getText().equals(confirmpass.getText())) {
+                Notifications.notification("Problemas con las contraseñas", "Las contraseñas no coinciden.", 1);
+            }
             ConnectionMySQL dataBase = new ConnectionMySQL();
             String SQLsentence = "INSERT INTO Jugador (correo, nick, contrasenia) "
-                    + "Values ('"+emailDirection+"' ,'"+nick+"' , '"+pass+"');";
-            System.out.println(SQLsentence);
+                    + "Values ('"+emailDirection+"' ,'"+nick+"' , '"+pass+"');";            
             dataBase.ConectarBasedeDatos();
             boolean ready = dataBase.sentence.execute(SQLsentence);
             dataBase.DesconectarBasedeDatos();
@@ -83,10 +91,11 @@ public class Register_Panel_Controller {
                 Parent root = FXMLLoader.load(getClass().getResource("/Views/Panels/Initial_View.fxml"));
                 Scene scene = new Scene(root);
                 stage.setScene(scene);
-            } catch (IOException e) {
+            } catch (IOException ex) {
+                ex.printStackTrace();
             }
         } catch (SQLException ex) {
-            Logger.getLogger(Register_Panel_Controller.class.getName()).log(Level.SEVERE, null, ex);
+            ex.printStackTrace();
         }
     }
     

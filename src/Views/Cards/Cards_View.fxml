@@ -56,7 +56,7 @@
             <Image url="@../../Assets/Images/Logo.png" />
          </image>
       </ImageView>
-      <Text id="slogan" fx:id="slogan" fill="WHITE" layoutX="869.0" layoutY="182.0" strokeLineCap="ROUND" strokeType="OUTSIDE" strokeWidth="0.0" text="DUMIES ONLINE CARD GAME" underline="true">
+      <Text id="slogan" fx:id="slogan" fill="WHITE" layoutX="826.0" layoutY="184.0" strokeLineCap="ROUND" strokeType="OUTSIDE" strokeWidth="0.0" text="DUMIES ONLINE CARD GAME" underline="true">
          <font>
             <Font size="18.0" />
          </font>

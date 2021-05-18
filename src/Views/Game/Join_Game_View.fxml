@@ -59,7 +59,7 @@
             <Font size="14.0" />
          </font>
       </Text>
-      <Button fx:id="join" layoutX="917.0" layoutY="498.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="113.0" stylesheets="@../../Assets/CSS/Initial_CSS.css" text="Ingresar" textAlignment="CENTER">
+      <Button fx:id="join" layoutX="917.0" layoutY="498.0" mnemonicParsing="false" onAction="#joinGame" prefHeight="50.0" prefWidth="113.0" stylesheets="@../../Assets/CSS/Initial_CSS.css" text="Ingresar" textAlignment="CENTER">
          <font>
             <Font name="Arial Black" size="12.0" />
          </font>
