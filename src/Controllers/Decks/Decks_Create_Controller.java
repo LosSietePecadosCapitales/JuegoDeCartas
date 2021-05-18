@@ -238,7 +238,8 @@ public class Decks_Create_Controller {
         try {
             ConnectionMySQL dataBase = new ConnectionMySQL();
             dataBase.ConectarBasedeDatos();            
-            String query = "INSERT INTO Mazo (nombre, cant_cartas, ref_Jugador) VALUES ('"+this.nameDeck.getText()+"', "+this.cardsSelected.size()+", "+ID_User+");";
+            String query = "INSERT INTO Mazo (nombre, cant_cartas, ref_Jugador) VALUES ('"+this.nameDeck.getText()+"', "
+                    + ""+this.cardsSelected.size()+", "+ID_User+");";
             dataBase.sentence.execute(query);            
             for (int i = 0; i < this.cardsSelected.size(); i++) {                
                 query = "INSERT INTO Contiene (ref_Mazo, ref_Carta) VALUES ((SELECT id FROM Mazo WHERE nombre='"+this.nameDeck.getText()+"'), "+this.cardsSelected.get(i).getId()+");";     
@@ -247,8 +248,7 @@ public class Decks_Create_Controller {
             }
             dataBase.DesconectarBasedeDatos();
         } catch (SQLException e) {
-            //System.out.println(e.getMessage());     
-            e.printStackTrace();
+            System.out.println(e.getMessage());     
         }
     } 
     

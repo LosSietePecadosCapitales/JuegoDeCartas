@@ -82,7 +82,7 @@ public class Notifications {
         JOptionPane auxiliar = new JOptionPane();
         auxiliar.setMessage(mensaje);
         auxiliar.setMessageType(tipo);       
-        JDialog dialogo = auxiliar.createDialog("TwitterBot_ | "+titulo);  
+        JDialog dialogo = auxiliar.createDialog("YuGiOh | "+titulo);  
         dialogo.setModal(true);
         dialogo.setAlwaysOnTop(true);
         dialogo.setVisible(true);            
