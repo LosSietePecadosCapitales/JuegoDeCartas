@@ -80,7 +80,7 @@
       </AnchorPane>
       <AnchorPane layoutX="580.0" layoutY="216.0" maxHeight="400.0" maxWidth="240.0" minHeight="400.0" minWidth="240.0" prefHeight="400.0" prefWidth="240.0" style="-fx-border-color: white; -fx-border-width: 2px;">
          <children>
-            <ListView fx:id="cards_of_Deck" layoutX="2.0" layoutY="2.0" prefHeight="396.0" prefWidth="236.0" />
+            <ListView fx:id="cards_of_Deck" layoutX="2.0" layoutY="2.0" onMouseClicked="#seleccionDeck" prefHeight="396.0" prefWidth="236.0" />
          </children>
       </AnchorPane>
       <Button fx:id="prev" disable="true" layoutX="227.0" layoutY="647.0" mnemonicParsing="false" text="&lt;-" />
