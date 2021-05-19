@@ -80,7 +80,7 @@ public class Game_Create_Controller {
     @FXML
     public void createGame(){
         String ip = getPublicIP();
-        if (Decks_Main_Controller.deckPref==null) {
+        if (Decks_Main_Controller.deckFavorite==null) {
             Notifications.notification("Error", "Aun no seleccionas un mazo, favor ir a la ventana de mazo y seleccionar uno", 1);
         }
         else{

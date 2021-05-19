@@ -198,7 +198,7 @@ public class Game_Main_Controller_Server {
     
     public void getPrefDeck(){
         try {
-            ownDeckCards = (ArrayList<Cards>) Decks_Main_Controller.deckPref.getCards().clone();
+            ownDeckCards = (ArrayList<Cards>) Decks_Main_Controller.deckFavorite.getCards().clone();
             Collections.shuffle(ownDeckCards);
             for (int i = 0; i < 5; i++) {
                 Cards aux = ownDeckCards.remove(0);

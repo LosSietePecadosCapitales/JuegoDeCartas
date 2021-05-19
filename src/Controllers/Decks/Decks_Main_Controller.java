@@ -53,7 +53,7 @@ public class Decks_Main_Controller {
     @FXML public ImageView deck20, deck21, deck22, deck23;
     
     public static Deck deckSelected;
-    public static Deck deckPref;
+    public static Deck deckFavorite;
     public static int deckID;
     public static String deckName;
     
@@ -222,8 +222,8 @@ public class Decks_Main_Controller {
             // SETEAR EL MAZO PREFERIDO EN LA BASE DE DATOS
             
             /* SOLUCION PARCHE*/
-            deckPref = deckSelected;
-            Notifications.notification("Mazo Preferido", "Se ha cambiado el mazo preferido por el "+deckPref.getName(), 9);
+            deckFavorite = deckSelected;
+            Notifications.notification("Mazo Preferido", "Se ha cambiado el mazo preferido por el "+deckFavorite.getName(), 9);
         }
     }
     
