@@ -19,9 +19,9 @@ import javafx.stage.Stage;
  *
  * @author Vicente
  */
-public class Game_Main_Controller {
+public class Game_Main_Controller_Client {
     
-    @FXML public AnchorPane base;
+    public AnchorPane base;
     @FXML public Label title, ownLifeL, eneLifeL;
     @FXML public Button exit, minimize;
     
@@ -37,8 +37,8 @@ public class Game_Main_Controller {
     
     public ArrayList<ImageView> ownCardsAL, eneCardsAL;
     
-    @FXML
     public void initialize(){
+        //Crear Server
     }
     
     @FXML
