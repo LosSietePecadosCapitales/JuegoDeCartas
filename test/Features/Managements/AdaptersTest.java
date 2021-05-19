@@ -7,10 +7,6 @@ package Features.Managements;
 
 import java.sql.Blob;
 import javafx.scene.image.Image;
-import org.junit.After;
-import org.junit.AfterClass;
-import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
