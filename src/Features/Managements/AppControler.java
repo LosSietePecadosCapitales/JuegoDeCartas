@@ -14,7 +14,7 @@ import java.util.logging.Logger;
 
 /**
  *
- * @author Los siete Pecados Capitales.
+ * @author LosSietePecadosCapitales
  */
 
 /**

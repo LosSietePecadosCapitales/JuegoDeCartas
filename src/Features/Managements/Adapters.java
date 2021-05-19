@@ -16,10 +16,17 @@ import javax.imageio.ImageIO;
 
 /**
  *
- * @author F. Pino
+ * @author LosSietePecadosCapitales
  */
+
 public class Adapters {
     
+    /**
+     * se ingresa un objeto de tipo Blob que corresponde a la imagen en la base 
+     * de datos de las cartas y se adapata a un objeto de tipo imagen.
+     * @param b
+     * @return image 
+     */
     public static Image blobToImage(Blob b){
         Image image = null;
         try {

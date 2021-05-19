@@ -15,7 +15,7 @@ import javafx.stage.StageStyle;
 
 /**
  *
- * @author Los Pecados Capitales
+ * @author LosSietePecadosCapitales
  */
 public class Yugioh extends Application {
     

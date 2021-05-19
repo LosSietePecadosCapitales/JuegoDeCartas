@@ -27,7 +27,12 @@ import javafx.stage.Stage;
 
 /**
  *
- * @author Vicente
+ * @author LosSietePecadosCapitales
+ */
+
+/**
+ * Clase que permite crear una partida
+ * 
  */
 public class Game_Create_Controller {
     
@@ -47,6 +52,9 @@ public class Game_Create_Controller {
     }
     
     @FXML
+    /**
+     * muestra panel principal
+     */
     public void back() {
         try {
             Stage stage = (Stage) base.getScene().getWindow();
@@ -69,6 +77,9 @@ public class Game_Create_Controller {
     }
     
     @FXML
+    /**
+     * Se crea el juego
+     */
     public void createGame(){
         String ip = getPublicIP();
         if (!gameName.getText().equals("")) {
