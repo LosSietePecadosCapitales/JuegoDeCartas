@@ -52,8 +52,10 @@ public class Decks_Main_Controller {
     @FXML public ImageView deck10, deck11, deck12, deck13;
     @FXML public ImageView deck20, deck21, deck22, deck23;
     
-    public static Deck deckSelected; 
+    public static Deck deckSelected;
+    public static Deck deckPref;
     public static int deckID;
+    public static String deckName;
     
     private final ArrayList<Deck> decks = new ArrayList<>();
     private final ArrayList<Cards> cards = new ArrayList<>();
@@ -62,6 +64,13 @@ public class Decks_Main_Controller {
     
     @FXML
     public void initialize(){
+        try {
+            initialize_Decks();
+        } catch (Exception e) {
+        }
+    }
+
+    public void initialize_Decks(){
         try {
             ConnectionMySQL dataBase = new ConnectionMySQL();
             String SQLsentence = "SELECT Mazo.id, Mazo.nombre, Carta.id, Carta.nombre, Carta.elemento, Carta.ataque, Carta.defensa, "
@@ -121,7 +130,7 @@ public class Decks_Main_Controller {
                         dataBase.result.getString(11));
                         //cards_ImagesView.get(i).setImage(imageAux);
                         cards.add(c);                                    
-                    }                     
+                    }
                 }
                 i++;         
             }          
@@ -155,7 +164,7 @@ public class Decks_Main_Controller {
             Logger.getLogger(Decks_Edit_Controller.class.getName()).log(Level.SEVERE, null, ex);
         } 
     }
-
+    
     @FXML
     public void back() {
         try {
@@ -211,6 +220,10 @@ public class Decks_Main_Controller {
         }
         else{
             // SETEAR EL MAZO PREFERIDO EN LA BASE DE DATOS
+            
+            /* SOLUCION PARCHE*/
+            deckPref = deckSelected;
+            Notifications.notification("Mazo Preferido", "Se ha cambiado el mazo preferido por el "+deckPref.getName(), 9);
         }
     }
     
@@ -229,6 +242,7 @@ public class Decks_Main_Controller {
             cb.setContents(stringSelect, null);
             deckSelected = temp;           
             deckID = temp.getID();
+            deckName = temp.getName();
         }catch(NullPointerException e){
         }
     }
@@ -236,12 +250,12 @@ public class Decks_Main_Controller {
     @FXML
     public void deleteDeck(){
         try {
-            System.out.println(deckSelected.getID());
             ConnectionMySQL dataBase = new ConnectionMySQL();
             String SQLsentence = "DELETE FROM Mazo WHERE id = "+deckID+" ;";
             dataBase.ConectarBasedeDatos();
             dataBase.sentence.execute(SQLsentence);
             dataBase.DesconectarBasedeDatos();
+            Notifications.notification("Mazo Eliminado", "Mazo "+deckName+" Eliminado Correctamente", 9);
         } catch (SQLException ex) {
             Logger.getLogger(Decks_Main_Controller.class.getName()).log(Level.SEVERE, null, ex);
         }
