@@ -16,19 +16,22 @@ public class Deck {
     private String name;
     private int cardsCount;
     private ArrayList<Cards> cards;
+    private boolean isFavorite;
 
     public Deck(int ID, String name, ArrayList<Cards> cards) {
         this.ID = ID;
         this.name = name;
         this.cards = cards;
         this.cardsCount = cards.size();        
+        this.isFavorite = false;
     }
     
     public Deck(int ID, String name) {
         this.ID = ID;
         this.name = name;
         this.cards = new ArrayList<>();
-        this.cardsCount = this.cards.size();        
+        this.cardsCount = this.cards.size();    
+        this.isFavorite = false;
     }
 
     public int getID() {
@@ -66,4 +69,12 @@ public class Deck {
     public ArrayList<Cards> getCards() {
         return cards;
     }
+
+    public boolean isFavorite() {
+        return isFavorite;
+    }
+
+    public void setFavorite(boolean isFavorite) {
+        this.isFavorite = isFavorite;
+    }    
 }

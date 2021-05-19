@@ -64,18 +64,18 @@
         </Button>
       <AnchorPane fx:id="base_decks" layoutX="25.0" layoutY="144.0" prefHeight="500.0" prefWidth="500.0" style="-fx-border-color: red;">
          <children>
-            <ImageView fx:id="deck00" fitHeight="159.0" fitWidth="113.0" layoutX="15.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true" />
-            <ImageView fx:id="deck01" fitHeight="159.0" fitWidth="113.0" layoutX="141.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true" />
-            <ImageView fx:id="deck02" fitHeight="159.0" fitWidth="113.0" layoutX="260.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true" />
-            <ImageView fx:id="deck03" fitHeight="159.0" fitWidth="113.0" layoutX="377.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true" />
-            <ImageView fx:id="deck10" fitHeight="159.0" fitWidth="113.0" layoutX="15.0" layoutY="173.0" pickOnBounds="true" preserveRatio="true" />
-            <ImageView fx:id="deck11" fitHeight="159.0" fitWidth="113.0" layoutX="141.0" layoutY="173.0" pickOnBounds="true" preserveRatio="true" />
-            <ImageView fx:id="deck12" fitHeight="159.0" fitWidth="113.0" layoutX="260.0" layoutY="173.0" pickOnBounds="true" preserveRatio="true" />
-            <ImageView fx:id="deck13" fitHeight="159.0" fitWidth="113.0" layoutX="377.0" layoutY="173.0" pickOnBounds="true" preserveRatio="true" />
-            <ImageView fx:id="deck20" fitHeight="159.0" fitWidth="113.0" layoutX="15.0" layoutY="336.0" pickOnBounds="true" preserveRatio="true" />
-            <ImageView fx:id="deck21" fitHeight="159.0" fitWidth="113.0" layoutX="141.0" layoutY="336.0" pickOnBounds="true" preserveRatio="true" />
-            <ImageView fx:id="deck22" fitHeight="159.0" fitWidth="113.0" layoutX="260.0" layoutY="336.0" pickOnBounds="true" preserveRatio="true" />
-            <ImageView fx:id="deck23" fitHeight="159.0" fitWidth="113.0" layoutX="377.0" layoutY="336.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="card00" fitHeight="159.0" fitWidth="113.0" layoutX="15.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="card01" fitHeight="159.0" fitWidth="113.0" layoutX="141.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="card02" fitHeight="159.0" fitWidth="113.0" layoutX="260.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="card03" fitHeight="159.0" fitWidth="113.0" layoutX="377.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="card10" fitHeight="159.0" fitWidth="113.0" layoutX="15.0" layoutY="173.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="card11" fitHeight="159.0" fitWidth="113.0" layoutX="141.0" layoutY="173.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="card12" fitHeight="159.0" fitWidth="113.0" layoutX="260.0" layoutY="173.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="card13" fitHeight="159.0" fitWidth="113.0" layoutX="377.0" layoutY="173.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="card20" fitHeight="159.0" fitWidth="113.0" layoutX="15.0" layoutY="336.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="card21" fitHeight="159.0" fitWidth="113.0" layoutX="141.0" layoutY="336.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="card22" fitHeight="159.0" fitWidth="113.0" layoutX="260.0" layoutY="336.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="card23" fitHeight="159.0" fitWidth="113.0" layoutX="377.0" layoutY="336.0" pickOnBounds="true" preserveRatio="true" />
          </children>
       </AnchorPane>
       <AnchorPane layoutX="580.0" layoutY="216.0" maxHeight="400.0" maxWidth="240.0" minHeight="400.0" minWidth="240.0" prefHeight="400.0" prefWidth="240.0" style="-fx-border-color: white; -fx-border-width: 2px;">
@@ -83,8 +83,8 @@
             <ListView fx:id="cards_of_Deck" layoutX="2.0" layoutY="2.0" onMouseClicked="#seleccionDeck" prefHeight="396.0" prefWidth="236.0" />
          </children>
       </AnchorPane>
-      <Button fx:id="prev" disable="true" layoutX="227.0" layoutY="647.0" mnemonicParsing="false" text="&lt;-" />
-      <Button fx:id="next" layoutX="270.0" layoutY="647.0" mnemonicParsing="false" text="-&gt;" />
+      <Button fx:id="prev" disable="true" layoutX="227.0" layoutY="647.0" mnemonicParsing="false" onAction="#changePageBackward" text="&lt;-" />
+      <Button fx:id="next" disable="true" layoutX="270.0" layoutY="647.0" mnemonicParsing="false" onAction="#changePageForward" text="-&gt;" />
       <Button fx:id="prefDeckButton" layoutX="897.0" layoutY="534.0" mnemonicParsing="false" onAction="#setPrefDeck" prefHeight="62.0" prefWidth="202.0" text="MAZO PREFERIDO" />
     </children>
 </AnchorPane>
