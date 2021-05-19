@@ -41,24 +41,30 @@ public class Decks_Main_Controller {
     @FXML public Button exit;
     @FXML public Button minimize;
     @FXML public Button back;
+    @FXML public Button next;
+    @FXML public Button prev;
     @FXML public Button createDeckButton;
     @FXML public Button editDeckButton;
     @FXML public Button deleteDeckButton;
     @FXML public Button prefDeckButton;
     
     @FXML public ListView cards_of_Deck;
-
-    @FXML public ImageView deck00, deck01, deck02, deck03;
-    @FXML public ImageView deck10, deck11, deck12, deck13;
-    @FXML public ImageView deck20, deck21, deck22, deck23;
     
-    public static Deck deckSelected;
-    public static Deck deckFavorite;
+    @FXML public ImageView card00, card01, card02, card03;
+    @FXML public ImageView card10, card11, card12, card13;
+    @FXML public ImageView card20, card21, card22, card23;
+    
+    public static Deck deckSelected; 
+    public static Deck deckFavorite=null;
     public static int deckID;
     public static String deckName;
     
+    private int position = 0;
+    
     private final ArrayList<Deck> decks = new ArrayList<>();
     private final ArrayList<Cards> cards = new ArrayList<>();
+    private final ArrayList<Image> imagesActualDeck = new ArrayList<>();
+    
     private int actualDeckID;
     Deck auxDeck;
     
@@ -137,28 +143,8 @@ public class Decks_Main_Controller {
             auxDeck.setCards((ArrayList<Cards>) cards.clone());           
             decks.add(auxDeck);
             cards.clear();
-            dataBase.DesconectarBasedeDatos();
-            System.out.println(decks.get(0).getName());
-            
-            ObservableList<Deck> oList = FXCollections.observableArrayList(decks);
-            cards_of_Deck.setItems(oList);            
-            cards_of_Deck.setCellFactory(param -> new ListCell<Deck>() {
-            private final ImageView imageView = new ImageView(new Image ("/Assets/Images/Card_Back.png", 20, 30, false, false));
-            
-            @Override
-            public void updateItem(Deck deck, boolean empty) {
-                super.updateItem(deck, empty);
-                if (empty) {
-                    setText(null);
-                    setGraphic(null);
-                } else {                      
-                    imageView.setImage(new Image ("/Assets/Images/Card_Back.png", 20, 30, false, false));    
-                    setGraphic(imageView);
-                    setText(" > "+deck.getName()+" < \n"+"      > Numero de Cartas: "+deck.getCardsCount());                                
-                }
-            }
-            });
-            
+            dataBase.DesconectarBasedeDatos();        
+            viewDecksUpdate();
         } catch (SQLException ex) {
             ex.printStackTrace();
             Logger.getLogger(Decks_Edit_Controller.class.getName()).log(Level.SEVERE, null, ex);
@@ -210,26 +196,44 @@ public class Decks_Main_Controller {
         System.exit(1);
     }
     
-    /* DESDE AQUÍ SON LOS METODOS QUE FALTAN DE ESTA CLASE LEER LAS INSTRUCCIONES*/
-    
     @FXML
     public void setPrefDeck(){
-        // AQUI DEBERÍA IR EL METODO PARA ELEGIR EL MAZO PREFERIDO Y GUARDARLO EN LA DB
         if (deckSelected==null) {
             Notifications.notification("Error", "Debes seleccionar un mazo antes", 1);
         }
         else{
-            // SETEAR EL MAZO PREFERIDO EN LA BASE DE DATOS
-            
-            /* SOLUCION PARCHE*/
-            deckFavorite = deckSelected;
+            if (deckFavorite!=null)
+                deckFavorite.setFavorite(false);
+            deckFavorite = deckSelected;  
+            deckFavorite.setFavorite(true);
+            viewDecksUpdate();
             Notifications.notification("Mazo Preferido", "Se ha cambiado el mazo preferido por el "+deckFavorite.getName(), 9);
         }
     }
     
-    public void viewCardsOfDecks(){
-        // HACER LA QUERY PARA LAS CARTAS Y MOSTRAR SOLAMENTE EL NOMBRE
-        // EN EL LIST VIEW CARDS_OF_DECK
+    public void viewDecksUpdate(){
+        ObservableList<Deck> oList = FXCollections.observableArrayList(decks);
+        cards_of_Deck.setItems(oList);            
+        cards_of_Deck.setCellFactory(param -> new ListCell<Deck>() {
+        private final ImageView imageView = new ImageView(new Image ("/Assets/Images/Card_Back.png", 20, 30, false, false));
+        private char symbolFavorite;
+        @Override
+        public void updateItem(Deck deck, boolean empty) {
+            super.updateItem(deck, empty);
+            if (empty) {
+                setText(null);
+                setGraphic(null);
+            } else {                      
+                imageView.setImage(new Image ("/Assets/Images/Card_Back.png", 20, 30, false, false));    
+                if(deck.isFavorite())
+                    symbolFavorite = 10029;
+                else
+                    symbolFavorite = ' ';
+                setGraphic(imageView);
+                setText("<*> "+deck.getName()+" <*> \n"+"  @ Numero de Cartas: "+deck.getCardsCount()+"         "+symbolFavorite);                                
+            }
+        }
+        });
     }
     
     @FXML
@@ -241,11 +245,101 @@ public class Decks_Main_Controller {
             Clipboard cb = Toolkit.getDefaultToolkit().getSystemClipboard();
             cb.setContents(stringSelect, null);
             deckSelected = temp;           
-            deckID = temp.getID();
+            deckID = temp.getID();            
+            next.setDisable(false);
+            prev.setDisable(true);
+            position = 12;
+            updateDeckBook();
             deckName = temp.getName();
         }catch(NullPointerException e){
         }
+    }    
+    
+    public void updateDeckBook(){
+        imagesActualDeck.clear();
+        for (int i = 0; i < deckSelected.getCards().size() ; i++) {
+            imagesActualDeck.add(deckSelected.getCards().get(i).getImagen());
+        }
+        card00.setImage(imagesActualDeck.get(0)); 
+        card01.setImage(imagesActualDeck.get(1)); 
+        card02.setImage(imagesActualDeck.get(2)); 
+        card03.setImage(imagesActualDeck.get(3));
+        card10.setImage(imagesActualDeck.get(4));
+        card11.setImage(imagesActualDeck.get(5));
+        card12.setImage(imagesActualDeck.get(6));
+        card13.setImage(imagesActualDeck.get(7));
+        card20.setImage(imagesActualDeck.get(8)); 
+        card21.setImage(imagesActualDeck.get(9)); 
+        card22.setImage(imagesActualDeck.get(10)); 
+        card23.setImage(imagesActualDeck.get(11));            
     }
+    
+    public void changePageForward(){
+        if(position < 36){           
+            card00.setImage(imagesActualDeck.get((0+position))); 
+            card01.setImage(imagesActualDeck.get((1+position))); 
+            card02.setImage(imagesActualDeck.get((2+position))); 
+            card03.setImage(imagesActualDeck.get((3+position)));
+            card10.setImage(imagesActualDeck.get((4+position)));
+            card11.setImage(imagesActualDeck.get((5+position)));
+            card12.setImage(imagesActualDeck.get((6+position)));
+            card13.setImage(imagesActualDeck.get((7+position)));
+            card20.setImage(imagesActualDeck.get((8+position))); 
+            card21.setImage(imagesActualDeck.get((9+position)));
+            card22.setImage(imagesActualDeck.get((10+position))); 
+            card23.setImage(imagesActualDeck.get((11+position)));
+            position += 12;
+        }else{
+            card00.setImage(imagesActualDeck.get((0+position))); 
+            card01.setImage(imagesActualDeck.get((1+position)));
+            card02.setImage(imagesActualDeck.get((2+position))); 
+            card03.setImage(imagesActualDeck.get((3+position))); 
+            card10.setImage(null);
+            card11.setImage(null);
+            card12.setImage(null);
+            card13.setImage(null);
+            card20.setImage(null);
+            card21.setImage(null);
+            card22.setImage(null); 
+            card23.setImage(null);
+            next.setDisable(true);        
+        }            
+        prev.setDisable(false);
+    }
+    
+    public void changePageBackward(){
+        if(position >= 12){
+            position -= 12;
+            card00.setImage(imagesActualDeck.get(0+position)); 
+            card01.setImage(imagesActualDeck.get(1+position)); 
+            card02.setImage(imagesActualDeck.get(2+position)); 
+            card03.setImage(imagesActualDeck.get(3+position));
+            card10.setImage(imagesActualDeck.get(4+position));
+            card11.setImage(imagesActualDeck.get(5+position));
+            card12.setImage(imagesActualDeck.get(6+position));
+            card13.setImage(imagesActualDeck.get(7+position));
+            card20.setImage(imagesActualDeck.get(8+position)); 
+            card21.setImage(imagesActualDeck.get(9+position)); 
+            card22.setImage(imagesActualDeck.get(10+position)); 
+            card23.setImage(imagesActualDeck.get(11+position));
+        }else{
+            card00.setImage(imagesActualDeck.get(0)); 
+            card01.setImage(imagesActualDeck.get(1)); 
+            card02.setImage(imagesActualDeck.get(2)); 
+            card03.setImage(imagesActualDeck.get(3));
+            card10.setImage(imagesActualDeck.get(4));
+            card11.setImage(imagesActualDeck.get(5));
+            card12.setImage(imagesActualDeck.get(6));
+            card13.setImage(imagesActualDeck.get(7));
+            card20.setImage(imagesActualDeck.get(8)); 
+            card21.setImage(imagesActualDeck.get(9)); 
+            card22.setImage(imagesActualDeck.get(10)); 
+            card23.setImage(imagesActualDeck.get(11));      
+            prev.setDisable(true);        
+        }            
+        next.setDisable(false);        
+    }
+    
     
     @FXML
     public void deleteDeck(){

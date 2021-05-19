@@ -14,13 +14,20 @@ import java.util.logging.Logger;
 
 /**
  *
- * @author F. Pino
+ * @author LosSietePecadosCapitales
+ */
+
+/**
+ * Representa el icono mostrado en las notificaciones que muestra
+ * el programa.
  */
 public class AppControler {
     public static SystemTray trayApp = SystemTray.getSystemTray();
     public static TrayIcon trayIcon = new TrayIcon(
             Toolkit.getDefaultToolkit().createImage("src/Assets/Images/icon_color.png"), "YuGiOh"); 
-    
+    /**
+    *Constructor de la clase AppControler.
+    */
     public AppControler(){   
         try {
             trayIcon.setImageAutoSize(true);            
