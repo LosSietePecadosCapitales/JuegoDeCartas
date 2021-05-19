@@ -14,8 +14,10 @@ import java.util.logging.Logger;
 
 /**
  *
- * @author F. Pino
+ * @author LosSietePecadosCapitales
  */
+
+
 public class AppControler {
     public static SystemTray trayApp = SystemTray.getSystemTray();
     public static TrayIcon trayIcon = new TrayIcon(

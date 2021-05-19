@@ -57,6 +57,10 @@ public class Initial_Controller {
     }
 
     @FXML
+    /**
+     * Panel para el inicio de seseion, valida el usuario y la contraseña en
+     * la base de datos
+     */
     public void login(){
         if (internetStatus()) {
             try {
@@ -106,6 +110,9 @@ public class Initial_Controller {
     }
     
     @FXML
+    /**
+     * Panel de registro 
+     */
     public void register() {
         try{
             Stage stage = (Stage) base.getScene().getWindow();
@@ -117,6 +124,10 @@ public class Initial_Controller {
         }
     }
     
+    /**
+     * Conecta con google para verificar si existe conexión a internet
+     * @return true o false 
+     */
     private boolean internetStatus(){
         try {
             URL url = new URL("http://www.google.com");
