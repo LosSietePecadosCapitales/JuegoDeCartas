@@ -48,7 +48,7 @@ public class Validations {
     }
     
     public boolean validateCardName(String cardName){        
-        return cardName.length()<25 && this.patternCardName.matcher(cardName).matches();
+        return cardName.length()<=20 && this.patternCardName.matcher(cardName).matches();
     }
     public boolean validateNumberAttack(String number){        
         //-5000
