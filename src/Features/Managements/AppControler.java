@@ -19,7 +19,7 @@ import java.util.logging.Logger;
 public class AppControler {
     public static SystemTray trayApp = SystemTray.getSystemTray();
     public static TrayIcon trayIcon = new TrayIcon(
-            Toolkit.getDefaultToolkit().createImage("src/Assets/Images/Logo.png"), "YuGiOh"); 
+            Toolkit.getDefaultToolkit().createImage("src/Assets/Images/icon_color.png"), "YuGiOh"); 
     
     public AppControler(){   
         try {

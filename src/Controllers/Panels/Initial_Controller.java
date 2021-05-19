@@ -27,7 +27,6 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
 import java.sql.SQLException;
-import javafx.concurrent.Task;
 
 
 public class Initial_Controller {
@@ -81,17 +80,17 @@ public class Initial_Controller {
                             Scene scene = new Scene(root);
                             stage.setScene(scene);                        
                         } catch (IOException e) {
-                            Notifications.notification("Error", "Nombre de Usuario o Contraseña Inválidos", 9);
+                            Notifications.notification("Error", "Nombre de Usuario o Contraseña Inválidos", 2);
                         }
                     }else{
-                        Notifications.notification("Error", "Nombre de Usuario o Contraseña Inválidos", 9);
+                        Notifications.notification("Error", "Nombre de Usuario o Contraseña Inválidos", 2);
                     }                          
             } catch (SQLException ex) {
-                Notifications.notification("Error", "Verifica tu conexión a internet", 9);
+                Notifications.notification("Error", "Verifica tu conexión a internet", 2);
             }
         }
         else{
-            Notifications.notification("Error", "Verifica tu conexión a internet", 9);
+            Notifications.notification("Error", "Verifica tu conexión a internet", 2);
         }
     }
 
