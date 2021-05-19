@@ -5,12 +5,18 @@
  */
 package Controllers.Game;
 
+import Controllers.Decks.Decks_Main_Controller;
 import Controllers.Panels.Initial_Controller;
 import Features.Connection.ConnectionMySQL;
+import Features.Managements.Notifications;
 import java.io.BufferedReader;
+import java.io.DataInputStream;
+import java.io.DataOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.MalformedURLException;
+import java.net.ServerSocket;
+import java.net.Socket;
 import java.net.URL;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
@@ -24,10 +30,16 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import javax.management.Notification;
 
 /**
  *
- * @author Vicente
+ * @author LosSietePecadosCapitales
+ */
+
+/**
+ * Clase que permite crear una partida
+ * 
  */
 public class Game_Create_Controller {
     
@@ -41,12 +53,17 @@ public class Game_Create_Controller {
     @FXML public TextField gameName;
     @FXML public TextField gamePass;
     
+    public static Socket s;
+    
     @FXML
     public void initialize(){
         
     }
     
     @FXML
+    /**
+     * muestra panel principal
+     */
     public void back() {
         try {
             Stage stage = (Stage) base.getScene().getWindow();
@@ -69,30 +86,46 @@ public class Game_Create_Controller {
     }
     
     @FXML
+    /**
+     * Se crea el juego
+     */
     public void createGame(){
         String ip = getPublicIP();
-        if (!gameName.getText().equals("")) {
-            try {
-                ConnectionMySQL dataBase = new ConnectionMySQL();      
-                dataBase.ConectarBasedeDatos();
-                PreparedStatement s;
-                s = dataBase.connection.prepareStatement(""
-                        + "INSERT INTO Partida ()"
-                        + " VALUES (?,?,?,?);");
-                s.setString(1, ip);
-                s.setString(2, gameName.getText());
-                s.setString(3, gamePass.getText());
-                s.setString(4, Initial_Controller.Name_User);
-                s.execute();
-                dataBase.DesconectarBasedeDatos();
-            } catch (SQLException e) {
-                // Notifiacion que no pueden haber dos partidas
-                // con el mismo nombre
-            }
+        if (Decks_Main_Controller.deckFavorite==null) {
+            Notifications.notification("Error", "Aun no seleccionas un mazo, favor ir a la ventana de mazo y seleccionar uno", 1);
         }
         else{
-            // Notificacion que falta info
+            if (!gameName.getText().equals("")) {
+                /*
+                ConnectionMySQL dataBase = new ConnectionMySQL();
+                dataBase.ConectarBasedeDatos();
+                PreparedStatement ps;
+                ps = dataBase.connection.prepareStatement(""
+                + "INSERT INTO Partida ()"
+                + " VALUES (?,?,?,?);");
+                ps.setString(1, ip);
+                ps.setString(2, gameName.getText());
+                ps.setString(3, gamePass.getText());
+                ps.setString(4, Initial_Controller.Name_User);
+                ps.execute();
+                dataBase.DesconectarBasedeDatos();
+
+                // AQUI DEBERÍA IR LA PARTE DEL SOCKET
+                */
+                try {
+                    Stage stage = (Stage) base.getScene().getWindow();
+                    Parent root = FXMLLoader.load(getClass().getResource("/Views/Game/Game_View_Server.fxml"));
+                    Scene scene = new Scene(root);
+                    stage.setScene(scene);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+            else{
+                Notifications.notification("Error", "Falta que agregues un nombre a la sala", 1);
+            }
         }
+            
     }
     
     private String getPublicIP(){

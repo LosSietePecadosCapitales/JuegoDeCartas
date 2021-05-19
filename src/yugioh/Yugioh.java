@@ -9,12 +9,13 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
 /**
  *
- * @author Los Pecados Capitales
+ * @author LosSietePecadosCapitales
  */
 public class Yugioh extends Application {
     
@@ -22,6 +23,7 @@ public class Yugioh extends Application {
     public void start(Stage stage) throws Exception {        
         Parent root = FXMLLoader.load(getClass().getResource("/Views/Panels/Initial_View.fxml"));        
         Scene scene = new Scene(root);
+        stage.getIcons().add(new Image("/Assets/Images/icon_color.png")); 
         stage.setResizable(false);
         stage.initStyle(StageStyle.UNDECORATED);
         stage.setScene(scene);

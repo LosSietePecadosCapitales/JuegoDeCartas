@@ -46,6 +46,8 @@ public class Game_Join_Controller {
     private String check = "✓";
     private String uncheck = "✗";
     
+    public static String socketIP;
+    
     @FXML
     public void initialize(){
         initializeTableView();
@@ -100,9 +102,10 @@ public class Game_Join_Controller {
     
     @FXML
     public void joinGame(){
+        
         try {
             Stage stage = (Stage) base.getScene().getWindow();
-            Parent root = FXMLLoader.load(getClass().getResource("/Views/Game/Game_View.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("/Views/Game/Game_View_Client.fxml"));
             Scene scene = new Scene(root);
             stage.setScene(scene);
         } catch (IOException e) {

@@ -11,7 +11,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="690.0" maxWidth="1230.0" minHeight="690.0" minWidth="1230.0" prefHeight="690.0" prefWidth="1230.0" stylesheets="@../../Assets/CSS/Battle_CSS.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.Game.Game_Main_Controller">
+<AnchorPane maxHeight="690.0" maxWidth="1230.0" minHeight="690.0" minWidth="1230.0" prefHeight="690.0" prefWidth="1230.0" stylesheets="@../../Assets/CSS/Battle_CSS.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.Game.Game_Main_Controller_Server">
    <children>
       <Rectangle arcHeight="5.0" arcWidth="5.0" height="690.0" stroke="BLACK" strokeType="INSIDE" width="1230.0" />
       <ImageView fitHeight="660.0" fitWidth="1230.0" layoutY="30.0" pickOnBounds="true">
@@ -19,29 +19,29 @@
             <Image url="@../../Assets/Images/Background_2.png" />
          </image>
       </ImageView>
-      <AnchorPane fx:id="ownAPMo1" layoutX="100.0" layoutY="395.0" maxHeight="131.0" maxWidth="92.0" minHeight="131.0" minWidth="92.0" prefHeight="131.0" prefWidth="92.0">
+      <AnchorPane fx:id="ownAPMo1" disable="true" layoutX="100.0" layoutY="395.0" maxHeight="131.0" maxWidth="92.0" minHeight="131.0" minWidth="92.0" prefHeight="131.0" prefWidth="92.0">
          <children>
-            <ImageView fitHeight="125.0" fitWidth="86.0" layoutX="3.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="ownIM01" fitHeight="125.0" fitWidth="86.0" layoutX="3.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true" />
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="ownAPMo2" layoutX="260.0" layoutY="395.0" maxHeight="131.0" maxWidth="92.0" minHeight="131.0" minWidth="92.0" prefHeight="131.0" prefWidth="92.0">
+      <AnchorPane fx:id="ownAPMo2" disable="true" layoutX="260.0" layoutY="395.0" maxHeight="131.0" maxWidth="92.0" minHeight="131.0" minWidth="92.0" prefHeight="131.0" prefWidth="92.0">
          <children>
-            <ImageView fitHeight="125.0" fitWidth="86.0" layoutX="3.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="ownIM02" fitHeight="125.0" fitWidth="86.0" layoutX="3.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true" />
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="ownAPMo3" layoutX="420.0" layoutY="395.0" maxHeight="131.0" maxWidth="92.0" minHeight="131.0" minWidth="92.0" prefHeight="131.0" prefWidth="92.0">
+      <AnchorPane fx:id="ownAPMo3" disable="true" layoutX="420.0" layoutY="395.0" maxHeight="131.0" maxWidth="92.0" minHeight="131.0" minWidth="92.0" prefHeight="131.0" prefWidth="92.0">
          <children>
-            <ImageView fitHeight="125.0" fitWidth="86.0" layoutX="3.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="ownIM03" fitHeight="125.0" fitWidth="86.0" layoutX="3.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true" />
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="ownAPMo4" layoutX="580.0" layoutY="395.0" maxHeight="131.0" maxWidth="92.0" minHeight="131.0" minWidth="92.0" prefHeight="131.0" prefWidth="92.0">
+      <AnchorPane fx:id="ownAPMo4" disable="true" layoutX="580.0" layoutY="395.0" maxHeight="131.0" maxWidth="92.0" minHeight="131.0" minWidth="92.0" prefHeight="131.0" prefWidth="92.0">
          <children>
-            <ImageView fitHeight="125.0" fitWidth="86.0" layoutX="3.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="ownIM04" fitHeight="125.0" fitWidth="86.0" layoutX="3.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true" />
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="ownAPMo5" layoutX="740.0" layoutY="395.0" maxHeight="131.0" maxWidth="92.0" minHeight="131.0" minWidth="92.0" prefHeight="131.0" prefWidth="92.0">
+      <AnchorPane fx:id="ownAPMo5" disable="true" layoutX="740.0" layoutY="395.0" maxHeight="131.0" maxWidth="92.0" minHeight="131.0" minWidth="92.0" prefHeight="131.0" prefWidth="92.0">
          <children>
-            <ImageView fitHeight="125.0" fitWidth="86.0" layoutX="3.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="ownIM05" fitHeight="125.0" fitWidth="86.0" layoutX="3.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true" />
          </children>
       </AnchorPane>
       <AnchorPane fx:id="ownAPMa1" layoutX="100.0" layoutY="536.0" maxHeight="131.0" maxWidth="92.0" minHeight="131.0" minWidth="92.0" prefHeight="131.0" prefWidth="92.0">
@@ -121,29 +121,25 @@
       </AnchorPane>
       <AnchorPane fx:id="prevCardAP" layoutX="923.0" layoutY="78.0" maxHeight="339.0" maxWidth="236.0" minHeight="339.0" minWidth="236.0" prefHeight="339.0" prefWidth="236.0">
          <children>
-            <ImageView fitHeight="338.0" fitWidth="230.0" layoutX="3.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="prevImage" fitHeight="338.0" fitWidth="230.0" layoutX="3.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true" />
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="cemAP" layoutX="923.0" layoutY="487.0" maxHeight="131.0" maxWidth="92.0" minHeight="131.0" minWidth="92.0" prefHeight="131.0" prefWidth="92.0">
+      <AnchorPane fx:id="deckAP" layoutX="923.0" layoutY="443.0" maxHeight="131.0" maxWidth="92.0" minHeight="131.0" minWidth="92.0" prefHeight="131.0" prefWidth="92.0">
          <children>
-            <ImageView fitHeight="125.0" fitWidth="86.0" layoutX="3.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="125.0" fitWidth="86.0" layoutX="3.0" layoutY="3.0" onMouseClicked="#addCardToHand" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../Assets/Images/Card_Back.png" />
                </image>
             </ImageView>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="deckAP" layoutX="1067.0" layoutY="487.0" maxHeight="131.0" maxWidth="92.0" minHeight="131.0" minWidth="92.0" prefHeight="131.0" prefWidth="92.0">
+      <AnchorPane fx:id="cemAP" layoutX="1067.0" layoutY="443.0" maxHeight="131.0" maxWidth="92.0" minHeight="131.0" minWidth="92.0" prefHeight="131.0" prefWidth="92.0">
          <children>
-            <ImageView fitHeight="125.0" fitWidth="86.0" layoutX="3.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="cementeryIM" fitHeight="125.0" fitWidth="86.0" layoutX="3.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true" />
          </children>
       </AnchorPane>
-      <Label fx:id="cemLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="923.0" layoutY="461.0" prefHeight="17.0" prefWidth="92.0" text="Mazo" textAlignment="CENTER" textFill="WHITE" />
-      <Label fx:id="deckLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="1067.0" layoutY="461.0" prefHeight="17.0" prefWidth="92.0" text="Cementerio" textAlignment="CENTER" textFill="WHITE" />
-      <AnchorPane fx:id="handOwnAP" layoutX="99.0" layoutY="375.0" maxHeight="158.0" maxWidth="1022.0" minHeight="158.0" minWidth="1022.0" prefHeight="158.0" prefWidth="1022.0" style="-fx-background-color: gray;">
-         <children>
-            <HBox fx:id="handOwnHB" alignment="CENTER" layoutX="1.0" layoutY="1.0" maxHeight="156.0" maxWidth="1020.0" minHeight="156.0" minWidth="1020.0" prefHeight="156.0" prefWidth="1020.0" style="-fx-border-color: cyan;" />
-         </children></AnchorPane>
+      <Label fx:id="cemLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="923.0" layoutY="423.0" prefHeight="17.0" prefWidth="92.0" text="Mazo" textAlignment="CENTER" textFill="WHITE" />
+      <Label fx:id="deckLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="1067.0" layoutY="423.0" prefHeight="17.0" prefWidth="92.0" text="Cementerio" textAlignment="CENTER" textFill="WHITE" />
       <AnchorPane fx:id="handEneAP" layoutX="104.0" layoutY="-153.0" maxHeight="200.0" maxWidth="1022.0" minHeight="200.0" minWidth="1022.0" prefHeight="200.0" prefWidth="1022.0">
          <children>
             <HBox fx:id="handEneHB" alignment="CENTER" layoutX="1.0" layoutY="1.0" maxHeight="198.0" maxWidth="1020.0" minHeight="198.0" minWidth="1020.0" prefHeight="198.0" prefWidth="1020.0" style="-fx-border-color: cyan;" />
@@ -177,6 +173,29 @@
             <Font name="Arial Black" size="12.0" />
          </font>
       </Button>
-      <Button layoutX="29.0" layoutY="333.0" mnemonicParsing="false" onAction="#addCard" text="add card" />
+      <Label fx:id="eneLifeL" alignment="CENTER" contentDisplay="CENTER" layoutX="-33.0" layoutY="175.0" prefHeight="53.0" prefWidth="170.0" rotate="-90.0" text="vida: 4000" textFill="RED">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Label>
+      <Label fx:id="ownLifeL" alignment="CENTER" contentDisplay="CENTER" layoutX="-33.0" layoutY="500.0" prefHeight="53.0" prefWidth="170.0" rotate="-90.0" text="vida: 4000" textFill="RED">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Label>
+      <Button fx:id="inv_atk" disable="true" layoutX="886.0" layoutY="597.0" mnemonicParsing="false" onAction="#invokeAtk" text="Invocar Atk" />
+      <Button fx:id="sacr" disable="true" layoutX="984.0" layoutY="618.0" mnemonicParsing="false" text="Sacrificar" />
+      <Button fx:id="inv_def" disable="true" layoutX="885.0" layoutY="638.0" mnemonicParsing="false" onAction="#invokeDef" text="Invocar Def" />
+      <Button fx:id="endTurn" disable="true" layoutX="1121.0" layoutY="606.0" mnemonicParsing="false" onAction="#endTurnAction" prefHeight="49.0" prefWidth="76.0" text="Terminar Turno" textAlignment="CENTER" wrapText="true" />
+      <Label alignment="CENTER" contentDisplay="CENTER" disable="true" layoutX="99.0" layoutY="352.0" prefHeight="26.0" prefWidth="732.0" style="-fx-border-color: red;" text="Logger" textAlignment="CENTER">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <AnchorPane fx:id="handOwnAP" layoutX="99.0" layoutY="675.0" maxHeight="158.0" maxWidth="1022.0" minHeight="158.0" minWidth="1022.0" prefHeight="158.0" prefWidth="1022.0" style="-fx-background-color: gray;">
+         <children>
+            <HBox fx:id="handOwnHB" alignment="CENTER" layoutX="1.0" layoutY="1.0" maxHeight="156.0" maxWidth="1020.0" minHeight="156.0" minWidth="1020.0" onMouseEntered="#moveOwnHandAP_Up" onMouseExited="#moveOwnHandAP_Down" prefHeight="156.0" prefWidth="1020.0" style="-fx-border-color: cyan;" />
+         </children>
+      </AnchorPane>
    </children>
 </AnchorPane>

@@ -12,10 +12,11 @@ import java.util.logging.Logger;
 import java.util.regex.Pattern;
 
 /**
- *
- * @author F. Pino
+ *  Clase de Validaciones
+ * @author LosSietePecadosCapitales
  */
 public class Validations { 
+    //Declaracion de variables
     private final ConnectionMySQL dataBase = new ConnectionMySQL();
     private final String emailSentence = "SELECT correo, nick, contrasenia "
                     + "FROM Jugador WHERE (correo='' or nick='') and contrasenia='';";            
@@ -29,9 +30,20 @@ public class Validations {
     private final Pattern patternCardName = Pattern
                 .compile("^[A-Z][a-zA-Z_ ]*$");
     
+    /**
+     * Validacion de Nick
+     * @param nick
+     * @return True or False (Correcto/Incorrecto)
+     */
     public boolean validateNick(String nick){
         return this.patternNick.matcher(nick).matches();
     }
+    
+    /**
+     * Validacion de Email
+     * @param email
+     * @return 
+     */
     public boolean validateEmail(String email){        
         try {
             this.dataBase.ConectarBasedeDatos();
@@ -43,21 +55,49 @@ public class Validations {
         return false;
     }
     
+    /**
+     * Validacion de Contraseña
+     * @param pass
+     * @return 
+     */
     public boolean validatePassword(String pass){
         return this.patternPassword.matcher(pass).matches();
     }
     
+    /**
+     * Validacion Nombre de Carta
+     * @param cardName
+     * @return 
+     */
     public boolean validateCardName(String cardName){        
-        return cardName.length()<25 && this.patternCardName.matcher(cardName).matches();
+        return cardName.length()<=20 && this.patternCardName.matcher(cardName).matches();
     }
+    
+    /**
+     * Validacion Numero de Ataque
+     * @param number
+     * @return 
+     */
     public boolean validateNumberAttack(String number){        
         //-5000
         return false;
     }
+    
+    /**
+     * Validacion Numero de Defensa
+     * @param number
+     * @return 
+     */
     public boolean validateNumberDefense(String number){        
         //-5000
         return false;
     }
+    
+    /**
+     * Validacion Descripcion de Carta
+     * @param text
+     * @return 
+     */
     public boolean validateDescription(String text){        
         return text.length()<=280 && text.length()>0;
     }

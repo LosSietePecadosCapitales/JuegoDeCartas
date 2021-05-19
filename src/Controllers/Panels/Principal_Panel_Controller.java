@@ -17,6 +17,14 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
+/**
+ * @author Los siete Pecados Capitales.
+ */
+
+/**
+* Clase controladora del panel principal.
+*/
+
 public class Principal_Panel_Controller {
     
     @FXML public AnchorPane base;
@@ -44,12 +52,17 @@ public class Principal_Panel_Controller {
     @FXML public AnchorPane ap51;
     @FXML public AnchorPane ap52;
     
-    
+    /**
+    *Metodo inicializador.
+    */
     @FXML
     public void initialize(){
         nick.setText(Initial_Controller.Name_User);
     }
 
+    /**
+     * Metodo encargado de dirigir hacia la ventana de cartas.
+     */
     @FXML
     public void goToCards(){
         try{
@@ -60,7 +73,10 @@ public class Principal_Panel_Controller {
         } catch (IOException e) {
         }
     }
-
+    
+    /**
+     * Metodo encargado de dirigir hacia los decks.
+     */
     @FXML
     public void goToDecks(){
         try{
@@ -69,9 +85,13 @@ public class Principal_Panel_Controller {
             Scene scene = new Scene(root);
             stage.setScene(scene);
         } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 
+    /**
+     * Metodo encargado de dirigir hacia la creacion de una partida.
+     */
     @FXML
     public void createGame(){
         try{
@@ -83,6 +103,10 @@ public class Principal_Panel_Controller {
             e.printStackTrace();
         }
     }
+    
+    /**
+     * Metodo encargado de dirigir hacia el ingreso a una partida.
+     */
 
     @FXML
     public void joinGame(){
@@ -96,12 +120,19 @@ public class Principal_Panel_Controller {
         }
     }
     
+    /**
+     * Metodo encargado de minimizar la ventana.
+     */
+    
     @FXML
     public void minimize(){
         Stage s = (Stage) base.getScene().getWindow();
         s.setIconified(true);
     }
     
+    /**
+     * Metodo encargado de salir del juego.
+     */
     @FXML
     public void exit(){
         Stage s = (Stage) base.getScene().getWindow();

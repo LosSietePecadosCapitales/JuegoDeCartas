@@ -27,7 +27,6 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
 import java.sql.SQLException;
-import javafx.concurrent.Task;
 
 
 public class Initial_Controller {
@@ -58,6 +57,10 @@ public class Initial_Controller {
     }
 
     @FXML
+    /**
+     * Panel para el inicio de seseion, valida el usuario y la contraseña en
+     * la base de datos
+     */
     public void login(){
         if (internetStatus()) {
             try {
@@ -81,17 +84,17 @@ public class Initial_Controller {
                             Scene scene = new Scene(root);
                             stage.setScene(scene);                        
                         } catch (IOException e) {
-                            Notifications.notification("Error", "Nombre de Usuario o Contraseña Inválidos", 9);
+                            Notifications.notification("Error", "Nombre de Usuario o Contraseña Inválidos", 2);
                         }
                     }else{
-                        Notifications.notification("Error", "Nombre de Usuario o Contraseña Inválidos", 9);
+                        Notifications.notification("Error", "Nombre de Usuario o Contraseña Inválidos", 2);
                     }                          
             } catch (SQLException ex) {
-                Notifications.notification("Error", "Verifica tu conexión a internet", 9);
+                Notifications.notification("Error", "Verifica tu conexión a internet", 2);
             }
         }
         else{
-            Notifications.notification("Error", "Verifica tu conexión a internet", 9);
+            Notifications.notification("Error", "Verifica tu conexión a internet", 2);
         }
     }
 
@@ -107,6 +110,9 @@ public class Initial_Controller {
     }
     
     @FXML
+    /**
+     * Panel de registro 
+     */
     public void register() {
         try{
             Stage stage = (Stage) base.getScene().getWindow();
@@ -118,6 +124,10 @@ public class Initial_Controller {
         }
     }
     
+    /**
+     * Conecta con google para verificar si existe conexión a internet
+     * @return true o false 
+     */
     private boolean internetStatus(){
         try {
             URL url = new URL("http://www.google.com");

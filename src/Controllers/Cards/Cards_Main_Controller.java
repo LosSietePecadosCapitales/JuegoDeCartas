@@ -3,8 +3,8 @@ package Controllers.Cards;
 
 import Controllers.Panels.Initial_Controller;
 import Features.Connection.ConnectionMySQL;
+import Features.Managements.Adapters;
 import Features.Objects.Cards;
-import java.awt.image.BufferedImage;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -14,15 +14,11 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.io.InputStream;
-import java.sql.Blob;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import javafx.embed.swing.SwingFXUtils;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
-import javax.imageio.ImageIO;
 
 public class Cards_Main_Controller {
     
@@ -151,7 +147,7 @@ public class Cards_Main_Controller {
 
                 int i = 0;
                 while (dataBase.result.next()) {
-                    Image imageAux = blobToImage(dataBase.result.getBlob(7));
+                    Image imageAux = Adapters.blobToImage(dataBase.result.getBlob(7));
                     Cards c = new Cards(dataBase.result.getInt(1),
                     dataBase.result.getString(2),
                     dataBase.result.getString(3),
@@ -175,7 +171,7 @@ public class Cards_Main_Controller {
 
                 int i = 0;
                 while (dataBase.result.next()) {
-                    Image imageAux = blobToImage(dataBase.result.getBlob(7));
+                    Image imageAux = Adapters.blobToImage(dataBase.result.getBlob(7));
                     Cards c = new Cards(dataBase.result.getInt(1),
                     dataBase.result.getString(2),
                     dataBase.result.getString(3),
@@ -199,7 +195,7 @@ public class Cards_Main_Controller {
                 
                 int i = 0;
                 while (dataBase.result.next()) {
-                    Image imageAux = blobToImage(dataBase.result.getBlob(7));
+                    Image imageAux = Adapters.blobToImage(dataBase.result.getBlob(7));
                     Cards c = new Cards(dataBase.result.getInt(1),
                     dataBase.result.getString(2),
                     dataBase.result.getString(3),
@@ -253,17 +249,6 @@ public class Cards_Main_Controller {
         if (page==0) {
             prev.setDisable(true);
         }
-    }
-    
-    private Image blobToImage(Blob b){
-        Image image = null;
-        try {
-            InputStream in = b.getBinaryStream();
-            BufferedImage bufImage = ImageIO.read(in);
-            image = SwingFXUtils.toFXImage(bufImage, null);
-        } catch (IOException | SQLException e) {
-        }
-        return image;
     }
     
     @FXML

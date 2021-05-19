@@ -21,11 +21,17 @@ import javax.swing.JDialog;
 import javax.swing.JOptionPane;
 
 /**
- *
- * @author F. Pino
+ * Clase Notifications
+ * @author LosSietePecadosCapitales
  */
 public class Notifications {
     
+    /**
+     * Constructor Notifications
+     * @param title Titulo de Notificacion
+     * @param message Mensaje Notificacion
+     * @param selection Tipo de Notificacion
+     */
     public static void notification(String title, String message, int selection){
         try{  
             MessageType typeM;
@@ -59,6 +65,11 @@ public class Notifications {
         }
     }
     
+    /**
+     * PopUp
+     * @param title Titulo Notificacion PopUp
+     * @param menssaje Mensaje Notificacion PopUp
+     */
     public void popUp(String title, String menssaje) {
         final Stage dialog = new Stage();                      
         dialog.setTitle(title);
@@ -77,12 +88,18 @@ public class Notifications {
         dialog.show();        
     }  
     
+    /**
+     * PopUp
+     * @param tipo Tipo de Notificacion
+     * @param mensaje Mensaje de Notificacion
+     * @param titulo Titulo de Notificacion
+     */
     public void popUp(int tipo, String mensaje, String titulo){        
         Toolkit.getDefaultToolkit().beep();            
         JOptionPane auxiliar = new JOptionPane();
         auxiliar.setMessage(mensaje);
         auxiliar.setMessageType(tipo);       
-        JDialog dialogo = auxiliar.createDialog("TwitterBot_ | "+titulo);  
+        JDialog dialogo = auxiliar.createDialog("YuGiOh | "+titulo);  
         dialogo.setModal(true);
         dialogo.setAlwaysOnTop(true);
         dialogo.setVisible(true);            

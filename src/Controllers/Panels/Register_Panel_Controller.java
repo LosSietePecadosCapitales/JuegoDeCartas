@@ -25,11 +25,12 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 /**
- *
- * @author Vicente
+ * Clase Controlador del Panel de Registro
+ * @author LosSietePecadosCapitales
  */
 public class Register_Panel_Controller {
     
+    //Declaraciones de variables
     @FXML public AnchorPane base;
     @FXML public Label title;
     @FXML public Label alertMsg;
@@ -50,7 +51,10 @@ public class Register_Panel_Controller {
     public void initialize(){
         
     }
-        
+    
+    /**
+     * Metodo para Registrarse
+     */
     @FXML
     public void register() {     
         Validations validator = new Validations();
@@ -99,6 +103,10 @@ public class Register_Panel_Controller {
         }
     }
     
+    /**
+     * Metodo para Regresar Atras 
+     * Regresa al panel anterior (Panel Inicial)
+     */
     @FXML
     public void back() {
         try {
@@ -110,17 +118,26 @@ public class Register_Panel_Controller {
         }
     }
     
+    /**
+     * Metodo para Minimizar Ventana
+     */
     @FXML
     public void minimize(){
         Stage s = (Stage) base.getScene().getWindow();
         s.setIconified(true);
     }
     
+    /**
+     * Metodo para Salir
+     */
     @FXML
     public void exit(){        
         System.exit(1);
     }
     
+    /**
+     * Estilos Campo Email
+     */
     @FXML
     public void inEmailField(){
         email.setStyle("-fx-background-image: url('../Images/Buttons/Button_4_Hit.png');\n" +
@@ -131,7 +148,9 @@ public class Register_Panel_Controller {
                     "    -fx-prompt-text-fill: rgba(15,15,15,0.7);\n" +
                     "    -fx-text-fill: rgba(20,20,20,0.85);");
     }
-    
+    /**
+     * Estilos Campo Email
+     */
     @FXML
     public void outEmailField(){
         if (email.getText().equals("")) {
@@ -145,6 +164,9 @@ public class Register_Panel_Controller {
         }
     }
     
+    /**
+     * Estilos Campo Nickname
+     */
     @FXML
     public void inNickField(){
         nick.setStyle("-fx-background-image: url('../Images/Buttons/Button_4_Hit.png');\n" +
@@ -156,6 +178,9 @@ public class Register_Panel_Controller {
                     "    -fx-text-fill: rgba(20,20,20,0.85);");
     }
     
+    /**
+     * Estilos Campo Nickname
+     */
     @FXML
     public void outNickField(){
         if (nick.getText().equals("")) {
@@ -169,6 +194,9 @@ public class Register_Panel_Controller {
         }
     }
     
+    /**
+     * Estilos Campo Contraseña
+     */
     @FXML
     public void inPassField(){
         password.setStyle("-fx-background-image: url('../Images/Buttons/Button_4_Hit.png');\n" +
@@ -180,6 +208,9 @@ public class Register_Panel_Controller {
                     "    -fx-text-fill: rgba(20,20,20,0.85);");
     }
     
+    /**
+     * Estilos Campo Contraseña
+     */
     @FXML
     public void outPassField(){
         if (password.getText().equals("")) {
@@ -193,6 +224,9 @@ public class Register_Panel_Controller {
         }
     }
     
+    /**
+     * Estilos Campo Confirmar Contraseña
+     */
     @FXML
     public void inConfField(){
         confirmpass.setStyle("-fx-background-image: url('../Images/Buttons/Button_4_Hit.png');\n" +
@@ -204,6 +238,9 @@ public class Register_Panel_Controller {
                     "    -fx-text-fill: rgba(20,20,20,0.85);");
     }
     
+    /**
+     * Estilos Campo Comfirmar Contraseña
+     */
     @FXML
     public void outConfField(){
         if (confirmpass.getText().equals("")) {
