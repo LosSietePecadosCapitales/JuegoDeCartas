@@ -7,7 +7,13 @@ package Features.Objects;
 
 import javafx.scene.image.Image;
 
+/**
+ * Clase Cards
+ * Contiene atributos y metodos basicos de una carta
+ * @author LosSietePecadosCapitales
+ */
 public class Cards {
+    //Declaracion de variables
     private int id;
     private String name;
     private String element;
@@ -17,7 +23,19 @@ public class Cards {
     private Image imagen;
     private String type;
     private String description;
-
+    
+    /**
+     * Constructor Cards
+     * @param id identificacion carta
+     * @param name nombre carta
+     * @param element elemento carta
+     * @param atk ataque carta
+     * @param def defensa carta
+     * @param stars estrellas carta
+     * @param imagen imagen carta
+     * @param type tipo carta
+     * @param description descripcion carta
+     */
     public Cards(int id, String name, String element, int atk, int def, int stars, Image imagen, String type, String description) {
         this.id = id;
         this.name = name;
@@ -29,42 +47,77 @@ public class Cards {
         this.type = type;
         this.description = description;
     }
-
+    
+    /**
+     * Obtiene Identificacion de carta
+     * @return id
+     */
     public int getId() {
         return id;
     }
-
+    
+    /**
+     * Obtiene Nombre de carta
+     * @return name
+     */
     public String getName() {
         return name;
     }
 
+    /**
+     * Obtiene Elemento de carta
+     * @return element
+     */
     public String getElement() {
         return element;
     }
-
+    
+    /**
+     * Obtiene Ataque de carta
+     * @return atk
+     */
     public int getAtk() {
         return atk;
     }
 
+    /**
+     * Obtiene Defensa de carta
+     * @return def
+     */
     public int getDef() {
         return def;
     }
 
+    /**
+     * Obtiene Estrellas de carta
+     * @return stars
+     */
     public int getStars() {
         return stars;
     }
 
+    /**
+     * Obtiene Imagen de carta
+     * @return imagen
+     */
     public Image getImagen() {
         return imagen;
     }
-
+    
+    /**
+     * Obtiene Tipo de carta
+     * @return type
+     */
     public String getType() {
         return type;
     }
 
+    /**
+     * Obtiene Descripcion de carta
+     * @return description
+     */
     public String getDescription() {
         return description;
-    }
-    
+    }   
     
 }
